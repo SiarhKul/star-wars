@@ -1,20 +1,25 @@
-const webpack = require('webpack');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const isProd = process.env.NODE_ENV === 'production';
+const isDev = !isProd;
+const filename = ext => (isDev ? `bundle.${ext}` : `bundle.[fullhash].${ext}`);
+
 const config = {
+  mode: 'development',
+
   entry: ['react-hot-loader/patch', './src/index.js'],
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.[hash].js',
+    filename: filename('js'),
   },
 
   plugins: [
     new HtmlWebpackPlugin({ template: './src/index.html' }),
-    new MiniCssExtractPlugin({ filename: 'bundle.[hash].css' }),
+    new MiniCssExtractPlugin({ filename: filename('css') }),
     new CleanWebpackPlugin(),
   ],
 
@@ -36,14 +41,15 @@ const config = {
     extensions: ['.js', '.jsx'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
-      'react-dom': '@hot-loader/react-dom',
     },
   },
   devServer: {
     port: 3000,
-    open: true,
+    open: isDev,
     watchContentBase: true,
+    hot: isDev,
   },
+  devtool: isDev ? 'source-map' : false,
 };
 
 module.exports = config;
