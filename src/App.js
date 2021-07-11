@@ -3,14 +3,24 @@ import React from 'react';
 
 import './scss/index.scss';
 
-import { Test } from './components/Test';
+import { Header } from './components/Header';
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { People } from './Pages/People';
+import { Planets } from './Pages/Planets';
+import { Starships } from './Pages/Starships';
 
 const App = () => {
   return (
     <>
-      <h1>I Hello 13</h1>
-      <p className="colorful">test</p>
-      <Test />
+      <Router>
+        <Header />
+        <Switch>
+          <Route path="/" component={People} exact />
+          <Route path="/planets" component={Planets} />
+          <Route path="/starships" component={Starships} />
+        </Switch>
+      </Router>
     </>
   );
 };
