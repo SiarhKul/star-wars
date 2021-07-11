@@ -1,7 +1,9 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
-import './styles.scss';
-import { Test } from './Test';
+
+import './scss/index.scss';
+
+import { Test } from './components/Test';
 
 const App = () => {
   return (
