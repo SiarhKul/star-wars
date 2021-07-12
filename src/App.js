@@ -2,14 +2,12 @@ import { hot } from 'react-hot-loader/root';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import './scss/index.scss';
+import './index.scss';
 
-import { Header } from './components/Header';
+import { Header } from './components';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { People } from './Pages/People';
-import { Planets } from './Pages/Planets';
-import { Starships } from './Pages/Starships';
+import { People, Planets, Starships } from './Pages';
 
 const App = () => {
   const store = useSelector(store => store);
