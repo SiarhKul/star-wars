@@ -15,6 +15,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: filename('js'),
+    publicPath: '/', //чтобы работала перезагрузка в react-router
   },
 
   plugins: [
@@ -45,9 +46,10 @@ const config = {
   },
   devServer: {
     port: 3000,
+    hot: isDev,
     open: isDev,
     watchContentBase: true,
-    hot: isDev,
+    historyApiFallback: true, //чтобы работала перезагрузка в react-router
   },
   devtool: isDev ? 'source-map' : false,
 };
