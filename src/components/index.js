@@ -1,2 +1,3 @@
 import { Header } from './header/Header';
-export { Header };
+import { ButtonLoadMore } from './buttonLoadMore/ButtonLoadMore';
+export { Header, ButtonLoadMore };
