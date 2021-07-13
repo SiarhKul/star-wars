@@ -1,10 +1,16 @@
+import { combineReducers } from 'redux';
+import { connectRouter } from 'connected-react-router';
+import { createBrowserHistory } from 'history';
+
 const initial = {
   people: [],
   planets: [],
   starships: [],
 };
 
-export default function reducer(state = initial, action) {
+export const history = createBrowserHistory();
+
+export const appReducer = (state = initial, action) => {
   switch (action.type) {
     case 'SET_PEOPLE': {
       return {
@@ -15,4 +21,11 @@ export default function reducer(state = initial, action) {
     default:
       return state;
   }
-}
+};
+
+const rootReducer = combineReducers({
+  app: appReducer,
+  router: connectRouter(history),
+});
+
+export default rootReducer;
