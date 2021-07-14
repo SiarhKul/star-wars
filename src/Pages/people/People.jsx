@@ -4,6 +4,9 @@ import { useSelector } from 'react-redux';
 import { ButtonLoadMore } from '../../components';
 import { getAbbreviation } from '../../utils';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export const People = () => {
   const people = useSelector(state => state.app.people);
   const isLoaded = useSelector(state => state.app.isLoaded);
@@ -27,9 +30,8 @@ export const People = () => {
           </div>
         ))}
       </div>
-      {/* <ButtonLoadMore /> */}
-
       {!isLoaded && <ButtonLoadMore />}
+      <ToastContainer />
     </main>
   );
 };

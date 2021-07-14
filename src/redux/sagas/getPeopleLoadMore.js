@@ -1,6 +1,6 @@
 import { call, takeEvery } from '@redux-saga/core/effects';
 import { put } from 'redux-saga/effects';
-import { counterPage } from '../../utils';
+import { counterPage, handlerError } from '../../utils';
 import { IS_LOADED, LOAD_MORE, SET_PEOPLE } from '../actions/actions';
 
 const getPeopleMore = async page => {
@@ -9,7 +9,7 @@ const getPeopleMore = async page => {
     const data = await request.json();
     return data;
   } catch (error) {
-    console.dir(error);
+    handlerError(error);
   }
 };
 
