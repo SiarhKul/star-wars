@@ -20,12 +20,14 @@ export const appReducer = (state = initial, action) => {
         people: [...state.people, ...action.payload],
       };
     }
+
     case IS_LOADED: {
       return {
         ...state,
         isLoaded: true,
       };
     }
+
     default:
       return state;
   }

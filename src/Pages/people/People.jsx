@@ -6,7 +6,7 @@ import { getAbbreviation } from '../../utils';
 
 export const People = () => {
   const people = useSelector(state => state.app.people);
-
+  const isLoaded = useSelector(state => state.app.isLoaded);
   return (
     <main className="main-people">
       <div className="cards-container">
@@ -27,7 +27,9 @@ export const People = () => {
           </div>
         ))}
       </div>
-      <ButtonLoadMore />
+      {/* <ButtonLoadMore /> */}
+
+      {!isLoaded && <ButtonLoadMore />}
     </main>
   );
 };
