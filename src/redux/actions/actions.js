@@ -1,0 +1,4 @@
+const SET_PEOPLE = 'SET_PEOPLE';
+const LOAD_MORE = 'LOAD_MORE';
+
+export { SET_PEOPLE, LOAD_MORE };
