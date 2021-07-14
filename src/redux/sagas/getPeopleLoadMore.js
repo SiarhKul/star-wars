@@ -18,7 +18,7 @@ export function* workerGetPeopleMore() {
   const data = yield call(getPeopleMore, page);
 
   yield put({ type: SET_PEOPLE, payload: data.results });
-  if (data.next === null) {
+  if (typeof data.next !== 'string') {
     yield put({ type: IS_LOADED });
   }
 }

@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify';
+
 export const handlerError = textError => {
   toast.error(`${textError}`, {
     position: 'top-right',
@@ -14,10 +15,14 @@ export const handlerError = textError => {
 export const getAbbreviation = str => {
   const formatedStr = str.match(/[a-zA-Z0-9]/g).join('');
   const hasNumber = /[0-9]/.test(formatedStr);
-  return hasNumber
-    ? formatedStr.slice(0, 2)
-    : formatedStr.match(/[A-Z]/g).join('');
+  const abbrFullNamePerson = formatedStr.match(/[A-Z]/g);
+  const abbrShortNamePerson =
+    abbrFullNamePerson[0] + abbrFullNamePerson[abbrFullNamePerson.length - 1];
+
+  return hasNumber ? formatedStr.slice(0, 2) : abbrShortNamePerson;
 };
+
+console.log(getAbbreviation('Obi Van Can Bob'));
 
 export const counterPage = (function () {
   let counter = 1;
