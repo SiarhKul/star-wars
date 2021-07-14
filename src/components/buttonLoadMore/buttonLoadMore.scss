@@ -4,12 +4,11 @@
   border: none;
   font-weight: bold;
   border-radius: 4px;
-  cursor: pointer;
+  // cursor: pointer;
   transition: all .5s ease-in;
-  &:hover{
-    background-color: $yellow-dark;
-  }
+
 };
+
 .btn-load-more_center{
   text-align: center;
 }

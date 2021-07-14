@@ -18,3 +18,10 @@ body{
   font-family: 'Roboto', sans-serif;
 }
 
+.active{
+  &:hover{
+    background-color: $yellow-dark;
+    cursor: pointer;
+
+  }
+}

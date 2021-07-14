@@ -5,3 +5,10 @@ export const getAbbreviation = str => {
     ? formatedStr.slice(0, 2)
     : formatedStr.match(/[A-Z]/g).join('');
 };
+
+export const counterPage = (function () {
+  let counter = 1;
+  return function () {
+    return (counter += 1);
+  };
+})();

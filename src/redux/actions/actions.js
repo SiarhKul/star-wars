@@ -1,4 +1,5 @@
 const SET_PEOPLE = 'SET_PEOPLE';
 const LOAD_MORE = 'LOAD_MORE';
+const IS_LOADED = 'IS_LOADED';
 
-export { SET_PEOPLE, LOAD_MORE };
+export { SET_PEOPLE, LOAD_MORE, IS_LOADED };

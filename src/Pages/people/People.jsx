@@ -1,12 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+
 import { ButtonLoadMore } from '../../components';
 import { getAbbreviation } from '../../utils';
 
 export const People = () => {
   const people = useSelector(state => state.app.people);
-
-  console.log('people', people);
 
   return (
     <main className="main-people">
@@ -28,7 +27,6 @@ export const People = () => {
           </div>
         ))}
       </div>
-
       <ButtonLoadMore />
     </main>
   );
