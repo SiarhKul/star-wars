@@ -1,24 +1,26 @@
 import { hot } from 'react-hot-loader/root';
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
 
-import './scss/index.scss';
+import './index.scss';
 
-import { Test } from './components/Test';
+import { Header } from './components';
+
+import { Route, Switch } from 'react-router-dom';
+import { People, Planets, Starships } from './Pages';
+import { history } from './redux/reducers';
+import { ConnectedRouter } from 'connected-react-router';
 
 const App = () => {
-  const store = useSelector(store => store);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch({ type: 'LOAD_DATA' });
-  }, []);
-
-  console.log(store);
   return (
     <>
-      <h1>I Hello 13</h1>
-      <p className="colorful">test</p>
-      <Test />
+      <ConnectedRouter history={history}>
+        <Header />
+        <Switch>
+          <Route path="/" component={People} exact />
+          <Route path="/planets" component={Planets} />
+          <Route path="/starships" component={Starships} />
+        </Switch>
+      </ConnectedRouter>
     </>
   );
 };
