@@ -1,19 +1,11 @@
 import { LOCATION_CHANGE } from "connected-react-router";
 import { put, call, take, fork, select } from "redux-saga/effects";
+import { getResources } from "../../API/getResources";
+import { URL_GET_PEOPLE } from "../../API/urls";
 import { SET_PEOPLE } from "../actions/actions";
 
-async function getPeople() {
-	try {
-		const request = await fetch("https://swapi.dev/api/people/");
-		const data = await request.json();
-		return data;
-	} catch (error) {
-		console.log(error);
-	}
-}
-
 export function* workerGetPeople() {
-	const data = yield call(getPeople);
+	const data = yield call(getResources, URL_GET_PEOPLE);
 	yield put({ type: SET_PEOPLE, payload: data.results });
 }
 

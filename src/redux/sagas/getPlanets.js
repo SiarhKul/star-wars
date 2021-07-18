@@ -1,20 +1,11 @@
 import { LOCATION_CHANGE } from "connected-react-router";
 import { put, call, take, fork, select } from "redux-saga/effects";
-import { handlerError } from "../../utils";
+import { getResources } from "../../API/getResources";
+import { URL_GET_PLANETS } from "../../API/urls";
 import { SET_PLANETS } from "../actions/actions";
 
-async function getPlanets() {
-	try {
-		const request = await fetch("https://swapi.dev/api/planets");
-		const data = await request.json();
-		return data;
-	} catch (error) {
-		handlerError(error.message);
-	}
-}
-
 export function* workerGetPlanets() {
-	const data = yield call(getPlanets);
+	const data = yield call(getResources, URL_GET_PLANETS);
 	yield put({ type: SET_PLANETS, payload: data.results });
 }
 
