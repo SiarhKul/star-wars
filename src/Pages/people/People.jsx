@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { ButtonLoadMore } from "../../components";
-import { getAbbreviation } from "../../utils";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
