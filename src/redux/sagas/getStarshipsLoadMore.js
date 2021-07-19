@@ -10,13 +10,11 @@ import {
 
 function* workerGetMoreStarships() {
 	const pageNumber = counterPage("starships");
-
 	const data = yield call(getMoreResources, URL_GET_MORE_STARHIPS, pageNumber);
 
 	yield put({ type: SET_STARSHIPS_TO_STORE, payload: data.results });
 
 	if (typeof data.next !== "string") {
-		console.log(data.next);
 		yield put({ type: IS_LOADED_STARSHIPS });
 	}
 }

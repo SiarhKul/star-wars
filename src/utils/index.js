@@ -31,6 +31,7 @@ export const counterPage = (function () {
 		people: 1,
 		planets: 1,
 		starships: 1,
+		vehicles: 1,
 	};
 
 	return function (key) {
@@ -39,11 +40,18 @@ export const counterPage = (function () {
 				counterPage.people += 1;
 				return counterPage.people;
 			}
+
 			case "planets": {
 				counterPage.planets += 1;
 				return counterPage.planets;
 			}
+
 			case "starships": {
+				counterPage.planets += 1;
+				return counterPage.planets;
+			}
+
+			case "vehicles": {
 				counterPage.planets += 1;
 				return counterPage.planets;
 			}
