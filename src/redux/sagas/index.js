@@ -4,6 +4,8 @@ import { watchLoadDataPeople } from "./getPeople";
 import { watchLoadMoreDataPeople } from "./getPeopleLoadMore";
 import { watchLoadDataPlanets } from "./getPlanets";
 import { watchLoadMoreDataPlanets } from "./getPlanetsLoadMore";
+import { watcherLoadDataSpecies } from "./getSpecies";
+import { watcherLoadMoreDataSpecies } from "./getSpeciesLoadMore";
 import { watchLoadDataStarships } from "./getStarships";
 import { watchLoadMoreDataStarships } from "./getStarshipsLoadMore";
 import { watherLoadDataVehicles } from "./getVehicles";
@@ -19,4 +21,6 @@ export default function* rootSaga() {
 	yield fork(watchLoadDataFilms);
 	yield fork(watherLoadDataVehicles);
 	yield fork(watchLoadMoreDataVehicles);
+	yield fork(watcherLoadDataSpecies);
+	yield fork(watcherLoadMoreDataSpecies);
 }
