@@ -1,28 +1,21 @@
-import { call, takeEvery } from '@redux-saga/core/effects';
-import { put } from 'redux-saga/effects';
-import { counterPage, handlerError } from '../../utils';
-import { IS_LOADED, LOAD_MORE, SET_PEOPLE } from '../actions/actions';
-
-const getPeopleMore = async page => {
-  try {
-    const request = await fetch(`https://swapi.dev/api/people/?page=${page}`);
-    const data = await request.json();
-    return data;
-  } catch (error) {
-    handlerError(error);
-  }
-};
+import { call, takeEvery } from "@redux-saga/core/effects";
+import { put } from "redux-saga/effects";
+import { getMoreResources } from "../../API/getMoreResources";
+import { URL_GET_MORE_PEOPLE } from "../../API/urls";
+import { counterPage } from "../../utils";
+import { GET_MORE_PEOPLE, IS_LOADED, SET_PEOPLE } from "../actions/actions";
 
 export function* workerGetPeopleMore() {
-  const page = counterPage();
-  const data = yield call(getPeopleMore, page);
+	const pageNumber = counterPage("people");
 
-  yield put({ type: SET_PEOPLE, payload: data.results });
-  if (typeof data.next !== 'string') {
-    yield put({ type: IS_LOADED });
-  }
+	const data = yield call(getMoreResources, URL_GET_MORE_PEOPLE, pageNumber);
+
+	yield put({ type: SET_PEOPLE, payload: data.results });
+	if (typeof data.next !== "string") {
+		yield put({ type: IS_LOADED });
+	}
 }
 
 export function* watchLoadMoreDataPeople() {
-  yield takeEvery(LOAD_MORE, workerGetPeopleMore);
+	yield takeEvery(GET_MORE_PEOPLE, workerGetPeopleMore);
 }
