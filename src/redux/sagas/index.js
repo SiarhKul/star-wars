@@ -1,4 +1,5 @@
 import { fork } from "redux-saga/effects";
+import { watchLoadDataFilms } from "./getFilms";
 import { watchLoadDataPeople } from "./getPeople";
 import { watchLoadMoreDataPeople } from "./getPeopleLoadMore";
 import { watchLoadDataPlanets } from "./getPlanets";
@@ -13,4 +14,5 @@ export default function* rootSaga() {
 	yield fork(watchLoadMoreDataPlanets);
 	yield fork(watchLoadDataStarships);
 	yield fork(watchLoadMoreDataStarships);
+	yield fork(watchLoadDataFilms);
 }
