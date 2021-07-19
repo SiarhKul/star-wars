@@ -2,7 +2,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 export const Header = () => {
-	const menuItems = ["People", "Planets", "Starships", "Films", "Vehicles"];
+	const menuItems = [
+		"People",
+		"Planets",
+		"Starships",
+		"Films",
+		"Vehicles",
+		"Species",
+	];
 
 	return (
 		<header className="header">
