@@ -9,6 +9,8 @@ import {
 	SET_STARSHIPS_TO_STORE,
 	IS_LOADED_STARSHIPS,
 	SET_FILMS_TO_STORE,
+	SET_VEHICLES_TO_STORE,
+	IS_LOADED_VEHICLES,
 } from "../actions/actions";
 
 const initial = {
@@ -16,9 +18,11 @@ const initial = {
 	planets: [],
 	starships: [],
 	films: [],
+	vehicles: [],
 	isLoaded: false,
 	isLoadedPlanets: false,
 	isLoadedStarships: false,
+	isLoadedVehicles: false,
 };
 
 export const history = createBrowserHistory();
@@ -45,10 +49,18 @@ export const appReducer = (state = initial, action) => {
 				starships: [...state.starships, ...action.payload],
 			};
 		}
+
 		case SET_FILMS_TO_STORE: {
 			return {
 				...state,
 				films: [...state.films, ...action.payload],
+			};
+		}
+
+		case SET_VEHICLES_TO_STORE: {
+			return {
+				...state,
+				vehicles: [...state.vehicles, ...action.payload],
 			};
 		}
 
@@ -68,6 +80,12 @@ export const appReducer = (state = initial, action) => {
 			return {
 				...state,
 				isLoadedStarships: true,
+			};
+		}
+		case IS_LOADED_VEHICLES: {
+			return {
+				...state,
+				isLoadedVehicles: true,
 			};
 		}
 

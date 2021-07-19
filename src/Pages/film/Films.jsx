@@ -8,15 +8,11 @@ const FilmsCard = withCard(bodyCardFilm);
 
 export const Films = () => {
 	const contenCards = useSelector(state => state.app.films);
-	console.log(contenCards);
+
 	return (
 		<main>
-			{
-				<>
-					<FilmsCard contenCards={contenCards} name="title" />
-					<ToastContainer />
-				</>
-			}
+			<FilmsCard contenCards={contenCards} name="title" />
+			<ToastContainer />
 		</main>
 	);
 };
