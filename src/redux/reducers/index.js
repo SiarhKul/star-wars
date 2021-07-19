@@ -8,12 +8,14 @@ import {
 	IS_LOADED_PLANETS,
 	SET_STARSHIPS_TO_STORE,
 	IS_LOADED_STARSHIPS,
+	SET_FILMS_TO_STORE,
 } from "../actions/actions";
 
 const initial = {
 	people: [],
 	planets: [],
 	starships: [],
+	films: [],
 	isLoaded: false,
 	isLoadedPlanets: false,
 	isLoadedStarships: false,
@@ -41,6 +43,12 @@ export const appReducer = (state = initial, action) => {
 			return {
 				...state,
 				starships: [...state.starships, ...action.payload],
+			};
+		}
+		case SET_FILMS_TO_STORE: {
+			return {
+				...state,
+				films: [...state.films, ...action.payload],
 			};
 		}
 
