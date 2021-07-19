@@ -1,8 +1,9 @@
 const URL_GET_PEOPLE = "https://swapi.dev/api/people/";
 const URL_GET_PLANETS = "https://swapi.dev/api/planets";
+const URL_GET_STARSHIPS = "https://swapi.dev/api/starships/";
+
 const URL_GET_MORE_PEOPLE = "https://swapi.dev/api/people/?page";
 const URL_GET_MORE_PLANETS = "https://swapi.dev/api/planets/?page";
-const URL_GET_STARSHIPS = "https://swapi.dev/api/starships/";
 const URL_GET_MORE_STARHIPS = "https://swapi.dev/api/starships/?page";
 
 export {
