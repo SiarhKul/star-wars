@@ -14,7 +14,7 @@ const PeopleCards = withCard(bodyCardPeople);
 
 export const People = () => {
 	const contenCards = useSelector(state => state.app.people);
-	console.log(contenCards);
+
 	const isLoaded = useSelector(state => state.app.isLoaded);
 
 	return (

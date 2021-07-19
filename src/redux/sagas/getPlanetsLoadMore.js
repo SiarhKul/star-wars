@@ -10,10 +10,7 @@ import {
 
 export function* workerGetMorePlanets() {
 	const pageNumber = counterPage("planets");
-	console.log("planets", pageNumber);
 	const data = yield call(getMoreResources, URL_GET_MORE_PLANETS, pageNumber);
-
-	console.log("planets", data);
 
 	yield put({ type: SET_PLANETS, payload: data.results });
 

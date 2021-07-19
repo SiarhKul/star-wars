@@ -22,7 +22,6 @@ export const getAbbreviation = str => {
 	const abbrFullNamePerson = formatedStr.match(/[A-Z]/g) || ["U"];
 	const abbrShortNamePerson =
 		abbrFullNamePerson[0] + abbrFullNamePerson[abbrFullNamePerson.length - 1];
-	console.log(abbrShortNamePerson);
 
 	return hasNumber ? formatedStr.slice(0, 2) : abbrShortNamePerson;
 };
@@ -31,6 +30,7 @@ export const counterPage = (function () {
 	const counterPage = {
 		people: 1,
 		planets: 1,
+		starships: 1,
 	};
 
 	return function (key) {
@@ -40,6 +40,10 @@ export const counterPage = (function () {
 				return counterPage.people;
 			}
 			case "planets": {
+				counterPage.planets += 1;
+				return counterPage.planets;
+			}
+			case "starships": {
 				counterPage.planets += 1;
 				return counterPage.planets;
 			}

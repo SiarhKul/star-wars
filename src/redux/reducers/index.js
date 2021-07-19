@@ -6,6 +6,8 @@ import {
 	IS_LOADED,
 	SET_PLANETS,
 	IS_LOADED_PLANETS,
+	SET_STARSHIPS_TO_STORE,
+	IS_LOADED_STARSHIPS,
 } from "../actions/actions";
 
 const initial = {
@@ -14,6 +16,7 @@ const initial = {
 	starships: [],
 	isLoaded: false,
 	isLoadedPlanets: false,
+	isLoadedStarships: false,
 };
 
 export const history = createBrowserHistory();
@@ -34,6 +37,13 @@ export const appReducer = (state = initial, action) => {
 			};
 		}
 
+		case SET_STARSHIPS_TO_STORE: {
+			return {
+				...state,
+				starships: [...state.starships, ...action.payload],
+			};
+		}
+
 		case IS_LOADED: {
 			return {
 				...state,
@@ -44,6 +54,12 @@ export const appReducer = (state = initial, action) => {
 			return {
 				...state,
 				isLoadedPlanets: true,
+			};
+		}
+		case IS_LOADED_STARSHIPS: {
+			return {
+				...state,
+				isLoadedStarships: true,
 			};
 		}
 
