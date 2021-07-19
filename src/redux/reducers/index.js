@@ -1,13 +1,19 @@
 import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 import { createBrowserHistory } from "history";
-import { SET_PEOPLE, IS_LOADED, SET_PLANETS } from "../actions/actions";
+import {
+	SET_PEOPLE,
+	IS_LOADED,
+	SET_PLANETS,
+	IS_LOADED_PLANETS,
+} from "../actions/actions";
 
 const initial = {
 	people: [],
 	planets: [],
 	starships: [],
 	isLoaded: false,
+	isLoadedPlanets: false,
 };
 
 export const history = createBrowserHistory();
@@ -32,6 +38,12 @@ export const appReducer = (state = initial, action) => {
 			return {
 				...state,
 				isLoaded: true,
+			};
+		}
+		case IS_LOADED_PLANETS: {
+			return {
+				...state,
+				isLoadedPlanets: true,
 			};
 		}
 

@@ -13,18 +13,38 @@ export const handlerError = textError => {
 };
 
 export const getAbbreviation = str => {
+	if (!/\s|-/.test(str)) {
+		return str[0].toUpperCase();
+	}
+
 	const formatedStr = str.match(/[a-zA-Z0-9]/g).join("");
 	const hasNumber = /[0-9]/.test(formatedStr);
-	const abbrFullNamePerson = formatedStr.match(/[A-Z]/g);
+	const abbrFullNamePerson = formatedStr.match(/[A-Z]/g) || ["U"];
 	const abbrShortNamePerson =
 		abbrFullNamePerson[0] + abbrFullNamePerson[abbrFullNamePerson.length - 1];
+	console.log(abbrShortNamePerson);
 
 	return hasNumber ? formatedStr.slice(0, 2) : abbrShortNamePerson;
 };
 
 export const counterPage = (function () {
-	let counter = 1;
-	return function () {
-		return (counter += 1);
+	const counterPage = {
+		people: 1,
+		planets: 1,
+	};
+
+	return function (key) {
+		switch (key) {
+			case "people": {
+				counterPage.people += 1;
+				return counterPage.people;
+			}
+			case "planets": {
+				counterPage.planets += 1;
+				return counterPage.planets;
+			}
+			default:
+				break;
+		}
 	};
 })();

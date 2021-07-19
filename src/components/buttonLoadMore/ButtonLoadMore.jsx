@@ -1,19 +1,19 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { LOAD_MORE } from '../../redux/actions/actions';
+import React from "react";
+import { useDispatch } from "react-redux";
 
-export const ButtonLoadMore = () => {
-  const dispatch = useDispatch();
-  return (
-    <div className="btn-load-more_center">
-      <button
-        className="btn-load-more active"
-        onClick={() => {
-          dispatch({ type: LOAD_MORE });
-        }}
-      >
-        Load more
-      </button>
-    </div>
-  );
+export const ButtonLoadMore = ({ action }) => {
+	const dispatch = useDispatch();
+
+	return (
+		<div className="btn-load-more_center">
+			<button
+				className="btn-load-more active"
+				onClick={() => {
+					dispatch({ type: action });
+				}}
+			>
+				Load more
+			</button>
+		</div>
+	);
 };
