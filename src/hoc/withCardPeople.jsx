@@ -1,21 +1,18 @@
 import React from "react";
-import { getAbbreviation } from "../utils/index";
+import { Card } from "../components/card/Card";
 
-export const withCard = WrappedComponent => {
+export const withCard = BodyComponent => {
 	return ({ contenCards, name }) => {
 		return (
 			<div className="cards-container">
-				{contenCards.map(card => (
-					<div className="card-wrapper" key={card[name]}>
-						<div className="card">
-							<div className="avatar">
-								<div className="avatar__abbr">
-									{getAbbreviation(card[name])}
-								</div>
-							</div>
-							<WrappedComponent card={card} />
-						</div>
-					</div>
+				{contenCards.map((card, i) => (
+					<Card
+						key={card[name]}
+						card={card}
+						name={name}
+						bodyComponent={BodyComponent}
+						allInfoCard={contenCards[i]}
+					/>
 				))}
 			</div>
 		);

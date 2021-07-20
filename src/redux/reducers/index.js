@@ -13,6 +13,7 @@ import {
 	IS_LOADED_VEHICLES,
 	SET_SPECIES_TO_STORE,
 	IS_LOADED_SPECIES,
+	SET_CLICKED_CARD_TO_STORE,
 } from "../actions/actions";
 
 const initial = {
@@ -22,6 +23,7 @@ const initial = {
 	films: [],
 	vehicles: [],
 	species: [],
+	clickedCard: {},
 	isLoaded: false,
 	isLoadedPlanets: false,
 	isLoadedStarships: false,
@@ -71,6 +73,13 @@ export const appReducer = (state = initial, action) => {
 			return {
 				...state,
 				species: [...state.species, ...action.payload],
+			};
+		}
+
+		case SET_CLICKED_CARD_TO_STORE: {
+			return {
+				...state,
+				clickedCard: { ...action.payload },
 			};
 		}
 
