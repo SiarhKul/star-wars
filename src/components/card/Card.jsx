@@ -1,7 +1,10 @@
 import React from "react";
 import { getAbbreviation } from "../../utils";
 import { useDispatch } from "react-redux";
-import { SET_CLICKED_CARD_TO_STORE } from "../../redux/actions/actions";
+import {
+	IS_VISIBLE_POPUP,
+	SET_CLICKED_CARD_TO_STORE,
+} from "../../redux/actions/actions";
 
 export const Card = ({
 	card,
@@ -15,12 +18,13 @@ export const Card = ({
 		<div className="card-wrapper">
 			<div
 				className="card"
-				onClick={() =>
+				onClick={() => {
+					dispatch({ type: IS_VISIBLE_POPUP, payload: true });
 					dispatch({
 						type: SET_CLICKED_CARD_TO_STORE,
 						payload: allInfoCard,
-					})
-				}
+					});
+				}}
 			>
 				<div className="avatar">
 					<div className="avatar__abbr">{getAbbreviation(card[name])}</div>

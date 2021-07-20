@@ -8,7 +8,6 @@ function* workertGetVehicles() {
 	const data = yield call(getResources, URL_GET_VEHICLE);
 
 	yield put({ type: SET_VEHICLES_TO_STORE, payload: data.results });
-	console.log(data);
 }
 
 export function* watherLoadDataVehicles() {

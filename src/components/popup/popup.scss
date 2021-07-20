@@ -1,113 +1,113 @@
 .popup {
-  display: flex;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(128, 128, 128, 0.534);
-  height: 100%;
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(128, 128, 128, 0.534);
+	height: 100%;
+	width: 100%;
 }
 
 .popup-window {
-  background-color: white;
-  border-radius: 4px;
-  border: 3px solid $yellow;
-  width: 500px;
-  position: relative;
+	position: relative;
+	background-color: white;
+	border-radius: 4px;
+	border: 3px solid $yellow;
+	width: 500px;
 }
 
 .exit {
-  font-size: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $yellow;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  cursor: pointer;
-  transition: all 0.6s ease;
-  &:hover {
-    transform: rotate(-45deg);
-  }
+	display: flex;
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	font-size: 12px;
+	justify-content: center;
+	align-items: center;
+	background-color: $yellow;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all 0.6s ease;
+	&:hover {
+		transform: rotate(-45deg);
+	}
 }
 
 .name-wrapper {
-  padding: 16px;
-  text-align: center;
-  border-bottom: 2px solid $gray;
-  font-size: 20px;
+	padding: 16px;
+	text-align: center;
+	border-bottom: 2px solid $gray;
+	font-size: 20px;
 }
 
 .description-wrapper {
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-  .description__heading {
-    font-weight: 700;
-    font-size: 20px;
-    margin-bottom: 16px;
-  }
+	display: flex;
+	justify-content: space-between;
+	padding: 16px;
+	.description__heading {
+		font-weight: 700;
+		font-size: 20px;
+		margin-bottom: 16px;
+	}
 }
 
 .description-appearance {
-  border-bottom: $divider;
-  margin-bottom: 16px;
+	border-bottom: $divider;
+	margin-bottom: 16px;
 }
 
 .description-appearance__item,
 .description-stats__items,
 .popup-stats-items {
-  margin: 16px 0;
-  li {
-    margin-bottom: 8px;
-  }
+	margin: 16px 0;
+	li {
+		margin-bottom: 8px;
+	}
 }
 
 .stats-homeworld,
 .stats-films,
 .stats-vehicles {
-  display: flex;
-  border-bottom: $divider;
-  margin-bottom: 8px;
+	display: flex;
+	border-bottom: $divider;
+	margin-bottom: 8px;
 }
 
 .stats-starships {
-  display: flex;
+	display: flex;
 }
 
 .stats-homeworld {
-  .stats-list {
-    li {
-      list-style-type: none;
-    }
-  }
+	.stats-list {
+		li {
+			list-style-type: none;
+		}
+	}
 }
 
 .stats-heading {
-  margin-top: 4px;
-  text-align: right;
-  width: 100px;
-  margin-right: 32px;
+	margin-top: 4px;
+	text-align: right;
+	width: 100px;
+	margin-right: 32px;
 }
 
 .stats-list {
-  li {
-    list-style-type: disc;
-    a {
-      color: rgb(212, 212, 4);
-      display: block;
-      padding: 4px 0;
-      cursor: pointer;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
+	li {
+		list-style-type: disc;
+		a {
+			display: block;
+			color: rgb(212, 212, 4);
+			padding: 4px 0;
+			cursor: pointer;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
 }
