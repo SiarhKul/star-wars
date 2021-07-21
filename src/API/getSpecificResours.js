@@ -9,17 +9,3 @@ export const getSpecificResours = async url => {
 		handlerError(error.message);
 	}
 };
-
-// async function processArray(array) {
-// 	for (const url of array) {
-// 		const res = await getSpecificResours(url);
-// 		console.log(res);
-// 	}
-
-// 	console.log("done");
-// }
-
-// processArray([
-// 	"https://swapi.dev/api/starships/12/",
-// 	"https://swapi.dev/api/starships/22/",
-// ]);

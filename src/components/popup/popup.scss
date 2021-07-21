@@ -6,7 +6,7 @@
 	bottom: 0;
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(128, 128, 128, 0.534);
+	background-color: $popupBackground;
 	height: 100%;
 	width: 100%;
 }
@@ -16,7 +16,6 @@
 	background-color: white;
 	border-radius: 4px;
 	border: 3px solid $yellow;
-	width: 500px;
 }
 
 .exit {
@@ -61,6 +60,10 @@
 	margin-bottom: 16px;
 }
 
+.description-resources {
+	padding: 0 16px;
+}
+
 .description-appearance__item,
 .description-stats__items,
 .popup-stats-items {
@@ -70,19 +73,19 @@
 	}
 }
 
-.stats-homeworld,
-.stats-films,
-.stats-vehicles {
+.resources-homeworld,
+.resources-films,
+.resources-vehicles {
 	display: flex;
 	border-bottom: $divider;
 	margin-bottom: 8px;
 }
 
-.stats-starships {
+.resources-starships {
 	display: flex;
 }
 
-.stats-homeworld {
+.resources-homeworld {
 	.stats-list {
 		li {
 			list-style-type: none;
@@ -90,14 +93,14 @@
 	}
 }
 
-.stats-heading {
+.resources-heading {
 	margin-top: 4px;
 	text-align: right;
 	width: 100px;
 	margin-right: 32px;
 }
 
-.stats-list {
+.resources-list {
 	li {
 		list-style-type: disc;
 		a {

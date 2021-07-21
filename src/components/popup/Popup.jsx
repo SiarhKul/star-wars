@@ -1,13 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { isVisiblePopup } from "../../redux/actionsCreators/actionsCrators";
+import {
+	isPopupVisibleOutsideClick,
+	isVisiblePopup,
+} from "../../redux/actionsCreators/actionsCrators";
 import { PopupListItem } from "./PopupListItem";
 
 export const Popup = () => {
 	const dispatch = useDispatch();
 	const clickedCard = useSelector(state => state.app.clickedCard);
-	console.log(clickedCard);
 
 	const {
 		name,
@@ -24,7 +26,11 @@ export const Popup = () => {
 	} = clickedCard;
 
 	return (
-		<div className="popup">
+		<div
+			className="popup"
+			data-popup="popup"
+			onClick={e => dispatch(isPopupVisibleOutsideClick(e))}
+		>
 			<div className="popup-window">
 				<div
 					className="exit"
@@ -50,6 +56,7 @@ export const Popup = () => {
 								<li>Gender:{gender}</li>
 							</ul>
 						</div>
+
 						<div className="description-stats">
 							<p className="description__heading">Stats</p>
 							<ul className="description-stats__items">
@@ -59,29 +66,31 @@ export const Popup = () => {
 						</div>
 					</div>
 
-					<div className="description-stats">
-						<div className="stats-homeworld">
-							<div className="stats-heading">Home word:</div>
-							<ul className="stats-list">
+					<div className="description-resources">
+						<div className="resources-homeworld">
+							<div className="resources-heading">Home word:</div>
+							<ul className="resources-list">
 								<PopupListItem urls={[homeworld]} name="name" />
 							</ul>
 						</div>
 
-						<div className="stats-films">
-							<div className="stats-heading">Films:</div>
-							<ul className="stats-list">
+						<div className="resources-films">
+							<div className="resources-heading">Films:</div>
+							<ul className="resources-list">
 								<PopupListItem urls={films} name="title" />
 							</ul>
 						</div>
-						<div className="stats-vehicles">
-							<div className="stats-heading">Vehicles:</div>
-							<ul className="stats-list">
+
+						<div className="resources-vehicles">
+							<div className="resources-heading">Vehicles:</div>
+							<ul className="resources-list">
 								<PopupListItem urls={vehicles} name="name" />
 							</ul>
 						</div>
-						<div className="stats-starships">
-							<span className="stats-heading">Starships:</span>
-							<ul className="stats-list">
+
+						<div className="resources-starships">
+							<span className="resources-heading">Starships:</span>
+							<ul className="resources-list">
 								<PopupListItem urls={starships} name="name" />
 							</ul>
 						</div>
