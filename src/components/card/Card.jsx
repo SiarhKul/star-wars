@@ -1,10 +1,11 @@
 import React from "react";
 import { getAbbreviation } from "../../utils";
 import { useDispatch } from "react-redux";
+
 import {
-	IS_VISIBLE_POPUP,
-	SET_CLICKED_CARD_TO_STORE,
-} from "../../redux/actions/actions";
+	isVisiblePopup,
+	setClickedCardtoStore,
+} from "../../redux/actionsCreators/actionsCrators";
 
 export const Card = ({
 	card,
@@ -19,11 +20,8 @@ export const Card = ({
 			<div
 				className="card"
 				onClick={() => {
-					dispatch({ type: IS_VISIBLE_POPUP, payload: true });
-					dispatch({
-						type: SET_CLICKED_CARD_TO_STORE,
-						payload: allInfoCard,
-					});
+					dispatch(isVisiblePopup(true));
+					dispatch(setClickedCardtoStore(allInfoCard));
 				}}
 			>
 				<div className="avatar">
