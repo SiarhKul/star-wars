@@ -43,14 +43,14 @@ export const StarshipsSpeciesPopup = () => {
 				</div>
 
 				<div className="description-resources">
-					<div className="resources-vehicles">
+					<div className="resources">
 						<div className="resources-heading">Pilots:</div>
 						<ul className="resources-list">
 							<PopupListItem urls={pilots} name="name" />
 						</ul>
 					</div>
 
-					<div className="resources-films">
+					<div className="resources">
 						<div className="resources-heading">Films:</div>
 						<ul className="resources-list">
 							<PopupListItem urls={films} name="title" />

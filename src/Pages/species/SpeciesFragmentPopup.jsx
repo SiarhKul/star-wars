@@ -37,14 +37,14 @@ export const SpeciesFragmentPopup = () => {
 				</div>
 
 				<div className="description-resources">
-					<div className="resources-homeworld">
+					<div className="resources">
 						<div className="resources-heading">Home word:</div>
 						<ul className="resources-list">
 							<PopupListItem urls={people} name="name" />
 						</ul>
 					</div>
 
-					<div className="resources-films">
+					<div className="resources">
 						<div className="resources-heading">Films:</div>
 						<ul className="resources-list">
 							<PopupListItem urls={films} name="title" />

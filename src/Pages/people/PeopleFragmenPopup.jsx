@@ -44,28 +44,28 @@ export const PeopleFragmenPopup = () => {
 				</div>
 
 				<div className="description-resources">
-					<div className="resources-homeworld">
+					<div className="resources resources_no-list-type">
 						<div className="resources-heading">Home word:</div>
 						<ul className="resources-list">
 							<PopupListItem urls={[homeworld]} name="name" />
 						</ul>
 					</div>
 
-					<div className="resources-films">
+					<div className="resources">
 						<div className="resources-heading">Films:</div>
 						<ul className="resources-list">
 							<PopupListItem urls={films} name="title" />
 						</ul>
 					</div>
 
-					<div className="resources-vehicles">
+					<div className="resources">
 						<div className="resources-heading">Vehicles:</div>
 						<ul className="resources-list">
 							<PopupListItem urls={vehicles} name="name" />
 						</ul>
 					</div>
 
-					<div className="resources-starships">
+					<div className="resources">
 						<span className="resources-heading">Starships:</span>
 						<ul className="resources-list">
 							<PopupListItem urls={starships} name="name" />

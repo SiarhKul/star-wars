@@ -73,23 +73,15 @@
 	}
 }
 
-.resources-homeworld,
-.resources-films,
-.resources-vehicles {
+.resources {
 	display: flex;
 	border-bottom: $divider;
 	margin-bottom: 8px;
 }
 
-.resources-starships {
-	display: flex;
-}
-
-.resources-homeworld {
-	.stats-list {
-		li {
-			list-style-type: none;
-		}
+.resources.resources_no-list-type {
+	li {
+		list-style-type: none;
 	}
 }
 
