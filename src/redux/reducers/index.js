@@ -13,6 +13,8 @@ import {
 	IS_LOADED_VEHICLES,
 	SET_SPECIES_TO_STORE,
 	IS_LOADED_SPECIES,
+	SET_CLICKED_CARD_TO_STORE,
+	IS_VISIBLE_POPUP,
 } from "../actions/actions";
 
 const initial = {
@@ -22,11 +24,13 @@ const initial = {
 	films: [],
 	vehicles: [],
 	species: [],
+	clickedCard: {},
 	isLoaded: false,
 	isLoadedPlanets: false,
 	isLoadedStarships: false,
 	isLoadedVehicles: false,
 	isLoadedSpecies: false,
+	isVisiblePopup: false,
 };
 
 export const history = createBrowserHistory();
@@ -67,10 +71,18 @@ export const appReducer = (state = initial, action) => {
 				vehicles: [...state.vehicles, ...action.payload],
 			};
 		}
+
 		case SET_SPECIES_TO_STORE: {
 			return {
 				...state,
 				species: [...state.species, ...action.payload],
+			};
+		}
+
+		case SET_CLICKED_CARD_TO_STORE: {
+			return {
+				...state,
+				clickedCard: { ...action.payload },
 			};
 		}
 
@@ -80,28 +92,39 @@ export const appReducer = (state = initial, action) => {
 				isLoaded: true,
 			};
 		}
+
 		case IS_LOADED_PLANETS: {
 			return {
 				...state,
 				isLoadedPlanets: true,
 			};
 		}
+
 		case IS_LOADED_STARSHIPS: {
 			return {
 				...state,
 				isLoadedStarships: true,
 			};
 		}
+
 		case IS_LOADED_VEHICLES: {
 			return {
 				...state,
 				isLoadedVehicles: true,
 			};
 		}
+
 		case IS_LOADED_SPECIES: {
 			return {
 				...state,
 				isLoadedSpecies: true,
+			};
+		}
+
+		case IS_VISIBLE_POPUP: {
+			return {
+				...state,
+				isVisiblePopup: action.payload,
 			};
 		}
 

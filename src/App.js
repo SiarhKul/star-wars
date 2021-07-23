@@ -4,7 +4,6 @@ import React from "react";
 import "./index.scss";
 
 import { Header } from "./components";
-
 import { Route, Switch } from "react-router-dom";
 import { Films, People, Planets, Starships, Vehicles } from "./Pages";
 import { history } from "./redux/reducers";
