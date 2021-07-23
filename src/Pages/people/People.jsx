@@ -13,7 +13,7 @@ const PeopleCards = withCard(bodyCardPeople);
 
 export const People = () => {
 	const contenCards = useSelector(state => state.app.people);
-	const isVisiblePopup = useSelector(state => state.app.isVisiblePopup);
+	const { isVisiblePopup } = useSelector(state => state.app);
 	const isLoaded = useSelector(state => state.app.isLoaded);
 
 	return (
