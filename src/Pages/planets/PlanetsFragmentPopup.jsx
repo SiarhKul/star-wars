@@ -43,14 +43,14 @@ export const PlanetsFragmentPopup = () => {
 					<div className="resources">
 						<div className="resources-heading">Residents:</div>
 						<ul className="resources-list">
-							<PopupListItem urls={residents} name="name" />
+							<PopupListItem urls={residents} name="name" path="" />
 						</ul>
 					</div>
 
 					<div className="resources">
 						<div className="resources-heading">Films:</div>
 						<ul className="resources-list">
-							<PopupListItem urls={films} name="title" />
+							<PopupListItem urls={films} name="title" path="films" />
 						</ul>
 					</div>
 				</div>

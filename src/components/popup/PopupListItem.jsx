@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getSpecificResours } from "../../API/getSpecificResours";
 
-export const PopupListItem = ({ urls, name }) => {
+export const PopupListItem = ({ urls, name, path }) => {
 	const [resources, setResources] = useState([]);
 
 	useEffect(() => {
@@ -18,7 +18,7 @@ export const PopupListItem = ({ urls, name }) => {
 		resources.map((resours, i) => {
 			return (
 				<li key={urls[i]}>
-					<a href={urls[i]}>{resours[name]}</a>
+					<a href={`http://localhost:3000/${path}`}>{resours[name]}</a>
 				</li>
 			);
 		})
