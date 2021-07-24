@@ -1,3 +1,5 @@
+//todo испльзовать useCallback
+//todo убрать мультиклик на мену
 import React from "react";
 import { getAbbreviation } from "../../utils";
 import { useDispatch } from "react-redux";

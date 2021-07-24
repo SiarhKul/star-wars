@@ -4,7 +4,7 @@ import { URL_GET_MORE_STARHIPS } from "../../API/urls";
 import { counterPage } from "../../utils";
 import {
 	GET_MORE_STARSHIPS,
-	IS_LOADED_STARSHIPS,
+	IS_STARSHIPS_LOADED,
 	SET_STARSHIPS_TO_STORE,
 } from "../actions/actions";
 
@@ -15,7 +15,7 @@ function* workerGetMoreStarships() {
 	yield put({ type: SET_STARSHIPS_TO_STORE, payload: data.results });
 
 	if (typeof data.next !== "string") {
-		yield put({ type: IS_LOADED_STARSHIPS });
+		yield put({ type: IS_STARSHIPS_LOADED });
 	}
 }
 

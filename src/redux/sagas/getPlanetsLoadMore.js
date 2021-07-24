@@ -4,7 +4,7 @@ import { URL_GET_MORE_PLANETS } from "../../API/urls";
 import { counterPage } from "../../utils";
 import {
 	GET_MORE_PLANETS,
-	IS_LOADED_PLANETS,
+	IS_PLANETS_LOADED,
 	SET_PLANETS_TO_STORE,
 } from "../actions/actions";
 
@@ -15,7 +15,7 @@ export function* workerGetMorePlanets() {
 	yield put({ type: SET_PLANETS_TO_STORE, payload: data.results });
 
 	if (typeof data.next !== "string") {
-		yield put({ type: IS_LOADED_PLANETS });
+		yield put({ type: IS_PLANETS_LOADED });
 	}
 }
 

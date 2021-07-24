@@ -11,7 +11,7 @@ import { VehiclesFragmentPopup } from "./VehiclesFragmentPopup";
 
 export const Vehicles = () => {
 	const contenCards = useSelector(state => state.app.vehicles);
-	const isLoadedVehicles = useSelector(state => state.app.isLoadedVehicles);
+	const { isLoadedVehicles } = useSelector(state => state.app);
 	const { isVisiblePopup } = useSelector(state => state.app);
 
 	return (
