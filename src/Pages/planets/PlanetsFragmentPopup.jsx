@@ -16,7 +16,6 @@ export const PlanetsFragmentPopup = () => {
 		films,
 	} = useSelector(state => state.app.clickedCard);
 
-	console.log(residents);
 	return (
 		<>
 			<div className="name-wrapper">

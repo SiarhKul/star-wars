@@ -6,8 +6,8 @@ import { GET_MORE_PEOPLE } from "../../redux/actions/actions";
 import { Popup } from "../../components/popup/Popup";
 import { PeopleFragmenPopup } from "./PeopleFragmenPopup";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Cards } from "../../components/card/Cards";
+import "react-toastify/dist/ReactToastify.css";
 
 export const People = () => {
 	const contenCards = useSelector(state => state.app.people);
