@@ -1,29 +1,33 @@
-import React from "react";
+//todo использовать useCallback
+//todo нужно ли тут useCallback тк мы не передаем в дочерний компонент
+//todo ктомуже у нас одни компонент где используете
+import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import {
-	isPopupVisibleOutsideClick,
-	isVisiblePopup,
-} from "../../redux/actionsCreators/actionsCrators";
+import { isVisiblePopup } from "../../redux/actionsCreators/actionsCrators";
 
 export const Popup = ({ FragmentPopup }) => {
 	const dispatch = useDispatch();
+
+	const isPopupVisibleOutSideClickMemo = useCallback(e => {
+		if (e.target.dataset.popup === "popup") {
+			dispatch(isVisiblePopup(false));
+		}
+	}, []);
+
+	const isVisiblePopupMemo = useCallback(() => {
+		dispatch(isVisiblePopup(false));
+	}, []);
 
 	return (
 		<div
 			className="popup"
 			data-popup="popup"
-			onClick={e => dispatch(isPopupVisibleOutsideClick(e))}
+			onClick={e => isPopupVisibleOutSideClickMemo(e)}
 		>
 			<div className="popup-window">
-				<div
-					className="exit"
-					onClick={() => {
-						dispatch(isVisiblePopup(false));
-					}}
-				>
+				<div className="exit" onClick={isVisiblePopupMemo}>
 					&#10060;
 				</div>
-
 				<FragmentPopup />
 			</div>
 		</div>

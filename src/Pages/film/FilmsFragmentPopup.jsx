@@ -38,34 +38,34 @@ export const FilmsFragmentPopup = () => {
 					<div className="resources">
 						<div className="resources-heading">Characters:</div>
 						<ul className="resources-list">
-							<PopupListItem urls={characters} name="name" />
+							<PopupListItem urls={characters} name="name" path="" />
 						</ul>
 					</div>
 
 					<div className="resources">
 						<div className="resources-heading">Planets:</div>
 						<ul className="resources-list">
-							<PopupListItem urls={planets} name="name" />
+							<PopupListItem urls={planets} name="name" path="planets" />
 						</ul>
 					</div>
 
 					<div className="resources">
 						<div className="resources-heading">Vehicles:</div>
 						<ul className="resources-list">
-							<PopupListItem urls={vehicles} name="name" />
+							<PopupListItem urls={vehicles} name="name" path="vehicles" />
 						</ul>
 					</div>
 
 					<div className="resources">
 						<span className="resources-heading">Starships:</span>
 						<ul className="resources-list">
-							<PopupListItem urls={starships} name="name" />
+							<PopupListItem urls={starships} name="name" path="starhips" />
 						</ul>
 					</div>
 					<div className="resources">
 						<span className="resources-heading">Species:</span>
 						<ul className="resources-list">
-							<PopupListItem urls={species} name="name" />
+							<PopupListItem urls={species} name="name" path="species" />
 						</ul>
 					</div>
 				</div>

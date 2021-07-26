@@ -5,7 +5,7 @@ import { URL_GET_MORE_PEOPLE } from "../../API/urls";
 import { counterPage } from "../../utils";
 import {
 	GET_MORE_PEOPLE,
-	IS_LOADED_PEOPLE,
+	IS_PEOPLE_LOADED,
 	SET_PEOPLE_TO_STORE,
 } from "../actions/actions";
 
@@ -16,7 +16,7 @@ export function* workerGetPeopleMore() {
 
 	yield put({ type: SET_PEOPLE_TO_STORE, payload: data.results });
 	if (typeof data.next !== "string") {
-		yield put({ type: IS_LOADED_PEOPLE });
+		yield put({ type: IS_PEOPLE_LOADED });
 	}
 }
 

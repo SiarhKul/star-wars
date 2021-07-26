@@ -2,7 +2,7 @@ import { call, put, takeEvery } from "redux-saga/effects";
 import { counterPage } from "../../utils";
 import {
 	GET_MORE_VEHICLES,
-	IS_LOADED_VEHICLES,
+	IS_VEHICLES_LOADED,
 	SET_VEHICLES_TO_STORE,
 } from "../actions/actions";
 import { getMoreResources } from "../../API/getMoreResources";
@@ -15,7 +15,7 @@ function* workerGetMoreVehicles() {
 	yield put({ type: SET_VEHICLES_TO_STORE, payload: data.results });
 
 	if (typeof data.next !== "string") {
-		yield put({ type: IS_LOADED_VEHICLES });
+		yield put({ type: IS_VEHICLES_LOADED });
 	}
 
 	console.log(data);

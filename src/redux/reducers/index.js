@@ -3,18 +3,18 @@ import { connectRouter } from "connected-react-router";
 import { createBrowserHistory } from "history";
 import {
 	SET_PEOPLE_TO_STORE,
-	IS_LOADED_PEOPLE,
+	IS_PEOPLE_LOADED,
 	SET_PLANETS_TO_STORE,
-	IS_LOADED_PLANETS,
+	IS_PLANETS_LOADED,
 	SET_STARSHIPS_TO_STORE,
-	IS_LOADED_STARSHIPS,
+	IS_STARSHIPS_LOADED,
 	SET_FILMS_TO_STORE,
 	SET_VEHICLES_TO_STORE,
-	IS_LOADED_VEHICLES,
+	IS_VEHICLES_LOADED,
 	SET_SPECIES_TO_STORE,
-	IS_LOADED_SPECIES,
+	IS_SPECIES_SPECIES,
 	SET_CLICKED_CARD_TO_STORE,
-	IS_VISIBLE_POPUP,
+	IS_POPUP_LOADED,
 } from "../actions/actions";
 
 const initial = {
@@ -86,42 +86,42 @@ export const appReducer = (state = initial, action) => {
 			};
 		}
 
-		case IS_LOADED_PEOPLE: {
+		case IS_PEOPLE_LOADED: {
 			return {
 				...state,
 				isLoaded: true,
 			};
 		}
 
-		case IS_LOADED_PLANETS: {
+		case IS_PLANETS_LOADED: {
 			return {
 				...state,
 				isLoadedPlanets: true,
 			};
 		}
 
-		case IS_LOADED_STARSHIPS: {
+		case IS_STARSHIPS_LOADED: {
 			return {
 				...state,
 				isLoadedStarships: true,
 			};
 		}
 
-		case IS_LOADED_VEHICLES: {
+		case IS_VEHICLES_LOADED: {
 			return {
 				...state,
 				isLoadedVehicles: true,
 			};
 		}
 
-		case IS_LOADED_SPECIES: {
+		case IS_SPECIES_SPECIES: {
 			return {
 				...state,
 				isLoadedSpecies: true,
 			};
 		}
 
-		case IS_VISIBLE_POPUP: {
+		case IS_POPUP_LOADED: {
 			return {
 				...state,
 				isVisiblePopup: action.payload,

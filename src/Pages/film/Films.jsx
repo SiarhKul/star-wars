@@ -1,12 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { bodyCardFilm } from "../../components/bodyCards/bodyCardFIlm";
-import { withCard } from "../../hoc/withCardPeople";
 import { ToastContainer } from "react-toastify";
 import { Popup } from "../../components/popup/Popup";
 import { FilmsFragmentPopup } from "./FilmsFragmentPopup";
-
-const FilmsCard = withCard(bodyCardFilm);
+import { Cards } from "../../components/card/Cards";
 
 export const Films = () => {
 	const contenCards = useSelector(state => state.app.films);
@@ -14,7 +12,11 @@ export const Films = () => {
 	const { isVisiblePopup } = useSelector(state => state.app);
 	return (
 		<main>
-			<FilmsCard contenCards={contenCards} name="title" />
+			<Cards
+				contenCards={contenCards}
+				name="title"
+				BodyComponent={bodyCardFilm}
+			/>
 			<ToastContainer />
 			{isVisiblePopup && <Popup FragmentPopup={FilmsFragmentPopup} />}
 		</main>
