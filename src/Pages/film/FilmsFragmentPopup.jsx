@@ -17,7 +17,7 @@ export const FilmsFragmentPopup = () => {
 	} = useSelector(state => state.app.clickedCard);
 
 	return (
-		<>
+		<div className="popup-fragment">
 			<div className="name-wrapper">
 				<span className="popup__name">{title}</span>
 			</div>
@@ -70,6 +70,6 @@ export const FilmsFragmentPopup = () => {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };

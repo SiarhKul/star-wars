@@ -26,7 +26,7 @@ export const Popup = ({ FragmentPopup }) => {
 		>
 			<div className="popup-window">
 				<div className="exit" onClick={isVisiblePopupMemo}>
-					&#10060;
+					<button className="exit__btn"> &#10060;</button>
 				</div>
 				<FragmentPopup />
 			</div>
