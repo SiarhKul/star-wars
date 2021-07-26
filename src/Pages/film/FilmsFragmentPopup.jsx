@@ -38,7 +38,7 @@ export const FilmsFragmentPopup = () => {
 					<div className="resources">
 						<div className="resources-heading">Characters:</div>
 						<ul className="resources-list">
-							<PopupListItem urls={characters} name="name" path="" />
+							<PopupListItem urls={characters} name="name" path="/" />
 						</ul>
 					</div>
 
@@ -59,7 +59,7 @@ export const FilmsFragmentPopup = () => {
 					<div className="resources">
 						<span className="resources-heading">Starships:</span>
 						<ul className="resources-list">
-							<PopupListItem urls={starships} name="name" path="starhips" />
+							<PopupListItem urls={starships} name="name" path="starships" />
 						</ul>
 					</div>
 					<div className="resources">

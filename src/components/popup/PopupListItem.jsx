@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 export const PopupListItem = ({ urls, name, path }) => {
 	const [resources, setResources] = useState([]);
 	const dispatch = useDispatch();
-
 	const setClickedCardtoStoreMemo = useCallback(resours => {
 		dispatch(setClickedCardtoStore(resours));
 	}, []);
@@ -26,7 +25,16 @@ export const PopupListItem = ({ urls, name, path }) => {
 		resources.map((resours, i) => {
 			return (
 				<li key={urls[i]} onClick={() => setClickedCardtoStoreMemo(resours)}>
-					<Link to={path}>{resours[name]}</Link>
+					<Link
+						to={{
+							pathname: path,
+							state: {
+								prevCardClicked: resours,
+							},
+						}}
+					>
+						{resours[name]}
+					</Link>
 				</li>
 			);
 		})

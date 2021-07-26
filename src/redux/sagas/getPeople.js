@@ -14,6 +14,7 @@ export function* watchLoadDataPeople() {
 		const action = yield take(LOCATION_CHANGE);
 		const store = yield select(s => s);
 
+		// console.log(action.payload.location);
 		if (
 			action.payload.location.pathname.endsWith("/") &
 			(store.app.people.length === 0)
