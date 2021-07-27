@@ -10,9 +10,9 @@ import { Cards } from "../../components/card/Cards";
 import "react-toastify/dist/ReactToastify.css";
 
 export const People = () => {
-	const contenCards = useSelector(state => state.app.people);
-	const { isVisiblePopup } = useSelector(state => state.app);
-	const isLoaded = useSelector(state => state.app.isLoaded);
+	const contenCards = useSelector(state => state.dataFromServer.people);
+	const { isVisiblePopup } = useSelector(state => state.loading);
+	const { isLoaded } = useSelector(state => state.loading);
 
 	return (
 		<main className="main-people">

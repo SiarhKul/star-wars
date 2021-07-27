@@ -14,7 +14,21 @@ export const SpeciesFragmentPopup = () => {
 		language,
 		people,
 		films,
-	} = useSelector(state => state.app.clickedCard);
+	} = useSelector(state => state.dataFromServer.clickedCard);
+
+	console.log(
+		name,
+		classification,
+		designation,
+		skin_colors,
+		hair_colors,
+		eye_colors,
+		average_lifespan,
+		language,
+		people,
+		films
+	);
+
 	return (
 		<>
 			<div className="name-wrapper">

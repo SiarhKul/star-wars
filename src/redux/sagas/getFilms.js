@@ -15,7 +15,7 @@ export function* watchLoadDataFilms() {
 		const store = yield select(s => s);
 		if (
 			action.payload.location.pathname.endsWith("/films") &
-			(store.app.films.length === 0)
+			(store.dataFromServer.films.length === 0)
 		) {
 			yield fork(workerGetFilms);
 		}

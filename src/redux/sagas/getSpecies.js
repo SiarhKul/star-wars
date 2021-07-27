@@ -16,7 +16,7 @@ export function* watcherLoadDataSpecies() {
 
 		if (
 			action.payload.location.pathname.endsWith("species") &
-			(store.app.species.length === 0)
+			(store.dataFromServer.species.length === 0)
 		) {
 			yield fork(workertGetSpecies);
 		}

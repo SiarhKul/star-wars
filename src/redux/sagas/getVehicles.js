@@ -16,7 +16,7 @@ export function* watherLoadDataVehicles() {
 		const store = yield select(s => s);
 		if (
 			action.payload.location.pathname.endsWith("vehicles") &
-			(store.app.vehicles.length === 0)
+			(store.dataFromServer.vehicles.length === 0)
 		) {
 			yield fork(workertGetVehicles);
 		}

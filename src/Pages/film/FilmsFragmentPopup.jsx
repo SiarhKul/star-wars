@@ -14,7 +14,20 @@ export const FilmsFragmentPopup = () => {
 		vehicles,
 		starships,
 		species,
-	} = useSelector(state => state.app.clickedCard);
+	} = useSelector(state => state.dataFromServer.clickedCard);
+
+	console.log(
+		title,
+		episode_id,
+		director,
+		producer,
+		release_date,
+		characters,
+		planets,
+		vehicles,
+		starships,
+		species
+	);
 
 	return (
 		<div className="popup-fragment">

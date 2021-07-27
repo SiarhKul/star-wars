@@ -17,7 +17,23 @@ export const VehiclesFragmentPopup = () => {
 		vehicle_class,
 		films,
 		pilots,
-	} = useSelector(state => state.app.clickedCard);
+	} = useSelector(state => state.dataFromServer.clickedCard);
+
+	console.log(
+		name,
+		model,
+		momanufacturerdel,
+		cost_in_credits,
+		length,
+		max_atmosphering_speed,
+		crew,
+		passengers,
+		cargo_capacity,
+		consumables,
+		vehicle_class,
+		films,
+		pilots
+	);
 
 	return (
 		<>
@@ -54,7 +70,7 @@ export const VehiclesFragmentPopup = () => {
 					<div className="resources">
 						<div className="resources-heading">Pilots:</div>
 						<ul className="resources-list">
-							<PopupListItem urls={pilots} name="name" path="" />
+							<PopupListItem urls={pilots} name="name" path="/" />
 						</ul>
 					</div>
 				</div>

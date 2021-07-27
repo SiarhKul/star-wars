@@ -10,9 +10,9 @@ import { GET_MORE_VEHICLES } from "../../redux/actions/actions";
 import { VehiclesFragmentPopup } from "./VehiclesFragmentPopup";
 
 export const Vehicles = () => {
-	const contenCards = useSelector(state => state.app.vehicles);
-	const { isLoadedVehicles } = useSelector(state => state.app);
-	const { isVisiblePopup } = useSelector(state => state.app);
+	const contenCards = useSelector(state => state.dataFromServer.vehicles);
+	const { isLoadedVehicles } = useSelector(state => state.loading);
+	const { isVisiblePopup } = useSelector(state => state.loading);
 
 	return (
 		<main>

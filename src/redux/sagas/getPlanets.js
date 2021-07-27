@@ -15,7 +15,7 @@ export function* watchLoadDataPlanets() {
 		const store = yield select(s => s);
 		if (
 			action.payload.location.pathname.endsWith("/planets") &
-			(store.app.planets.length === 0)
+			(store.dataFromServer.planets.length === 0)
 		) {
 			yield fork(workerGetPlanets);
 		}

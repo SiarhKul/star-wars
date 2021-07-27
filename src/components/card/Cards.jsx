@@ -8,8 +8,6 @@ import {
 	setClickedCardtoStore,
 } from "../../redux/actionsCreators/actionsCrators";
 
-import { history } from "../../redux/reducers";
-
 export const Cards = ({ contenCards, name, BodyComponent }) => {
 	const dispatch = useDispatch();
 
@@ -25,8 +23,6 @@ export const Cards = ({ contenCards, name, BodyComponent }) => {
 	const setClickedCardtoStoreMemo = useCallback(card => {
 		dispatch(setClickedCardtoStore(card));
 	}, []);
-
-	console.log(history);
 
 	return (
 		<div className="cards-container">

@@ -7,9 +7,9 @@ import { FilmsFragmentPopup } from "./FilmsFragmentPopup";
 import { Cards } from "../../components/card/Cards";
 
 export const Films = () => {
-	const contenCards = useSelector(state => state.app.films);
+	const contenCards = useSelector(state => state.dataFromServer.films);
+	const { isVisiblePopup } = useSelector(state => state.loading);
 
-	const { isVisiblePopup } = useSelector(state => state.app);
 	return (
 		<main>
 			<Cards

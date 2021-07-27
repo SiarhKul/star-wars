@@ -10,9 +10,9 @@ import { GET_MORE_PLANETS } from "../../redux/actions/actions";
 import { PlanetsFragmentPopup } from "./PlanetsFragmentPopup";
 
 export const Planets = () => {
-	const contenCards = useSelector(state => state.app.planets);
-	const isLoadedPlanets = useSelector(state => state.app.isLoadedPlanets);
-	const isVisiblePopup = useSelector(state => state.app.isVisiblePopup);
+	const contenCards = useSelector(state => state.dataFromServer.planets);
+	const { isLoadedPlanets } = useSelector(state => state.loading);
+	const { isVisiblePopup } = useSelector(state => state.loading);
 
 	return (
 		<main className="main-people">

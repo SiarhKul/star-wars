@@ -15,7 +15,21 @@ export const PeopleFragmenPopup = () => {
 		films,
 		vehicles,
 		starships,
-	} = useSelector(state => state.app.clickedCard);
+	} = useSelector(state => state.dataFromServer.clickedCard);
+
+	console.log(
+		name,
+		hair_color,
+		skin_color,
+		eye_color,
+		gender,
+		height,
+		mass,
+		homeworld,
+		films,
+		vehicles,
+		starships
+	);
 
 	return (
 		<>

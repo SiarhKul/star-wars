@@ -17,7 +17,23 @@ export const StarshipsSpeciesPopup = () => {
 		starship_class,
 		pilots,
 		films,
-	} = useSelector(state => state.app.clickedCard);
+	} = useSelector(state => state.dataFromServer.clickedCard);
+
+	console.log(
+		name,
+		model,
+		manufacturer,
+		cost_in_credits,
+		length,
+		max_atmosphering_speed,
+		cargo_capacity,
+		consumables,
+		hyperdrive_rating,
+		MGLT,
+		starship_class,
+		pilots,
+		films
+	);
 	return (
 		<>
 			<div className="name-wrapper">

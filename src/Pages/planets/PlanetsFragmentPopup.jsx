@@ -14,7 +14,20 @@ export const PlanetsFragmentPopup = () => {
 		population,
 		residents,
 		films,
-	} = useSelector(state => state.app.clickedCard);
+	} = useSelector(state => state.dataFromServer.clickedCard);
+
+	console.log(
+		name,
+		rotation_period,
+		diameter,
+		climate,
+		gravity,
+		terrain,
+		surface_water,
+		population,
+		residents,
+		films
+	);
 
 	return (
 		<>
