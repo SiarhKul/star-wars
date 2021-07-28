@@ -1,51 +1,58 @@
 //todo использовать useCallback
 //todo убрать мультиклик на мену
+//todo создать 2 функции
+//todo вернуть влево карточки
+
 import React, { useCallback } from "react";
 import { getAbbreviation } from "../../utils";
 import { useDispatch } from "react-redux";
-import {
-	isVisiblePopup,
-	setClickedCardtoStore,
-} from "../../redux/actionsCreators/actionsCrators";
+import { isVisiblePopup } from "../../redux/actionsCreators/actionsCrators";
 
-export const Cards = ({ contenCards, name, BodyComponent }) => {
-	const dispatch = useDispatch();
+import { withRouter } from "react-router";
 
-	const getAbbreviationMemo = useCallback(
-		cardName => getAbbreviation(cardName),
-		[]
-	);
+export const Cards = withRouter(
+	({ name, path, contenCards, BodyComponent, history }) => {
+		const dispatch = useDispatch();
 
-	const isPopupVisibleMemo = useCallback(() => {
-		dispatch(isVisiblePopup(true));
-	}, []);
+		const getAbbreviationMemo = useCallback(
+			cardName => getAbbreviation(cardName),
+			[]
+		);
 
-	const setClickedCardtoStoreMemo = useCallback(card => {
-		dispatch(setClickedCardtoStore(card));
-	}, []);
+		const isPopupVisibleMemo = useCallback(() => {
+			dispatch(isVisiblePopup(true));
+		}, []);
 
-	return (
-		<div className="cards-container">
-			{contenCards.map(card => {
-				return (
-					<div className="card-wrapper" key={card[name]}>
-						<div
-							className="card"
-							onClick={() => {
-								isPopupVisibleMemo();
-								setClickedCardtoStoreMemo(card);
-							}}
-						>
-							<div className="avatar">
-								<div className="avatar__abbr">
-									{getAbbreviationMemo(card[name])}
+		const setUniqueQueryParam = uniqueQueryParam => {
+			history.push({
+				pathname: path,
+				search: `?selected=${uniqueQueryParam}`,
+			});
+		};
+
+		return (
+			<div className="cards-container">
+				{contenCards.map(card => {
+					return (
+						<div className="card-wrapper" key={card[name]}>
+							<div
+								className="card"
+								onClick={() => {
+									setUniqueQueryParam(card[name]);
+									isPopupVisibleMemo();
+								}}
+							>
+								<div className="avatar">
+									<div className="avatar__abbr">
+										{getAbbreviationMemo(card[name])}
+									</div>
 								</div>
+								<BodyComponent card={card} />
 							</div>
-							<BodyComponent card={card} />
 						</div>
-					</div>
-				);
-			})}
-		</div>
-	);
-};
+					);
+				})}
+			</div>
+		);
+	}
+);

@@ -4,6 +4,8 @@ import { getResources } from "../../API/getResources";
 import { URL_GET_FILMS } from "../../API/urls";
 import { SET_FILMS_TO_STORE } from "../actions/actions";
 
+//todo убрать (store.dataFromServer.films.length === 0)
+
 function* workerGetFilms() {
 	const data = yield call(getResources, URL_GET_FILMS);
 	yield put({ type: SET_FILMS_TO_STORE, payload: data.results });

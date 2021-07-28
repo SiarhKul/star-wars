@@ -1,8 +1,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { PopupListItem } from "../../components/popup/PopupListItem";
+import PopupListItem from "../../components/popup/PopupListItem";
+import { useLocation } from "react-router";
+import { clickedCard } from "../../utils";
 
 export const SpeciesFragmentPopup = () => {
+	const { species } = useSelector(state => state.dataFromServer);
+	const query = new URLSearchParams(useLocation().search);
+	const paramField = query.get("selected");
+
+	const card = clickedCard(species, paramField, "name");
+
 	const {
 		name,
 		classification,
@@ -14,20 +22,7 @@ export const SpeciesFragmentPopup = () => {
 		language,
 		people,
 		films,
-	} = useSelector(state => state.dataFromServer.clickedCard);
-
-	console.log(
-		name,
-		classification,
-		designation,
-		skin_colors,
-		hair_colors,
-		eye_colors,
-		average_lifespan,
-		language,
-		people,
-		films
-	);
+	} = card;
 
 	return (
 		<>
@@ -54,7 +49,7 @@ export const SpeciesFragmentPopup = () => {
 					<div className="resources">
 						<div className="resources-heading">Residents:</div>
 						<ul className="resources-list">
-							<PopupListItem urls={people} name="name" path="/" />
+							<PopupListItem urls={people} name="name" path="people" />
 						</ul>
 					</div>
 

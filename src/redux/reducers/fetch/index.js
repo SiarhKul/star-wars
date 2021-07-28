@@ -8,7 +8,7 @@ import {
 	SET_VEHICLES_TO_STORE,
 } from "../../actions/actions";
 
-const initial = {
+const initialState = {
 	people: [],
 	planets: [],
 	starships: [],
@@ -18,7 +18,7 @@ const initial = {
 	clickedCard: {},
 };
 
-export const fetch = (state = initial, action) => {
+export const fetch = (state = initialState, action) => {
 	switch (action.type) {
 		case SET_PEOPLE_TO_STORE: {
 			return {

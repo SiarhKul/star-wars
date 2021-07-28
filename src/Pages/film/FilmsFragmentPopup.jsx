@@ -1,8 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { PopupListItem } from "../../components/popup/PopupListItem";
+import { useLocation } from "react-router";
+import PopupListItem from "../../components/popup/PopupListItem";
+import { clickedCard } from "../../utils";
 
 export const FilmsFragmentPopup = () => {
+	const films = useSelector(state => state.dataFromServer.films);
+	const query = new URLSearchParams(useLocation().search);
+	const paramField = query.get("selected");
+	const card = clickedCard(films, paramField, "title");
 	const {
 		title,
 		episode_id,
@@ -14,20 +20,7 @@ export const FilmsFragmentPopup = () => {
 		vehicles,
 		starships,
 		species,
-	} = useSelector(state => state.dataFromServer.clickedCard);
-
-	console.log(
-		title,
-		episode_id,
-		director,
-		producer,
-		release_date,
-		characters,
-		planets,
-		vehicles,
-		starships,
-		species
-	);
+	} = card;
 
 	return (
 		<div className="popup-fragment">
@@ -51,7 +44,7 @@ export const FilmsFragmentPopup = () => {
 					<div className="resources">
 						<div className="resources-heading">Characters:</div>
 						<ul className="resources-list">
-							<PopupListItem urls={characters} name="name" path="/" />
+							<PopupListItem urls={characters} name="name" path="people" />
 						</ul>
 					</div>
 

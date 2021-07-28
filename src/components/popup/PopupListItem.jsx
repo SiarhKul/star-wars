@@ -1,17 +1,10 @@
 //todo использовать useCallback
 import React, { useCallback, useEffect, useState } from "react";
 import { getSpecificResours } from "../../API/getSpecificResours";
-// import { setClickedCardtoStore } from "../../redux/actionsCreators/actionsCrators";
-// import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
-export const PopupListItem = ({ urls, name, path }) => {
+const PopupListItem = ({ urls, name, path, match, location, history }) => {
 	const [resources, setResources] = useState([]);
-	// const dispatch = useDispatch();
-
-	// const setClickedCardtoStoreMemo = useCallback(resours => {
-	// 	dispatch(setClickedCardtoStore(resours));
-	// }, []);
 
 	useEffect(() => {
 		(async urls => {
@@ -20,24 +13,70 @@ export const PopupListItem = ({ urls, name, path }) => {
 		})(urls);
 	}, []);
 
+	const pushToMenuItem = uniqueQueryParam => {
+		history.push({ pathname: path, search: `?selected=${uniqueQueryParam}` });
+	};
+
 	return urls?.length === 0 ? (
 		<span>N/A</span>
 	) : (
 		resources?.map((resours, i) => {
 			return (
-				<li
-					key={urls[i]} /* onClick={() => setClickedCardtoStoreMemo(resours)} */
-				>
-					<Link
-						to={{
-							pathname: path,
-							state: { prevCardClicked: resours },
-						}}
-					>
+				<li key={urls[i]}>
+					<span onClick={() => pushToMenuItem(resours[name])}>
 						{resours[name]}
-					</Link>
+					</span>
 				</li>
 			);
 		})
 	);
 };
+
+export default withRouter(PopupListItem);
+
+// const PopupListItem = ({ urls, name, path, match, location, history }) => {
+// 	console.log(match);
+// 	console.log(location);
+// 	console.log(history);
+
+// 	const [resources, setResources] = useState([]);
+// 	const dispatch = useDispatch();
+// 	const withLink = withRouter(Link);
+// const setClickedCardtoStoreMemo = useCallback(resours => {
+// 	dispatch(setClickedCardtoStore(resours));
+// }, []);
+
+// const isVisiblePopupMemo = useCallback(() => {
+// 	dispatch(isVisiblePopup(false));
+// }, []);
+
+// 	useEffect(() => {
+// 		(async urls => {
+// 			const promises = urls.map(getSpecificResours);
+// 			setResources(await Promise.all(promises));
+// 		})(urls);
+// 	}, []);
+
+// 	return urls?.length === 0 ? (
+// 		<span>N/A</span>
+// 	) : (
+// 		resources?.map((resours, i) => {
+// 			return (
+// 				<li
+// key={urls[i]} /* onClick={() => setClickedCardtoStoreMemo(resours)} */
+// onClick={isVisiblePopupMemo}
+// 					key={urls[i]}
+// 				>
+// 					<Link
+// 						to={{
+// 							pathname: path,
+// 							state: { prevCardClicked: resours },
+// 						}}
+// 					>
+// 						{resours[name]}
+// 					</Link>
+// 				</li>
+// 			);
+// 		})
+// 	);
+// };

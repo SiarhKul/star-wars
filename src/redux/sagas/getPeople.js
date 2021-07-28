@@ -15,7 +15,7 @@ export function* watchLoadDataPeople() {
 		const store = yield select(s => s);
 
 		if (
-			action.payload.location.pathname.endsWith("/") &
+			action.payload.location.pathname.endsWith("/people") &
 			(store.dataFromServer.people.length === 0)
 		) {
 			yield fork(workerGetPeople);
