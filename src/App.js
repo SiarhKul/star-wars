@@ -9,6 +9,7 @@ import { Films, People, Planets, Starships, Vehicles } from "./Pages";
 import { history } from "./redux/reducers";
 import { ConnectedRouter } from "connected-react-router";
 import { Species } from "./Pages/species/Species";
+import { Home } from "./Pages/home/Home";
 
 const App = () => {
 	return (
@@ -16,12 +17,13 @@ const App = () => {
 			<ConnectedRouter history={history}>
 				<Header />
 				<Switch>
-					<Route path="/" component={People} exact />
-					<Route path="/planets" component={Planets} exact />
-					<Route path="/starships" component={Starships} exact />
-					<Route path="/films" component={Films} exact />
-					<Route path="/vehicles" component={Vehicles} exact />
-					<Route path="/species" component={Species} exact />
+					<Route path="/" component={Home} exact />
+					<Route path="/people" component={People} />
+					<Route path="/planets" component={Planets} />
+					<Route path="/starships" component={Starships} />
+					<Route path="/films" component={Films} />
+					<Route path="/vehicles" component={Vehicles} />
+					<Route path="/species" component={Species} />
 				</Switch>
 			</ConnectedRouter>
 		</>

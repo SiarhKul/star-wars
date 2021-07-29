@@ -1,14 +1,15 @@
 //todo использовать useCallback
-//todo убрать мультиклик на мену
+//todo убрать мультиклик на меню
+//todo создать 2 функции
+//todo вернуть влево карточки
+
 import React, { useCallback } from "react";
 import { getAbbreviation } from "../../utils";
 import { useDispatch } from "react-redux";
-import {
-	isVisiblePopup,
-	setClickedCardtoStore,
-} from "../../redux/actionsCreators/actionsCrators";
+import { isVisiblePopup } from "../../redux/actionsCreators/actionsCrators";
+import { history } from "../../redux/reducers";
 
-export const Cards = ({ contenCards, name, BodyComponent }) => {
+export const Cards = ({ name, path, contenCards, BodyComponent }) => {
 	const dispatch = useDispatch();
 
 	const getAbbreviationMemo = useCallback(
@@ -20,9 +21,12 @@ export const Cards = ({ contenCards, name, BodyComponent }) => {
 		dispatch(isVisiblePopup(true));
 	}, []);
 
-	const setClickedCardtoStoreMemo = useCallback(card => {
-		dispatch(setClickedCardtoStore(card));
-	}, []);
+	const setUniqueQueryParam = card => {
+		history.push({
+			pathname: path,
+			state: card,
+		});
+	};
 
 	return (
 		<div className="cards-container">
@@ -32,8 +36,8 @@ export const Cards = ({ contenCards, name, BodyComponent }) => {
 						<div
 							className="card"
 							onClick={() => {
+								setUniqueQueryParam(card);
 								isPopupVisibleMemo();
-								setClickedCardtoStoreMemo(card);
 							}}
 						>
 							<div className="avatar">

@@ -9,9 +9,11 @@ import { GET_MORE_STARSHIPS } from "../../redux/actions/actions";
 import { StarshipsSpeciesPopup } from "./StarshipsSpeciesPopup";
 
 export const Starships = () => {
-	const contenCards = useSelector(state => state.app.starships);
-	const isLoadedStarhips = useSelector(state => state.app.isLoadedStarships);
-	const { isVisiblePopup } = useSelector(state => state.app);
+	const contenCards = useSelector(state => state.dataFromServer.starships);
+	const isLoadedStarships = useSelector(
+		state => state.loading.isLoadedStarships
+	);
+	const { isVisiblePopup } = useSelector(state => state.loading);
 
 	return (
 		<main className="main-people">
@@ -20,7 +22,7 @@ export const Starships = () => {
 				name="name"
 				BodyComponent={bodyCardStarships}
 			/>
-			{!isLoadedStarhips && <ButtonLoadMore action={GET_MORE_STARSHIPS} />}
+			{!isLoadedStarships && <ButtonLoadMore action={GET_MORE_STARSHIPS} />}
 			{isVisiblePopup && <Popup FragmentPopup={StarshipsSpeciesPopup} />}
 			<ToastContainer />
 		</main>

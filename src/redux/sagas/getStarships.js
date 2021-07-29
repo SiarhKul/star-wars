@@ -7,7 +7,6 @@ import { SET_STARSHIPS_TO_STORE } from "../actions/actions";
 function* workerGetStarships() {
 	const data = yield call(getResources, URL_GET_STARSHIPS);
 	yield put({ type: SET_STARSHIPS_TO_STORE, payload: data.results });
-
 }
 
 export function* watchLoadDataStarships() {
@@ -16,7 +15,7 @@ export function* watchLoadDataStarships() {
 		const store = yield select(s => s);
 		if (
 			action.payload.location.pathname.endsWith("starships") &
-			(store.app.starships.length === 0)
+			(store.dataFromServer.starships.length === 0)
 		) {
 			yield fork(workerGetStarships);
 		}

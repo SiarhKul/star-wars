@@ -4,6 +4,8 @@ import { getResources } from "../../API/getResources";
 import { URL_GET_FILMS } from "../../API/urls";
 import { SET_FILMS_TO_STORE } from "../actions/actions";
 
+//todo убрать (store.dataFromServer.films.length === 0)
+
 function* workerGetFilms() {
 	const data = yield call(getResources, URL_GET_FILMS);
 	yield put({ type: SET_FILMS_TO_STORE, payload: data.results });
@@ -15,7 +17,7 @@ export function* watchLoadDataFilms() {
 		const store = yield select(s => s);
 		if (
 			action.payload.location.pathname.endsWith("/films") &
-			(store.app.films.length === 0)
+			(store.dataFromServer.films.length === 0)
 		) {
 			yield fork(workerGetFilms);
 		}

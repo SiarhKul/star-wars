@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { history } from "../../redux/reducers";
 import { PopupListItem } from "../../components/popup/PopupListItem";
 
 export const PeopleFragmenPopup = () => {
@@ -15,7 +15,7 @@ export const PeopleFragmenPopup = () => {
 		films,
 		vehicles,
 		starships,
-	} = useSelector(state => state.app.clickedCard);
+	} = history.location.state;
 
 	return (
 		<>

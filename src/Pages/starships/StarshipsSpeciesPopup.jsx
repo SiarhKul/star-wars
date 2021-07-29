@@ -1,6 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { PopupListItem } from "../../components/popup/PopupListItem";
+import { history } from "../../redux/reducers";
 
 export const StarshipsSpeciesPopup = () => {
 	const {
@@ -17,7 +17,8 @@ export const StarshipsSpeciesPopup = () => {
 		starship_class,
 		pilots,
 		films,
-	} = useSelector(state => state.app.clickedCard);
+	} = history.location.state;
+
 	return (
 		<>
 			<div className="name-wrapper">
@@ -46,7 +47,7 @@ export const StarshipsSpeciesPopup = () => {
 					<div className="resources">
 						<div className="resources-heading">Pilots:</div>
 						<ul className="resources-list">
-							<PopupListItem urls={pilots} name="name" path="" />
+							<PopupListItem urls={pilots} name="name" path="people" />
 						</ul>
 					</div>
 

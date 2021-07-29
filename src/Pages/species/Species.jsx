@@ -9,9 +9,9 @@ import { GET_MORE_SPECIES } from "../../redux/actions/actions";
 import { SpeciesFragmentPopup } from "./SpeciesFragmentPopup";
 
 export const Species = () => {
-	const contenCards = useSelector(state => state.app.species);
-	const isLoadedSpecies = useSelector(state => state.app.isLoadedSpecies);
-	const { isVisiblePopup } = useSelector(state => state.app);
+	const contenCards = useSelector(state => state.dataFromServer.species);
+	const { isLoadedSpecies } = useSelector(state => state.loading);
+	const { isVisiblePopup } = useSelector(state => state.loading);
 	return (
 		<main>
 			<Cards

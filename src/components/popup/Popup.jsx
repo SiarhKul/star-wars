@@ -1,6 +1,6 @@
 //todo использовать useCallback
 //todo нужно ли тут useCallback тк мы не передаем в дочерний компонент
-//todo ктомуже у нас одни компонент где используете
+//todo к томуже у нас одни компонент где используется
 import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { isVisiblePopup } from "../../redux/actionsCreators/actionsCrators";
@@ -26,7 +26,7 @@ export const Popup = ({ FragmentPopup }) => {
 		>
 			<div className="popup-window">
 				<div className="exit" onClick={isVisiblePopupMemo}>
-					&#10060;
+					<button className="exit__btn"> &#10060;</button>
 				</div>
 				<FragmentPopup />
 			</div>

@@ -22,7 +22,6 @@ export const getAbbreviation = str => {
 	const abbrFullNamePerson = formatedStr.match(/[A-Z]/g) || ["U"];
 	const abbrShortNamePerson =
 		abbrFullNamePerson[0] + abbrFullNamePerson[abbrFullNamePerson.length - 1];
-
 	return hasNumber ? formatedStr.slice(0, 2) : abbrShortNamePerson;
 };
 
@@ -65,3 +64,9 @@ export const counterPage = (function () {
 		}
 	};
 })();
+
+export const clickedCard = (arr, filteredElem, name) => {
+	return arr.find(elem => {
+		return elem[name] === filteredElem;
+	});
+};

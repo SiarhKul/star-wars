@@ -22,7 +22,7 @@ export const Header = () => {
 								<NavLink
 									className="nav-list__link"
 									activeClassName="selected"
-									to={item === "People" ? "/" : item.toLowerCase()}
+									to={item.toLowerCase()}
 									exact
 								>
 									{item}
