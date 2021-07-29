@@ -1,16 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import PopupListItem from "../../components/popup/PopupListItem";
-import { useLocation } from "react-router";
-import { clickedCard } from "../../utils";
-
+import { PopupListItem } from "../../components/popup/PopupListItem";
+import { history } from "../../redux/reducers";
 export const VehiclesFragmentPopup = () => {
-	const vehicles = useSelector(state => state.dataFromServer.vehicles);
-	console.log(vehicles);
-	const query = new URLSearchParams(useLocation().search);
-	const paramField = query.get("selected");
-
-	const card = clickedCard(vehicles, paramField, "name");
 	const {
 		name,
 		model,
@@ -25,7 +16,7 @@ export const VehiclesFragmentPopup = () => {
 		vehicle_class,
 		films,
 		pilots,
-	} = card;
+	} = history.location.state;
 	return (
 		<>
 			<div className="name-wrapper">

@@ -1,16 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import PopupListItem from "../../components/popup/PopupListItem";
-import { useLocation } from "react-router";
-import { clickedCard } from "../../utils";
+import { PopupListItem } from "../../components/popup/PopupListItem";
 
+import { history } from "../../redux/reducers";
 export const SpeciesFragmentPopup = () => {
-	const { species } = useSelector(state => state.dataFromServer);
-	const query = new URLSearchParams(useLocation().search);
-	const paramField = query.get("selected");
-
-	const card = clickedCard(species, paramField, "name");
-
 	const {
 		name,
 		classification,
@@ -22,7 +14,7 @@ export const SpeciesFragmentPopup = () => {
 		language,
 		people,
 		films,
-	} = card;
+	} = history.location.state;
 
 	return (
 		<>

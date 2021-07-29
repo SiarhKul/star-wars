@@ -1,16 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import PopupListItem from "../../components/popup/PopupListItem";
-import { useLocation } from "react-router";
-import { clickedCard } from "../../utils";
+import { PopupListItem } from "../../components/popup/PopupListItem";
+import { history } from "../../redux/reducers";
 
 export const PlanetsFragmentPopup = () => {
-	const planets = useSelector(state => state.dataFromServer.planets);
-	console.log(planets);
-	const query = new URLSearchParams(useLocation().search);
-	const paramField = query.get("selected");
-
-	const card = clickedCard(planets, paramField, "name");
 	const {
 		name,
 		rotation_period,
@@ -22,7 +14,7 @@ export const PlanetsFragmentPopup = () => {
 		population,
 		residents,
 		films,
-	} = card;
+	} = history.location.state;
 
 	return (
 		<>

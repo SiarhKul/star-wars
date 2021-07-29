@@ -18,12 +18,12 @@ const App = () => {
 				<Header />
 				<Switch>
 					<Route path="/" component={Home} exact />
-					<Route path="/people" component={People} exact />
-					<Route path="/planets" component={Planets} exact />
-					<Route path="/starships" component={Starships} exact />
-					<Route path="/films" component={Films} exact />
-					<Route path="/vehicles" component={Vehicles} exact />
-					<Route path="/species" component={Species} exact />
+					<Route path="/people" component={People} />
+					<Route path="/planets" component={Planets} />
+					<Route path="/starships" component={Starships} />
+					<Route path="/films" component={Films} />
+					<Route path="/vehicles" component={Vehicles} />
+					<Route path="/species" component={Species} />
 				</Switch>
 			</ConnectedRouter>
 		</>

@@ -1,15 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { useLocation } from "react-router";
-import PopupListItem from "../../components/popup/PopupListItem";
-import { clickedCard } from "../../utils";
+import { PopupListItem } from "../../components/popup/PopupListItem";
+import { history } from "../../redux/reducers";
 
 export const StarshipsSpeciesPopup = () => {
-	const starships = useSelector(state => state.dataFromServer.starships);
-	const query = new URLSearchParams(useLocation().search);
-	const paramField = query.get("selected");
-
-	const card = clickedCard(starships, paramField, "name");
 	const {
 		name,
 		model,
@@ -24,7 +17,7 @@ export const StarshipsSpeciesPopup = () => {
 		starship_class,
 		pilots,
 		films,
-	} = card;
+	} = history.location.state;
 
 	return (
 		<>
