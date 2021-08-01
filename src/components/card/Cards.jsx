@@ -8,24 +8,28 @@ import { getAbbreviation } from "../../utils";
 import { useDispatch } from "react-redux";
 import { isVisiblePopup } from "../../redux/actionsCreators/actionsCrators";
 import { history } from "../../redux/reducers";
+// import { collapseToast } from "react-toastify";
+// import { useParams } from "react-router";
 
 export const Cards = ({ name, path, contenCards, BodyComponent }) => {
-	const dispatch = useDispatch();
+	console.log(path);
 
+	// const dispatch = useDispatch();
 	const getAbbreviationMemo = useCallback(
 		cardName => getAbbreviation(cardName),
 		[]
 	);
 
-	const isPopupVisibleMemo = useCallback(() => {
-		dispatch(isVisiblePopup(true));
-	}, []);
+	// const isPopupVisibleMemo = useCallback(() => {
+	// 	dispatch(isVisiblePopup(true));
+	// }, []);
 
 	const setUniqueQueryParam = card => {
+		console.log(`${path}/${card[name]}`);
 		history.push({
-			pathname: path,
+			pathname: `${path}/${card[name]}`,
 			state: card,
-			search: `?selected=${card[name]}`,
+			// search: `?selected=${card[name]}`,
 		});
 	};
 
@@ -38,7 +42,7 @@ export const Cards = ({ name, path, contenCards, BodyComponent }) => {
 							className="card"
 							onClick={() => {
 								setUniqueQueryParam(card);
-								isPopupVisibleMemo();
+								// isPopupVisibleMemo();
 							}}
 						>
 							<div className="avatar">

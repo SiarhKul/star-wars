@@ -3,20 +3,37 @@
 //todo к томуже у нас одни компонент где используется
 import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import { isVisiblePopup } from "../../redux/actionsCreators/actionsCrators";
+import {
+	matchPath,
+	useHistory,
+	useLocation,
+	useParams,
+	useRouteMatch,
+	withRouter,
+} from "react-router";
+// import { isVisiblePopup } from "../../redux/actionsCreators/actionsCrators";
+import { history } from "../../redux/reducers";
 
-export const Popup = ({ FragmentPopup }) => {
-	const dispatch = useDispatch();
+const Popup = ({ FragmentPopup, match }) => {
+	// const dispatch = useDispatch();
+	const { pathname } = history.location;
+	const { id } = useParams();
+
+	const pathRootPage = pathname.replace(`/${id}`, "");
+
+	const returnToRootPath = () => {
+		history.push(pathRootPage);
+	};
 
 	const isPopupVisibleOutSideClickMemo = useCallback(e => {
 		if (e.target.dataset.popup === "popup") {
-			dispatch(isVisiblePopup(false));
+			returnToRootPath();
 		}
 	}, []);
 
-	const isVisiblePopupMemo = useCallback(() => {
-		dispatch(isVisiblePopup(false));
-	}, []);
+	// const isVisiblePopupMemo = useCallback(() => {
+	// 	dispatch(isVisiblePopup(false));
+	// }, []);
 
 	return (
 		<div
@@ -25,7 +42,7 @@ export const Popup = ({ FragmentPopup }) => {
 			onClick={e => isPopupVisibleOutSideClickMemo(e)}
 		>
 			<div className="popup-window">
-				<div className="exit" onClick={isVisiblePopupMemo}>
+				<div className="exit" onClick={returnToRootPath}>
 					<button className="exit__btn"> &#10060;</button>
 				</div>
 				<FragmentPopup />
@@ -33,3 +50,5 @@ export const Popup = ({ FragmentPopup }) => {
 		</div>
 	);
 };
+
+export default withRouter(Popup);

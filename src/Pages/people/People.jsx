@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { ButtonLoadMore } from "../../components";
 import { bodyCardPeople } from "../../components/bodyCards/bodyCardPeople";
 import { GET_MORE_PEOPLE } from "../../redux/actions/actions";
-import { Popup } from "../../components/popup/Popup";
+import Popup from "../../components/popup/Popup";
 import { PeopleFragmenPopup } from "./PeopleFragmenPopup";
 import { ToastContainer } from "react-toastify";
 import { Cards } from "../../components/card/Cards";
@@ -14,14 +14,14 @@ export const People = () => {
 	const contenCards = useSelector(state => state.dataFromServer.people);
 	const { isVisiblePopup } = useSelector(state => state.loading);
 	const { isLoaded } = useSelector(state => state.loading);
-	const path = history.location.pathname;
+	const { pathname } = history.location;
 
 	return (
 		<main className="main-people">
 			<ToastContainer />
 			<Cards
 				name="name"
-				path={path}
+				path={pathname}
 				contenCards={contenCards}
 				BodyComponent={bodyCardPeople}
 			/>

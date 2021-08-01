@@ -7,16 +7,13 @@ import {
 import { history } from "../reducers";
 
 function* workerSetPrevClickedCard() {
-	const action = yield take(LOCATION_CHANGE);
-	const store = yield select(s => s);
+	// const action = yield take(LOCATION_CHANGE);
+	// const store = yield select(s => s);
 	// console.log("action", action.payload);
 	// console.log("srore", store);
-
 	// console.log("historty", history);
-
 	// const prevCardClicked = history.location.state?.prevCardClicked;
 	// // console.log("prevIN history", prevCardClicked);
-
 	// if (prevCardClicked instanceof Object) {
 	// 	yield put(setClickedCardtoStore(prevCardClicked));
 	// 	// console.log("workPrev");

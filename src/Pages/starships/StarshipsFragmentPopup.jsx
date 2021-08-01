@@ -2,7 +2,7 @@ import React from "react";
 import { PopupListItem } from "../../components/popup/PopupListItem";
 import { history } from "../../redux/reducers";
 
-export const StarshipsSpeciesPopup = () => {
+export const StarshipsFragmentPopup = () => {
 	const {
 		name,
 		model,
