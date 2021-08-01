@@ -14,7 +14,7 @@ export const PlanetsFragmentPopup = () => {
 		population,
 		residents,
 		films,
-	} = history.location.state;
+	} = history.location?.state;
 
 	return (
 		<>

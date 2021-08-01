@@ -25,6 +25,7 @@ export const Cards = ({ name, path, contenCards, BodyComponent }) => {
 		history.push({
 			pathname: path,
 			state: card,
+			search: `?selected=${card[name]}`,
 		});
 	};
 

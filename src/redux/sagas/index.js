@@ -10,6 +10,7 @@ import { watchLoadDataStarships } from "./getStarships";
 import { watchLoadMoreDataStarships } from "./getStarshipsLoadMore";
 import { watherLoadDataVehicles } from "./getVehicles";
 import { watchLoadMoreDataVehicles } from "./getVehiclesLoadMore";
+import { watchBrowserRedoUndo } from "./hidePupup";
 import { watchSetPrevClickedCard } from "./setPrevClickedCard";
 
 export default function* rootSaga() {
@@ -25,4 +26,5 @@ export default function* rootSaga() {
 	yield fork(watcherLoadDataSpecies);
 	yield fork(watcherLoadMoreDataSpecies);
 	yield fork(watchSetPrevClickedCard);
+	yield fork(watchBrowserRedoUndo);
 }

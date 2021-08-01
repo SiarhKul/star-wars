@@ -17,7 +17,7 @@ export const StarshipsSpeciesPopup = () => {
 		starship_class,
 		pilots,
 		films,
-	} = history.location.state;
+	} = history.location?.state;
 
 	return (
 		<>

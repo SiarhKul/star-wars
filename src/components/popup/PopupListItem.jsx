@@ -8,7 +8,7 @@ export const PopupListItem = ({ urls, name, path }) => {
 
 	useEffect(() => {
 		(async urls => {
-			const promises = urls.map(getSpecificResours);
+			const promises = urls?.map(getSpecificResours);
 			setResources(await Promise.all(promises));
 		})(urls);
 	}, []);
@@ -23,6 +23,7 @@ export const PopupListItem = ({ urls, name, path }) => {
 						to={{
 							pathname: path,
 							state: resours,
+							search: `?selected=${resours[name]}`,
 						}}
 					>
 						{resours[name]}
