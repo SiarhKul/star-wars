@@ -1,4 +1,3 @@
-//todo использовать useCallback
 import React, { useEffect, useState } from "react";
 import { getSpecificResours } from "../../API/getSpecificResours";
 import { Link } from "react-router-dom";
@@ -16,17 +15,16 @@ export const PopupListItem = ({ urls, name, path }) => {
 	return urls?.length === 0 ? (
 		<span>N/A</span>
 	) : (
-		resources?.map((resours, i) => {
+		resources?.map((card, i) => {
 			return (
 				<li key={urls[i]}>
 					<Link
 						to={{
-							pathname: path,
-							state: resours,
-							search: `?selected=${resours[name]}`,
+							pathname: `/${path}/${card[name]}`,
+							state: card,
 						}}
 					>
-						{resours[name]}
+						{card[name]}
 					</Link>
 				</li>
 			);

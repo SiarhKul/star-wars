@@ -10,7 +10,6 @@ import {
 
 export function* workerGetMoreSpecies() {
 	const pageNumber = counterPage("species");
-	console.log(pageNumber);
 	const data = yield call(getMoreResources, URL_GET_MORE_SPECIES, pageNumber);
 
 	yield put({ type: SET_SPECIES_TO_STORE, payload: data.results });

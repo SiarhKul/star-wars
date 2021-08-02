@@ -13,7 +13,6 @@ const initial = {
 	isLoadedStarships: false,
 	isLoadedVehicles: false,
 	isLoadedSpecies: false,
-	isVisiblePopup: false,
 };
 
 export const loading = (state = initial, action) => {
@@ -50,13 +49,6 @@ export const loading = (state = initial, action) => {
 			return {
 				...state,
 				isLoadedSpecies: true,
-			};
-		}
-
-		case IS_POPUP_LOADED: {
-			return {
-				...state,
-				isVisiblePopup: action.payload,
 			};
 		}
 

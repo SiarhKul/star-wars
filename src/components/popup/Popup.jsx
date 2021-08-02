@@ -2,20 +2,10 @@
 //todo нужно ли тут useCallback тк мы не передаем в дочерний компонент
 //todo к томуже у нас одни компонент где используется
 import React, { useCallback } from "react";
-import { useDispatch } from "react-redux";
-import {
-	matchPath,
-	useHistory,
-	useLocation,
-	useParams,
-	useRouteMatch,
-	withRouter,
-} from "react-router";
-// import { isVisiblePopup } from "../../redux/actionsCreators/actionsCrators";
+import { useParams, withRouter } from "react-router";
 import { history } from "../../redux/reducers";
 
-const Popup = ({ FragmentPopup, match }) => {
-	// const dispatch = useDispatch();
+const Popup = ({ FragmentPopup }) => {
 	const { pathname } = history.location;
 	const { id } = useParams();
 
@@ -30,10 +20,6 @@ const Popup = ({ FragmentPopup, match }) => {
 			returnToRootPath();
 		}
 	}, []);
-
-	// const isVisiblePopupMemo = useCallback(() => {
-	// 	dispatch(isVisiblePopup(false));
-	// }, []);
 
 	return (
 		<div

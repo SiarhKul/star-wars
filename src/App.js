@@ -30,7 +30,7 @@ const App = () => {
 						path="/people/:id"
 						component={() => <Popup FragmentPopup={PeopleFragmenPopup} />}
 					/>
-					<Route exact path="/people" component={People} />
+					<Route path="/people" component={People} />
 
 					<Route
 						path="/planets/:id"
