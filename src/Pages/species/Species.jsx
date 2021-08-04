@@ -2,7 +2,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import React from "react";
 import { ButtonLoadMore } from "../../components";
-import { Cards } from "../../components/card/Cards";
+import { Cards } from "../../components/cards/Cards";
 import { GET_MORE_SPECIES } from "../../redux/actions/actions";
 import { ToastContainer } from "react-toastify";
 import { bodyCardSpecies } from "../../components/bodyCards/bodyCardSpecies";

@@ -5,15 +5,14 @@ import React, { useCallback } from "react";
 import { useParams, withRouter } from "react-router";
 import { history } from "../../redux/reducers";
 
-const Popup = ({ FragmentPopup }) => {
+export const Popup = ({ FragmentPopup }) => {
 	const { pathname } = history.location;
 	const { id } = useParams();
-
 	const pathRootPage = pathname.replace(`/${id}`, "");
 
-	const returnToRootPath = () => {
+	const returnToRootPath = useCallback(() => {
 		history.push(pathRootPage);
-	};
+	}, []);
 
 	const isPopupVisibleOutSideClickMemo = useCallback(e => {
 		if (e.target.dataset.popup === "popup") {
@@ -25,7 +24,7 @@ const Popup = ({ FragmentPopup }) => {
 		<div
 			className="popup"
 			data-popup="popup"
-			onClick={e => isPopupVisibleOutSideClickMemo(e)}
+			onClick={isPopupVisibleOutSideClickMemo}
 		>
 			<div className="popup-window">
 				<div className="exit" onClick={returnToRootPath}>
@@ -36,5 +35,3 @@ const Popup = ({ FragmentPopup }) => {
 		</div>
 	);
 };
-
-export default withRouter(Popup);

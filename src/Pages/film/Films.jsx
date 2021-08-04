@@ -1,7 +1,7 @@
 import "react-toastify/dist/ReactToastify.css";
 
 import React from "react";
-import { Cards } from "../../components/card/Cards";
+import { Cards } from "../../components/cards/Cards";
 import { ToastContainer } from "react-toastify";
 import { bodyCardFilm } from "../../components/bodyCards/bodyCardFIlm";
 import { history } from "../../redux/reducers";

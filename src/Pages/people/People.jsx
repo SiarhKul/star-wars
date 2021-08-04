@@ -1,8 +1,8 @@
 import "react-toastify/dist/ReactToastify.css";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { ButtonLoadMore } from "../../components";
-import { Cards } from "../../components/card/Cards";
+import { Cards } from "../../components/cards/Cards";
 import { GET_MORE_PEOPLE } from "../../redux/actions/actions";
 import { ToastContainer } from "react-toastify";
 import { bodyCardPeople } from "../../components/bodyCards/bodyCardPeople";

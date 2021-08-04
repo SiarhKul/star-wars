@@ -10,7 +10,7 @@ import { history } from "./redux/reducers";
 import { ConnectedRouter } from "connected-react-router";
 import { Species } from "./Pages/species/Species";
 import { Home } from "./Pages/home/Home";
-import Popup from "./components/popup/Popup";
+import { Popup } from "./components/popup/Popup";
 import { PeopleFragmenPopup } from "./Pages/people/PeopleFragmenPopup";
 import { PlanetsFragmentPopup } from "./Pages/planets/PlanetsFragmentPopup";
 import { StarshipsFragmentPopup } from "./Pages/starships/StarshipsFragmentPopup";
