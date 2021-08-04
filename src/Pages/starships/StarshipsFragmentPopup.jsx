@@ -2,7 +2,7 @@ import React from "react";
 import { PopupListItem } from "../../components/popup/PopupListItem";
 import { history } from "../../redux/reducers";
 
-export const StarshipsSpeciesPopup = () => {
+export const StarshipsFragmentPopup = () => {
 	const {
 		name,
 		model,
@@ -17,7 +17,7 @@ export const StarshipsSpeciesPopup = () => {
 		starship_class,
 		pilots,
 		films,
-	} = history.location.state;
+	} = history.location?.state;
 
 	return (
 		<>

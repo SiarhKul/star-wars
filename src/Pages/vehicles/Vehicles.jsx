@@ -1,29 +1,30 @@
+import "react-toastify/dist/ReactToastify.css";
+
 import React from "react";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import { ButtonLoadMore } from "../../components";
 import { bodyCardVehicles } from "../../components/bodyCards/bodyCardVehicles";
-import { Cards } from "../../components/card/Cards";
-import { Popup } from "../../components/popup/Popup";
+import { Cards } from "../../components/cards/Cards";
 
 import { GET_MORE_VEHICLES } from "../../redux/actions/actions";
-import { VehiclesFragmentPopup } from "./VehiclesFragmentPopup";
+import { history } from "../../redux/reducers";
 
 export const Vehicles = () => {
 	const contenCards = useSelector(state => state.dataFromServer.vehicles);
 	const { isLoadedVehicles } = useSelector(state => state.loading);
-	const { isVisiblePopup } = useSelector(state => state.loading);
+	const { pathname } = history.location;
 
 	return (
 		<main>
+			<ToastContainer />
 			<Cards
-				contenCards={contenCards}
 				name="name"
+				path={pathname}
+				contenCards={contenCards}
 				BodyComponent={bodyCardVehicles}
 			/>
 			{!isLoadedVehicles && <ButtonLoadMore action={GET_MORE_VEHICLES} />}
-			{isVisiblePopup && <Popup FragmentPopup={VehiclesFragmentPopup} />}
-			<ToastContainer />
 		</main>
 	);
 };

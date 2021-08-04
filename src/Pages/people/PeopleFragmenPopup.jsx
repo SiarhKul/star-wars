@@ -15,7 +15,7 @@ export const PeopleFragmenPopup = () => {
 		films,
 		vehicles,
 		starships,
-	} = history.location.state;
+	} = history.location?.state;
 
 	return (
 		<>

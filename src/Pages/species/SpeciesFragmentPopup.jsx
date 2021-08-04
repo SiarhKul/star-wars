@@ -14,7 +14,7 @@ export const SpeciesFragmentPopup = () => {
 		language,
 		people,
 		films,
-	} = history.location.state;
+	} = history.location?.state;
 
 	return (
 		<>

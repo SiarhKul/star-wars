@@ -1,5 +1,4 @@
 import {
-	SET_CLICKED_CARD_TO_STORE,
 	SET_FILMS_TO_STORE,
 	SET_PEOPLE_TO_STORE,
 	SET_PLANETS_TO_STORE,
@@ -15,7 +14,6 @@ const initialState = {
 	films: [],
 	vehicles: [],
 	species: [],
-	clickedCard: {},
 };
 
 export const fetch = (state = initialState, action) => {
@@ -59,13 +57,6 @@ export const fetch = (state = initialState, action) => {
 			return {
 				...state,
 				species: [...state.species, ...action.payload],
-			};
-		}
-
-		case SET_CLICKED_CARD_TO_STORE: {
-			return {
-				...state,
-				clickedCard: { ...action.payload },
 			};
 		}
 		default:
