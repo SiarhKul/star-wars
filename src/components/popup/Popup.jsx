@@ -1,8 +1,5 @@
-//todo использовать useCallback
-//todo нужно ли тут useCallback тк мы не передаем в дочерний компонент
-//todo к томуже у нас одни компонент где используется
 import React, { useCallback } from "react";
-import { useParams, withRouter } from "react-router";
+import { useParams } from "react-router";
 import { history } from "../../redux/reducers";
 
 export const Popup = ({ FragmentPopup }) => {

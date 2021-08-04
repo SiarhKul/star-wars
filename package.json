@@ -12,6 +12,7 @@
 		"start": "cross-env NODE_ENV=development webpack serve --mode development"
 	},
 	"dependencies": {
+		"@emotion/babel-plugin": "^11.3.0",
 		"axios": "^0.21.1",
 		"clean-webpack-plugin": "^4.0.0-alpha.0",
 		"connected-react-router": "^6.9.1",
@@ -24,6 +25,7 @@
 		"react-hot-loader": "^4.13.0",
 		"react-router": "^5.2.0",
 		"react-router-dom": "^5.2.0",
+		"react-spinners": "^0.11.0",
 		"react-toastify": "^7.0.4",
 		"redux-devtools-extension": "^2.13.9",
 		"redux-logger": "^3.0.6"

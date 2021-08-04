@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getSpecificResours } from "../../API/getSpecificResours";
 import { Link } from "react-router-dom";
+import { Spinner } from "../loader/Spinner";
 
 export const PopupListItem = ({ urls, name, path }) => {
 	const [resources, setResources] = useState([]);
@@ -12,22 +13,24 @@ export const PopupListItem = ({ urls, name, path }) => {
 		})(urls);
 	}, []);
 
-	return urls?.length === 0 ? (
-		<span>N/A</span>
-	) : (
-		resources?.map((card, i) => {
-			return (
-				<li key={urls[i]}>
-					<Link
-						to={{
-							pathname: `/${path}/${card[name]}`,
-							state: card,
-						}}
-					>
-						{card[name]}
-					</Link>
-				</li>
-			);
-		})
-	);
+	if (urls?.length === 0) {
+		return <span>N/A</span>;
+	}
+
+	if (resources.length === 0) {
+		return <Spinner />;
+	} else {
+		return resources?.map((card, i) => (
+			<li key={urls[i]}>
+				<Link
+					to={{
+						pathname: `/${path}/${card[name]}`,
+						state: card,
+					}}
+				>
+					{card[name]}
+				</Link>
+			</li>
+		));
+	}
 };
