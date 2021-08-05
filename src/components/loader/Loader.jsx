@@ -7,8 +7,8 @@ export const Loader = () => {
 	const { isDataLoadedFromServer } = useSelector(state => state.loading);
 	const override = css`
 		width: 100%;
-		height: 15px;
-		border-color: red;
+		height: 5px;
+		background-color: red;
 	`;
 	return (
 		<div className="spinner">
