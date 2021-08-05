@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getSpecificResours } from "../../API/getSpecificResours";
 import { Link } from "react-router-dom";
-import { Spinner } from "../loader/Spinner";
+import { Spinner } from "../spinner/Spinner";
 
 export const PopupListItem = ({ urls, name, path }) => {
 	const [resources, setResources] = useState([]);

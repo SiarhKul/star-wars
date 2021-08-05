@@ -1,7 +1,7 @@
 import {
+	iS_DATA_LOADED_FROM_SERVER,
 	IS_PEOPLE_LOADED,
 	IS_PLANETS_LOADED,
-	IS_POPUP_LOADED,
 	IS_SPECIES_SPECIES,
 	IS_STARSHIPS_LOADED,
 	IS_VEHICLES_LOADED,
@@ -13,6 +13,7 @@ const initial = {
 	isLoadedStarships: false,
 	isLoadedVehicles: false,
 	isLoadedSpecies: false,
+	isDataLoadedFromServer: true,
 };
 
 export const loading = (state = initial, action) => {
@@ -49,6 +50,13 @@ export const loading = (state = initial, action) => {
 			return {
 				...state,
 				isLoadedSpecies: true,
+			};
+		}
+
+		case iS_DATA_LOADED_FROM_SERVER: {
+			return {
+				...state,
+				isDataLoadedFromServer: false,
 			};
 		}
 

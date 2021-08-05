@@ -1,12 +1,12 @@
-import { IS_POPUP_LOADED, SET_CLICKED_CARD_TO_STORE } from "../actions/actions";
+import {
+	iS_DATA_LOADED_FROM_SERVER,
+	SET_PEOPLE_TO_STORE,
+} from "../actions/actions";
 
-export const isVisiblePopup = trueOrFalse => {
-	return { type: IS_POPUP_LOADED, payload: trueOrFalse };
+export const isDataLoadedFromServer = () => {
+	return { type: iS_DATA_LOADED_FROM_SERVER, payload: false };
 };
 
-export const setClickedCardtoStore = allInfoCard => {
-	return {
-		type: SET_CLICKED_CARD_TO_STORE,
-		payload: allInfoCard,
-	};
+export const setPeopleToStore = dataFromServer => {
+	return { type: SET_PEOPLE_TO_STORE, payload: dataFromServer };
 };
