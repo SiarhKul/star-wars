@@ -8,6 +8,7 @@ import { ToastContainer } from "react-toastify";
 import { bodyCardPlanets } from "../../components/bodyCards/bodyCardPlanets";
 import { history } from "../../redux/reducers";
 import { useSelector } from "react-redux";
+import { Loader } from "../../components/loader/Loader";
 
 export const Planets = () => {
 	const contenCards = useSelector(state => state.dataFromServer.planets);
@@ -16,6 +17,7 @@ export const Planets = () => {
 
 	return (
 		<main className="main-people">
+			<Loader />
 			<ToastContainer />
 			<Cards
 				contenCards={contenCards}

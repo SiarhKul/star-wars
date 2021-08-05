@@ -9,6 +9,7 @@ import { Cards } from "../../components/cards/Cards";
 
 import { GET_MORE_VEHICLES } from "../../redux/actions/actions";
 import { history } from "../../redux/reducers";
+import { Loader } from "../../components/loader/Loader";
 
 export const Vehicles = () => {
 	const contenCards = useSelector(state => state.dataFromServer.vehicles);
@@ -17,6 +18,7 @@ export const Vehicles = () => {
 
 	return (
 		<main>
+			<Loader />
 			<ToastContainer />
 			<Cards
 				name="name"
