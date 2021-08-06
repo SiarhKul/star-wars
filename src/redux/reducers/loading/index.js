@@ -7,7 +7,7 @@ import {
 	IS_VEHICLES_LOADED,
 } from "../../actions/actions";
 
-const initial = {
+const initialLoadingState = {
 	isLoaded: false,
 	isLoadedPlanets: false,
 	isLoadedStarships: false,
@@ -16,7 +16,7 @@ const initial = {
 	isDataLoadedFromServer: true,
 };
 
-export const loading = (state = initial, action) => {
+export const loading = (state = initialLoadingState, action) => {
 	switch (action.type) {
 		case IS_PEOPLE_LOADED: {
 			return {

@@ -5,7 +5,7 @@ import { URL_GET_PEOPLE } from "../../API/urls";
 import {
 	isDataLoadedFromServer,
 	setPeopleToStore,
-} from "../actionsCreators/actionsCrators";
+} from "../actionsCreators/actionsCreators";
 
 function* workerGetPeople() {
 	const data = yield call(getResources, URL_GET_PEOPLE);
