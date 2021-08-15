@@ -64,9 +64,3 @@ export const counterPage = (function () {
 		}
 	};
 })();
-
-export const clickedCard = (arr, filteredElem, name) => {
-	return arr.find(elem => {
-		return elem[name] === filteredElem;
-	});
-};
