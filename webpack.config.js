@@ -10,7 +10,7 @@ const filename = ext => (isDev ? `bundle.${ext}` : `bundle.[fullhash].${ext}`);
 const config = {
 	mode: "development",
 
-	entry: ["@babel/polyfill", "react-hot-loader/patch", "./src/index.js"],
+	entry: [/* "@babel/polyfill", */ "react-hot-loader/patch", "./src/index.js"],
 
 	output: {
 		path: path.resolve(__dirname, "dist"),

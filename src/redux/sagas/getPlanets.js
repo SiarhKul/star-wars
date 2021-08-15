@@ -3,10 +3,12 @@ import { put, call, take, fork, select } from "redux-saga/effects";
 import { getResources } from "../../API/getResources";
 import { URL_GET_PLANETS } from "../../API/urls";
 import { SET_PLANETS_TO_STORE } from "../actions/actions";
+import { isDataLoadedFromServer } from "../actionsCreators/actionsCreators";
 
 export function* workerGetPlanets() {
 	const data = yield call(getResources, URL_GET_PLANETS);
 	yield put({ type: SET_PLANETS_TO_STORE, payload: data.results });
+	yield put(isDataLoadedFromServer());
 }
 
 export function* watchLoadDataPlanets() {
