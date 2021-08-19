@@ -6,11 +6,26 @@
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
+	"jest": {
+		"verbose": true,
+		"collectCoverage": true,
+		"moduleNameMapper": {
+			"\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+			"\\.(css|less|scss)$": "identity-obj-proxy"
+		},
+		"setupFilesAfterEnv": [
+			"<rootDir>/setupTests.js"
+		],
+		"snapshotSerializers": [
+			"./node_modules/enzyme-to-json/serializer"
+		]
+	},
 	"scripts": {
 		"build-dev": "cross-env NODE_ENV=development webpack --mode development",
 		"build-prod": "cross-env NODE_ENV=production webpack --mode production",
 		"start": "cross-env NODE_ENV=development webpack serve --mode development",
-		"test": "jest",
+		"test-one": "jest",
+		"test": "cross-env NODE_ENV=testing jest",
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage"
 	},
