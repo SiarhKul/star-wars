@@ -24,29 +24,25 @@ describe("Is the name-to-abbreviation conversion correct", () => {
 		response = {
 			data: { results },
 		};
+
+		axios.get.mockResolvedValueOnce(response);
+	});
+	it("has abbr 2 symbol", async () => {
+		const resp = await getResources(URL_GET_PEOPLE);
+
+		const abbr = getAbbreviation(resp.results[0].name);
+		expect(abbr.length).toBe(2);
 	});
 
-	it("has abbr 2 symbol", () => {
-		axios.get.mockReturnValue(response);
-		return getResources(URL_GET_PEOPLE).then(data => {
-			const abbr = getAbbreviation(data.results[0].name);
-			expect(abbr.length).toBe(2);
-		});
+	it("has abbr 1 symbol", async () => {
+		const resp = await getResources(URL_GET_PEOPLE);
+		const abbr = getAbbreviation(resp.results[1].name);
+		expect(abbr.length).toBe(1);
 	});
 
-	it("has abbr 1 symbol", () => {
-		axios.get.mockReturnValue(response);
-		return getResources(URL_GET_PEOPLE).then(data => {
-			const abbr = getAbbreviation(data.results[1].name);
-			expect(abbr.length).toBe(1);
-		});
-	});
-
-	it("is abbr a string", () => {
-		axios.get.mockReturnValue(response);
-		return getResources(URL_GET_PEOPLE).then(data => {
-			const abbr = getAbbreviation(data.results[1].name);
-			expect(typeof abbr).toBe("string");
-		});
+	it("is abbr a string", async () => {
+		const resp = await getResources(URL_GET_PEOPLE);
+		const abbr = getAbbreviation(resp.results[1].name);
+		expect(typeof abbr).toBe("string");
 	});
 });

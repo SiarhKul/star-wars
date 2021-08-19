@@ -7,5 +7,6 @@ export const getResources = async url => {
 		return data;
 	} catch (error) {
 		handlerError(error.message);
+		return error.message;
 	}
 };
