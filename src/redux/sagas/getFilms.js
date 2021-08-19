@@ -7,9 +7,10 @@ import { SET_FILMS_TO_STORE } from "../actions/actions";
 import { isDataLoadedFromServer } from "../actionsCreators/actionsCreators";
 
 function* workerGetFilms() {
+	yield put(isDataLoadedFromServer(true));
 	const data = yield call(getResources, URL_GET_FILMS);
 	yield put({ type: SET_FILMS_TO_STORE, payload: data.results });
-	yield put(isDataLoadedFromServer());
+	yield put(isDataLoadedFromServer(false));
 }
 
 export function* watchLoadDataFilms() {

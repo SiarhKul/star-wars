@@ -6,9 +6,10 @@ import { SET_VEHICLES_TO_STORE } from "../actions/actions";
 import { isDataLoadedFromServer } from "../actionsCreators/actionsCreators";
 
 function* workertGetVehicles() {
+	yield put(isDataLoadedFromServer(true));
 	const data = yield call(getResources, URL_GET_VEHICLE);
 	yield put({ type: SET_VEHICLES_TO_STORE, payload: data.results });
-	yield put(isDataLoadedFromServer());
+	yield put(isDataLoadedFromServer(false));
 }
 
 export function* watherLoadDataVehicles() {

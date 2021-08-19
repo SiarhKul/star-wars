@@ -56,7 +56,7 @@ export const loading = (state = initialLoadingState, action) => {
 		case iS_DATA_LOADED_FROM_SERVER: {
 			return {
 				...state,
-				isDataLoadedFromServer: false,
+				isDataLoadedFromServer: action.payload,
 			};
 		}
 

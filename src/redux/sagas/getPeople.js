@@ -2,15 +2,14 @@ import { LOCATION_CHANGE } from "connected-react-router";
 import { put, call, take, fork, select } from "redux-saga/effects";
 import { getResources } from "../../API/getResources";
 import { URL_GET_PEOPLE } from "../../API/urls";
-import {
-	isDataLoadedFromServer,
-	setPeopleToStore,
-} from "../actionsCreators/actionsCreators";
+import { SET_PEOPLE_TO_STORE } from "../actions/actions";
+import { isDataLoadedFromServer } from "../actionsCreators/actionsCreators";
 
 function* workerGetPeople() {
 	const data = yield call(getResources, URL_GET_PEOPLE);
-	yield put(setPeopleToStore(data.results));
-	yield put(isDataLoadedFromServer());
+
+	yield put({ type: SET_PEOPLE_TO_STORE, payload: data.results });
+	yield put(isDataLoadedFromServer(false));
 }
 
 export function* watchLoadDataPeople() {

@@ -6,9 +6,11 @@ import { SET_PLANETS_TO_STORE } from "../actions/actions";
 import { isDataLoadedFromServer } from "../actionsCreators/actionsCreators";
 
 export function* workerGetPlanets() {
+	yield put(isDataLoadedFromServer(true));
+
 	const data = yield call(getResources, URL_GET_PLANETS);
 	yield put({ type: SET_PLANETS_TO_STORE, payload: data.results });
-	yield put(isDataLoadedFromServer());
+	yield put(isDataLoadedFromServer(false));
 }
 
 export function* watchLoadDataPlanets() {

@@ -6,9 +6,10 @@ import { SET_STARSHIPS_TO_STORE } from "../actions/actions";
 import { isDataLoadedFromServer } from "../actionsCreators/actionsCreators";
 
 function* workerGetStarships() {
+	yield put(isDataLoadedFromServer(true));
 	const data = yield call(getResources, URL_GET_STARSHIPS);
 	yield put({ type: SET_STARSHIPS_TO_STORE, payload: data.results });
-	yield put(isDataLoadedFromServer());
+	yield put(isDataLoadedFromServer(false));
 }
 
 export function* watchLoadDataStarships() {
