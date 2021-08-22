@@ -7,8 +7,8 @@ import {
 	IS_VEHICLES_LOADED,
 } from "../../actions/actions";
 
-const initialLoadingState = {
-	isLoaded: false,
+export const initialLoadingState = {
+	isLoadedPeople: false,
 	isLoadedPlanets: false,
 	isLoadedStarships: false,
 	isLoadedVehicles: false,
@@ -21,7 +21,7 @@ export const loading = (state = initialLoadingState, action) => {
 		case IS_PEOPLE_LOADED: {
 			return {
 				...state,
-				isLoaded: true,
+				isLoadedPeople: true,
 			};
 		}
 

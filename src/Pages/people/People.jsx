@@ -12,7 +12,7 @@ import { Loader } from "../../components/loader/Loader";
 
 export const People = () => {
 	const contenCards = useSelector(state => state.dataFromServer.people);
-	const { isLoaded } = useSelector(state => state.loading);
+	const { isLoadedPeople } = useSelector(state => state.loading);
 	const { pathname } = history.location;
 
 	return (
@@ -25,7 +25,7 @@ export const People = () => {
 				contenCards={contenCards}
 				BodyComponent={bodyCardPeople}
 			/>
-			{!isLoaded && <ButtonLoadMore action={GET_MORE_PEOPLE} />}
+			{!isLoadedPeople && <ButtonLoadMore action={GET_MORE_PEOPLE} />}
 		</main>
 	);
 };
