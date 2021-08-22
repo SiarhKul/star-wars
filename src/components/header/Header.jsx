@@ -18,7 +18,13 @@ export const Header = () => {
 			<nav className="nav">
 				<ul className="nav-list">
 					<li className="nav-list__item">
-						<NavLink to="/" className="nav-list__link">
+						<NavLink
+							className="nav-list__link"
+							activeClassName="selected"
+							exact
+							to="/"
+						>
+							{/* &#127968; */}
 							<FaHome />
 						</NavLink>
 					</li>
@@ -27,10 +33,10 @@ export const Header = () => {
 						return (
 							<li key={item} className="nav-list__item">
 								<NavLink
-									className="nav-list__link"
 									activeClassName="selected"
-									to={item.toLowerCase()}
+									className="nav-list__link"
 									exact
+									to={item.toLowerCase()}
 								>
 									{item}
 								</NavLink>

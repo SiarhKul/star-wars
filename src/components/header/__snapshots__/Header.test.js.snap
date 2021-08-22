@@ -19,7 +19,9 @@ exports[`Test 'Header' component should component render 1`] = `
         className="nav-list__item"
       >
         <NavLink
+          activeClassName="selected"
           className="nav-list__link"
+          exact={true}
           to="/"
         >
           <FaHome />

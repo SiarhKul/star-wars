@@ -25,6 +25,7 @@ const App = () => {
 				<Header />
 				<Switch>
 					<Route path="/" component={Home} exact />
+
 					<Route
 						path="/people/:id"
 						component={() => <Popup FragmentPopup={PeopleFragmenPopup} />}
