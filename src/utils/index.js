@@ -16,16 +16,20 @@ export const getAbbreviation = str => {
 	if (!/\s|-/.test(str)) {
 		return str[0].toUpperCase();
 	}
+	const formatedStr = str.match(/[a-zA-Z0-9]/g).join(""); //?
 
-	const formatedStr = str.match(/[a-zA-Z0-9]/g).join("");
 	const hasNumber = /[0-9]/.test(formatedStr);
-	const abbrFullNamePerson = formatedStr.match(/[A-Z]/g) || ["U"];
+
+	const abbrFullNamePerson = formatedStr.match(/[A-Z]/g);
 	const abbrShortNamePerson =
 		abbrFullNamePerson[0] + abbrFullNamePerson[abbrFullNamePerson.length - 1];
-	return hasNumber ? formatedStr.slice(0, 2) : abbrShortNamePerson;
-};
 
-export const counterPage = (function () {
+	const abbrShortNamePersonHasNumber = formatedStr.slice(0, 2);
+	return hasNumber ? abbrShortNamePersonHasNumber : abbrShortNamePerson;
+};
+// console.log(getAbbreviation("J3ke-Sky"));
+
+export const counterPage = (() => {
 	const counterPage = {
 		people: 1,
 		planets: 1,
@@ -34,7 +38,7 @@ export const counterPage = (function () {
 		species: 1,
 	};
 
-	return function (key) {
+	return key => {
 		switch (key) {
 			case "people": {
 				counterPage.people += 1;
@@ -60,7 +64,7 @@ export const counterPage = (function () {
 				return counterPage.species;
 			}
 			default:
-				break;
+				return null;
 		}
 	};
 })();

@@ -18,14 +18,14 @@
 		],
 		"snapshotSerializers": [
 			"./node_modules/enzyme-to-json/serializer"
-		]
+		],
+		"coverageProvider": "babel"
 	},
 	"scripts": {
-		"build-dev": "cross-env NODE_ENV=development webpack --mode development",
-		"build-prod": "cross-env NODE_ENV=production webpack --mode production",
+		"build:dev": "cross-env NODE_ENV=development webpack --mode development",
+		"build:prod": "cross-env NODE_ENV=production webpack --mode production",
 		"start": "cross-env NODE_ENV=development webpack serve --mode development",
-		"test-one": "jest",
-		"test": "cross-env NODE_ENV=testing jest",
+		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage"
 	},
@@ -33,6 +33,7 @@
 		"@babel/plugin-transform-modules-commonjs": "^7.15.0",
 		"@emotion/babel-plugin": "^11.3.0",
 		"@types/enzyme": "^3.10.9",
+		"@types/jest": "^27.0.1",
 		"@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
 		"axios": "^0.21.1",
 		"clean-webpack-plugin": "^4.0.0-alpha.0",

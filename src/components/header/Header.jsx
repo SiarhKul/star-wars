@@ -17,9 +17,12 @@ export const Header = () => {
 			<div className="logo"> Star Wars</div>
 			<nav className="nav">
 				<ul className="nav-list">
-					<NavLink to="/" className="nav-list__link">
-						<FaHome />
-					</NavLink>
+					<li className="nav-list__item">
+						<NavLink to="/" className="nav-list__link">
+							<FaHome />
+						</NavLink>
+					</li>
+
 					{menuItems.map(item => {
 						return (
 							<li key={item} className="nav-list__item">

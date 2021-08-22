@@ -4,8 +4,8 @@ import { URL_GET_PEOPLE } from "./urls";
 
 jest.mock("axios");
 
-describe("#fetchBundlesFromApi", () => {
-	it("returns data from API", async () => {
+describe("tests of function 'getResources'", () => {
+	it(" should function returns data from API", async () => {
 		let results = [
 			{
 				mass: "77",
@@ -20,16 +20,17 @@ describe("#fetchBundlesFromApi", () => {
 		let response = {
 			data: { results },
 		};
+
 		axios.get.mockResolvedValueOnce(response);
 		const fetchedBundles = await getResources(URL_GET_PEOPLE);
 		expect(fetchedBundles.results).toEqual(results);
 	});
 
-	it("redirects on failure", async () => {
+	it("should function excepts error", async () => {
 		const message = "Network Error";
 		axios.get.mockRejectedValueOnce(new Error(message));
 
 		const result = await getResources(URL_GET_PEOPLE);
-		expect(result).toEqual("Network Error");
+		expect(result).toEqual(message);
 	});
 });

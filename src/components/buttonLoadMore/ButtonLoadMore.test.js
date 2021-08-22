@@ -13,9 +13,7 @@ describe("Test 'ButtonLoadMore' component", function () {
 	};
 
 	beforeEach(() => {
-		// Mock useDispatch hook
 		spyOnUseDispatch = jest.spyOn(redux, "useDispatch");
-		// Mock dispatch function returned from useDispatch
 		mockDispatch = jest.fn();
 		spyOnUseDispatch.mockReturnValue(mockDispatch);
 	});
@@ -29,7 +27,7 @@ describe("Test 'ButtonLoadMore' component", function () {
 		expect(component).toMatchSnapshot();
 	});
 
-	it(" dog 'ButtonLoadMore' have a className '.btn-load-more'", () => {
+	it(" do 'ButtonLoadMore' have a className '.btn-load-more'", () => {
 		const component = shallow(<ButtonLoadMore />);
 		const wrapper = component.find(".btn-load-more");
 		expect(wrapper).toHaveLength(1);
@@ -38,7 +36,6 @@ describe("Test 'ButtonLoadMore' component", function () {
 	it("should click on button", () => {
 		const component = shallow(<ButtonLoadMore action={action} />);
 		const btn = component.find(".btn-load-more");
-		// console.log(btn.invoke("onClick")());
 		btn.simulate("click");
 		expect(mockDispatch.mock.calls.length).toBe(1);
 	});
