@@ -1,4 +1,4 @@
-import { initialLoadingState, loading } from ".";
+import { initialLoadingState, loadingReducer } from ".";
 import {
 	iS_DATA_LOADED_FROM_SERVER,
 	IS_PEOPLE_LOADED,
@@ -8,7 +8,7 @@ import {
 	IS_VEHICLES_LOADED,
 } from "../../actions/actions";
 
-describe("loading reduser", () => {
+describe("Test loadingReducer", () => {
 	it("should dispatch actions", () => {
 		const actions = [
 			{
@@ -33,17 +33,17 @@ describe("loading reduser", () => {
 			},
 		];
 
-		actions.forEach(ele => {
-			expect(loading(initialLoadingState, ele.action)).toEqual({
+		actions.forEach(el => {
+			expect(loadingReducer(initialLoadingState, el.action)).toEqual({
 				...initialLoadingState,
-				...ele.returnValue,
+				...el.returnValue,
 			});
 		});
 	});
 
 	it("should toggle action to 'ON' after fetching data from server ", () => {
 		const action = { type: iS_DATA_LOADED_FROM_SERVER, payload: false };
-		expect(loading(initialLoadingState, action)).toEqual({
+		expect(loadingReducer(initialLoadingState, action)).toEqual({
 			...initialLoadingState,
 			isDataLoadedFromServer: false,
 		});
@@ -59,7 +59,7 @@ describe("loading reduser", () => {
 			isDataLoadedFromServer: false,
 		};
 		const action = { type: iS_DATA_LOADED_FROM_SERVER, payload: true };
-		expect(loading(prevLoadingState, action)).toEqual({
+		expect(loadingReducer(prevLoadingState, action)).toEqual({
 			...prevLoadingState,
 			isDataLoadedFromServer: true,
 		});

@@ -16,7 +16,7 @@ export const initialLoadingState = {
 	isDataLoadedFromServer: true,
 };
 
-export const loading = (state = initialLoadingState, action) => {
+export const loadingReducer = (state = initialLoadingState, action) => {
 	switch (action.type) {
 		case IS_PEOPLE_LOADED: {
 			return {

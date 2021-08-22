@@ -1,14 +1,14 @@
 import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 import { createBrowserHistory } from "history";
-import { loading } from "./loading";
-import { fetch } from "./fetch";
+import { loadingReducer } from "./loading";
+import { fetchReducer } from "./fetch";
 
 export const history = createBrowserHistory();
 
 const rootReducer = combineReducers({
-	dataFromServer: fetch,
-	loading: loading,
+	dataFromServer: fetchReducer,
+	loading: loadingReducer,
 	router: connectRouter(history),
 });
 

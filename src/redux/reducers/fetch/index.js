@@ -7,7 +7,7 @@ import {
 	SET_VEHICLES_TO_STORE,
 } from "../../actions/actions";
 
-const initialState = {
+export const initialFetchState = {
 	people: [],
 	planets: [],
 	starships: [],
@@ -16,7 +16,7 @@ const initialState = {
 	species: [],
 };
 
-export const fetch = (state = initialState, action) => {
+export const fetchReducer = (state = initialFetchState, action) => {
 	switch (action.type) {
 		case SET_PEOPLE_TO_STORE: {
 			return {
