@@ -27,7 +27,6 @@ export const getAbbreviation = str => {
 	const abbrShortNamePersonHasNumber = formatedStr.slice(0, 2);
 	return hasNumber ? abbrShortNamePersonHasNumber : abbrShortNamePerson;
 };
-// console.log(getAbbreviation("J3ke-Sky"));
 
 export const counterPage = (() => {
 	const counterPage = {

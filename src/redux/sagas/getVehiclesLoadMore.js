@@ -17,8 +17,6 @@ function* workerGetMoreVehicles() {
 	if (typeof data.next !== "string") {
 		yield put({ type: IS_VEHICLES_LOADED });
 	}
-
-	console.log(data);
 }
 
 export function* watchLoadMoreDataVehicles() {

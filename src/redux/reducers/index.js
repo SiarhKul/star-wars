@@ -5,6 +5,7 @@ import { loadingReducer } from "./loading";
 import { fetchReducer } from "./fetch";
 
 export const history = createBrowserHistory();
+console.log(history);
 
 const rootReducer = combineReducers({
 	dataFromServer: fetchReducer,

@@ -25,7 +25,6 @@ describe("Is the name-to-abbreviation conversion correct", () => {
 		response = {
 			data: { results },
 		};
-
 		axios.get.mockResolvedValueOnce(response);
 	});
 

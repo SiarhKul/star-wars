@@ -4,7 +4,7 @@ import * as redux from "react-redux";
 import { ButtonLoadMore } from "..";
 import { GET_MORE_PEOPLE } from "../../redux/actions/actions";
 
-describe("Test 'ButtonLoadMore' component", function () {
+describe("Test 'ButtonLoadMore' component", () => {
 	let spyOnUseDispatch;
 	let mockDispatch;
 
