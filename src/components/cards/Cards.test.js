@@ -1,5 +1,6 @@
 import { shallow } from "enzyme";
 import React from "react";
+import { Card } from "../card/Card";
 import { Cards } from "./Cards";
 
 jest.mock("history", () => {
@@ -11,14 +12,13 @@ jest.mock("history", () => {
 });
 
 describe("Test Cards component", () => {
+	const cards = () => shallow(<Cards {...props} />);
 	const props = {
 		name: "name",
 		path: "/planets",
-		uniqueName: "namePerson",
-		contenCards: [{}],
+		contenCards: [{ name: "Luke Skywalker" }],
 		BodyComponent: jest.fn(),
 	};
-	const cards = () => shallow(<Cards {...props} />);
 	let component;
 
 	beforeEach(() => {
@@ -30,7 +30,6 @@ describe("Test Cards component", () => {
 	});
 
 	it("Does 'Test' have component Cards", () => {
-		console.log(component.debug());
-		expect(component.find("Card")).toHaveLength(1);
+		expect(component.find(Card)).toHaveLength(1);
 	});
 });

@@ -1,4 +1,17 @@
-const Enzyme = require("enzyme");
-const Adapter = require("@wojtekmaj/enzyme-adapter-react-17");
-// const Adapter = require("enzyme-adapter-react-16");
+import Enzyme from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 Enzyme.configure({ adapter: new Adapter() });
+
+import { shallow } from "enzyme";
+import { render } from "enzyme";
+import { mount } from "enzyme";
+import toJson from "enzyme-to-json";
+
+global.shallow = shallow;
+global.render = render;
+global.mount = mount;
+global.toJson = toJson;
+
+// console.error = message => {
+// 	throw new Error(message);
+// };

@@ -6,9 +6,15 @@ exports[`Test Cards component should render component  1`] = `
 >
   <Memo()
     BodyComponent={[MockFunction]}
-    card={Object {}}
+    card={
+      Object {
+        "name": "Luke Skywalker",
+      }
+    }
+    key="Luke Skywalker"
     onUniqueQueryParam={[Function]}
     path="/planets"
+    uniqueName="Luke Skywalker"
   />
 </div>
 `;

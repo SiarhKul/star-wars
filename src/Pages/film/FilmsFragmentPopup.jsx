@@ -15,7 +15,6 @@ export const FilmsFragmentPopup = () => {
 		starships,
 		species,
 	} = history.location?.state;
-
 	return (
 		<div className="popup-fragment">
 			<div className="name-wrapper">
