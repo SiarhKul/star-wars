@@ -11,8 +11,8 @@ import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
 
 export const People = () => {
-	const contenCards = useSelector(state => state.dataFromServer.people);
 	const { isLoadedPeople } = useSelector(state => state.loading);
+	const contenCards = useSelector(state => state.dataFromServer.people);
 	const { pathname } = history.location;
 
 	return (

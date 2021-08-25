@@ -1,5 +1,4 @@
 import React from "react";
-import { shallow } from "enzyme";
 import { Films } from "./Films.jsx";
 import * as redux from "react-redux";
 
@@ -13,7 +12,7 @@ jest.mock("history", () => {
 	};
 });
 
-describe("Test Films component", () => {
+describe("Test <Films/>", () => {
 	const films = () => shallow(<Films />);
 	let component;
 	let spyOnUseSelector;
@@ -23,15 +22,19 @@ describe("Test Films component", () => {
 		component = films();
 	});
 
-	it("should render Loader component", () => {
+	it("render snapshot <Films/>", () => {
+		expect(component).toMatchSnapshot();
+	});
+
+	it("should render <Films/>", () => {
 		expect(component.find("Loader")).toHaveLength(1);
 	});
 
-	it("should render alert message", () => {
+	it("should render alert message in <Films/>", () => {
 		expect(component.find("ToastContainer")).toHaveLength(1);
 	});
 
-	it("should render Cards component", () => {
+	it("should render Cards component in <Films/>", () => {
 		expect(component.find("Cards")).toHaveLength(1);
 	});
 });

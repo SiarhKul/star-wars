@@ -13,9 +13,6 @@ describe("<Home/>", () => {
 	});
 
 	it("should <Home/> has image", () => {
-		// const r = component.find("img");
-		// console.log(r.debug());
-
 		expect(component.find("img")).toHaveLength(1);
 	});
 });

@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <Films/> render snapshot <Films/> 1`] = `
+<main>
+  <Loader />
+  <ToastContainer
+    autoClose={5000}
+    closeButton={[Function]}
+    closeOnClick={true}
+    draggable={true}
+    draggableDirection="x"
+    draggablePercent={80}
+    hideProgressBar={false}
+    newestOnTop={false}
+    pauseOnFocusLoss={true}
+    pauseOnHover={true}
+    position="top-right"
+    role="alert"
+    rtl={false}
+    transition={[Function]}
+  />
+  <Cards
+    BodyComponent={[Function]}
+    contenCards={
+      Array [
+        Object {},
+      ]
+    }
+    name="title"
+    path="/films"
+  />
+</main>
+`;
+
+exports[`Test Films component render snapshot Films component 1`] = `
+<main>
+  <Loader />
+  <ToastContainer
+    autoClose={5000}
+    closeButton={[Function]}
+    closeOnClick={true}
+    draggable={true}
+    draggableDirection="x"
+    draggablePercent={80}
+    hideProgressBar={false}
+    newestOnTop={false}
+    pauseOnFocusLoss={true}
+    pauseOnHover={true}
+    position="top-right"
+    role="alert"
+    rtl={false}
+    transition={[Function]}
+  />
+  <Cards
+    BodyComponent={[Function]}
+    contenCards={
+      Array [
+        Object {},
+      ]
+    }
+    name="title"
+    path="/films"
+  />
+</main>
+`;

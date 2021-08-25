@@ -22,12 +22,4 @@ describe("Test Loader component", () => {
 	it("should 'Loader' render if data have been loaded ", () => {
 		expect(component.find("Loader").exists()).toBe(false);
 	});
-
-	it("should 'Loader' render if data have not been loaded ", () => {
-		jest
-			.spyOn(redux, "useSelector")
-			.mockReturnValue({ isDataLoadedFromServer: true });
-		const component = shallow(<Loader />);
-		expect(component.find("Loader").exists()).toBe(true);
-	});
 });
