@@ -11,7 +11,7 @@ import { history } from "../../redux/reducers";
 export const Films = () => {
 	const contenCards = useSelector(state => state.dataFromServer.films);
 	const { pathname } = history.location;
-	console.log(contenCards);
+
 	return (
 		<main>
 			<Loader />

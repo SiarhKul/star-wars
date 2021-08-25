@@ -17,8 +17,8 @@ export const Cards = ({ name, path, contenCards, BodyComponent }) => {
 		<div className="cards-container">
 			{contenCards.map(card => (
 				<Card
-					onUniqueQueryParam={setUniqueQueryParam}
 					key={card[name]}
+					onUniqueQueryParam={setUniqueQueryParam}
 					uniqueName={card[name]}
 					card={card}
 					path={path}

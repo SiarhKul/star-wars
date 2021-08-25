@@ -5,6 +5,7 @@ import { css } from "@emotion/react";
 
 export const Loader = () => {
 	const { isDataLoadedFromServer } = useSelector(state => state.loading);
+
 	const override = css`
 		width: 100%;
 		height: 5px;

@@ -1,28 +1,37 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { Films } from "./Films.jsx";
-import { createBrowserHistory } from "history";
-
 import * as redux from "react-redux";
 
 jest.mock("history", () => {
-	const hist = {
-		location: {
-			pathname: "/films",
-		},
-	};
-
 	return {
-		createBrowserHistory: jest.fn(() => hist),
+		createBrowserHistory: jest.fn(() => ({
+			location: {
+				pathname: "/films",
+			},
+		})),
 	};
 });
 
 describe("Test Films component", () => {
-	let spyOnUseSelector = jest.spyOn(redux, "useSelector");
-	spyOnUseSelector.mockReturnValue([{}]);
+	const films = () => shallow(<Films />);
+	let component;
+	let spyOnUseSelector;
+
+	beforeEach(() => {
+		spyOnUseSelector = jest.spyOn(redux, "useSelector").mockReturnValue([{}]);
+		component = films();
+	});
 
 	it("should render Loader component", () => {
-		const component = shallow(<Films />);
-		expect(component).toMatchSnapshot();
+		expect(component.find("Loader")).toHaveLength(1);
+	});
+
+	it("should render alert message", () => {
+		expect(component.find("ToastContainer")).toHaveLength(1);
+	});
+
+	it("should render Cards component", () => {
+		expect(component.find("Cards")).toHaveLength(1);
 	});
 });
