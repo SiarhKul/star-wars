@@ -15,10 +15,9 @@ jest.mock("history", () => {
 describe("Test <Films/>", () => {
 	const films = () => shallow(<Films />);
 	let component;
-	let spyOnUseSelector;
 
 	beforeEach(() => {
-		spyOnUseSelector = jest.spyOn(redux, "useSelector").mockReturnValue([{}]);
+		jest.spyOn(redux, "useSelector").mockReturnValue([{}]);
 		component = films();
 	});
 

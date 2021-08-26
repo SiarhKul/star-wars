@@ -1,6 +1,9 @@
 import React from "react";
 import { People } from "./People";
-import * as redux from "react-redux";
+import {
+	selectIsLoadedPeople,
+	selectPeopleStore,
+} from "../../redux/selectors/selectors";
 
 jest.mock("history", () => {
 	return {
@@ -12,19 +15,27 @@ jest.mock("history", () => {
 	};
 });
 
+jest.mock("react-redux", () => ({
+	...jest.requireActual("react-redux"),
+	useSelector: jest.fn(store => store()),
+}));
+
+jest.mock("../../redux/selectors/selectors");
+
 describe("<People/>", () => {
 	const people = () => shallow(<People />);
 	let component;
-	let spyOnUseSelectorIsLoadedPeople;
-	let spyOnUseSelectorContenCards;
 
 	beforeEach(() => {
-		spyOnUseSelectorIsLoadedPeople = jest
-			.spyOn(redux, "useSelector")
-			.mockReturnValue([{}]);
-		spyOnUseSelectorContenCards = jest
-			.spyOn(redux, "useSelector")
-			.mockReturnValue({ isLoadedPeople: true });
+		selectPeopleStore.mockReturnValue([{}]);
+		selectIsLoadedPeople.mockReturnValue(true);
+		// jest
+		// 	.spyOn(redux, "useSelector")
+		// 	.mockImplementation(() => ({
+		// 		isLoadedPeople: true,
+		// 	}))
+		// 	.mockImplementation(() => [{}]);
+
 		component = people();
 	});
 

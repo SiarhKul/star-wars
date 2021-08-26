@@ -9,10 +9,15 @@ import { bodyCardPeople } from "../../components/bodyCards/bodyCardPeople";
 import { history } from "../../redux/reducers";
 import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
+import {
+	selectIsLoadedPeople,
+	selectPeopleStore,
+} from "../../redux/selectors/selectors";
 
 export const People = () => {
-	const { isLoadedPeople } = useSelector(state => state.loading);
-	const contenCards = useSelector(state => state.dataFromServer.people);
+	const isLoadedPeople = useSelector(selectIsLoadedPeople);
+	const contenCards = useSelector(selectPeopleStore);
+
 	const { pathname } = history.location;
 
 	return (

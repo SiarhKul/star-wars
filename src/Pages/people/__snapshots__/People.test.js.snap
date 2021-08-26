@@ -24,9 +24,9 @@ exports[`<People/> render snapshot <People/>  1`] = `
   <Cards
     BodyComponent={[Function]}
     contenCards={
-      Object {
-        "isLoadedPeople": true,
-      }
+      Array [
+        Object {},
+      ]
     }
     name="name"
     path="/people"
