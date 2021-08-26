@@ -16,7 +16,6 @@ export const PeopleFragmenPopup = () => {
 		vehicles,
 		starships,
 	} = history.location?.state;
-
 	return (
 		<>
 			<div className="name-wrapper">

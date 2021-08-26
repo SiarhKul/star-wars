@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Home/> render snapshot <Home/>  1`] = `
+exports[`Test <Home/> render snapshot <Home/>  1`] = `
 <div
   className="wrapper-logo"
 >

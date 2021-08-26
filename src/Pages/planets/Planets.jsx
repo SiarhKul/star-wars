@@ -14,7 +14,7 @@ export const Planets = () => {
 	const contenCards = useSelector(state => state.dataFromServer.planets);
 	const { isLoadedPlanets } = useSelector(state => state.loading);
 	const { pathname } = history.location;
-
+	// const { pathname } = useSelector(state => state.router.location);
 	return (
 		<main className="main-people">
 			<Loader />

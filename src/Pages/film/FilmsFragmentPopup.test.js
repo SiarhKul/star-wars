@@ -26,7 +26,7 @@ jest.mock("history", () => {
 	};
 });
 
-describe("Test FilmsFragmentPopup", () => {
+describe("Test <FilmsFragmentPopup/>", () => {
 	const filmsFragmentPopup = () => shallow(<FilmsFragmentPopup />);
 	let component;
 
@@ -34,7 +34,15 @@ describe("Test FilmsFragmentPopup", () => {
 		component = filmsFragmentPopup();
 	});
 
-	it("should render FilmsFragmentPopup component ", () => {
+	it("should render <FilmsFragmentPopup/>  component ", () => {
 		expect(component).toMatchSnapshot();
+	});
+
+	it("should <PeopleFragmentPopup/> have heading", () => {
+		expect(component.text().includes("Films")).toBeTruthy();
+		expect(component.text().includes("Episode")).toBeTruthy();
+		expect(component.text().includes("Director")).toBeTruthy();
+		expect(component.text().includes("Producer")).toBeTruthy();
+		expect(component.text().includes("Release date:")).toBeTruthy();
 	});
 });
