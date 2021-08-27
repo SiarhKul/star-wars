@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <StarshipsFragmentPopup/> render snapshot  <StarshipsFragmentPopup/> 1`] = `
+<Fragment>
+  <div
+    className="name-wrapper"
+  >
+    <span
+      className="popup__name"
+    >
+      Skol
+    </span>
+  </div>
+  <div
+    className="description-wrapper"
+  >
+    <div
+      className="description-person"
+    >
+      <div
+        className="description-appearance"
+      >
+        <p
+          className="description__heading"
+        >
+          Appearance
+        </p>
+        <ul
+          className="description-appearance__item"
+        >
+          <li>
+            Model:
+            4f-B
+          </li>
+          <li>
+            Manufacturer:
+            Red Planet
+          </li>
+          <li>
+            Cost in credits:
+            44400000
+          </li>
+          <li>
+            length:
+            300000
+          </li>
+          <li>
+            Max atmosphering speed:
+            456
+          </li>
+          <li>
+            Passengers:
+            23
+          </li>
+          <li>
+            Consumables:
+            0
+          </li>
+          <li>
+            Hyperdrive rating:
+            444
+          </li>
+          <li>
+            MGLT:
+            NF-3
+          </li>
+          <li>
+            Starship class:
+            Fast
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      className="description-resources"
+    >
+      <div
+        className="resources"
+      >
+        <div
+          className="resources-heading"
+        >
+          Pilots:
+        </div>
+        <ul
+          className="resources-list"
+        >
+          <PopupListItem
+            name="name"
+            path="people"
+          />
+        </ul>
+      </div>
+      <div
+        className="resources"
+      >
+        <div
+          className="resources-heading"
+        >
+          Films:
+        </div>
+        <ul
+          className="resources-list"
+        >
+          <PopupListItem
+            name="title"
+            path="films"
+            urls={
+              Array [
+                "https://swapi.dev/api/films/1/",
+              ]
+            }
+          />
+        </ul>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;

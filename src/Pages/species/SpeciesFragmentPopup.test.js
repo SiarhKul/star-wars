@@ -37,7 +37,6 @@ describe("Test <SpeciesFragmentPopup/>", () => {
 
 	it("should  <SpeciesFragmentPopup/>  has required fields", () => {
 		expect(component.text().includes("Appearance")).toBeTruthy();
-		expect(component.text().includes("Classification:")).toBeTruthy();
 		expect(component.text().includes("Designation:")).toBeTruthy();
 		expect(component.text().includes("Skin colors:")).toBeTruthy();
 		expect(component.text().includes("Hair colors:")).toBeTruthy();

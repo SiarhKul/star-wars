@@ -1,61 +1,61 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { Species } from "./Species";
+import { Starships } from "./Starships";
 import configureStore from "redux-mock-store";
 
 const mockStore = configureStore();
 
-describe("Test <Species/>", () => {
+describe("Test <Starships/>", () => {
 	let component;
 	let store;
 
 	const getMockInitialStore = showButton => {
 		return {
 			dataFromServer: {
-				species: [],
+				starships: [],
 			},
 			loading: {
-				isLoadedSpecies: showButton,
+				isLoadedStarships: showButton,
 			},
 			router: {
 				location: {
-					pathname: "/species",
+					pathname: "/starships",
 				},
 			},
 		};
 	};
 
-	const species = () =>
+	const starhips = () =>
 		mount(
 			<Provider store={store}>
-				<Species />
+				<Starships />
 			</Provider>
 		);
 
 	beforeEach(() => {
 		store = mockStore(getMockInitialStore(true));
-		component = species();
+		component = starhips();
 	});
 
-	it("render snapshot <Species/>", () => {
+	it("render snapshot <Starships/> ", () => {
 		expect(component).toMatchSnapshot();
 	});
 
-	it("should render ButtonLoadMore in <People/> if  all data has been loaded", () => {
+	it("should render ButtonLoadMore in <Starships/> if  all data has been loaded", () => {
 		expect(component.find("ButtonLoadMore").exists()).toBe(false);
 	});
 
-	it("should render ButtonLoadMore in <People/> if  all data has not been loaded", () => {
+	it("should render ButtonLoadMore in <Starships/> if  all data has not been loaded", () => {
 		store = mockStore(getMockInitialStore(false));
-		component = species();
+		component = starhips();
 		expect(component.find("ButtonLoadMore").exists()).toBe(true);
 	});
 
-	it("should render alert message in <People/>", () => {
+	it("should render alert message in  <Starships/>", () => {
 		expect(component.find("ToastContainer")).toHaveLength(1);
 	});
 
-	it("should render <People/>", () => {
+	it("should render  <Starships/>", () => {
 		expect(component.find("Cards")).toHaveLength(1);
 	});
 });
