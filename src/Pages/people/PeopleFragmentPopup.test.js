@@ -30,28 +30,27 @@ jest.mock("history", () => {
 
 describe("Test <PeopleFragmentPopup/>", () => {
 	const peopleFragmentPopup = () => shallow(<PeopleFragmenPopup />);
-	let component;
-
-	beforeEach(() => {
-		component = peopleFragmentPopup();
-	});
+	const component = peopleFragmentPopup();
 
 	it("render snapshot <PeopleFragmentPopup/>", () => {
 		expect(component).toMatchSnapshot();
 	});
 
 	it("should <PeopleFragmentPopup/> have heading", () => {
-		expect(component.text().includes("Appearance")).toBeTruthy();
-		expect(component.text().includes("Hair color")).toBeTruthy();
-		expect(component.text().includes("Skin color")).toBeTruthy();
-		expect(component.text().includes("Mass")).toBeTruthy();
-		expect(component.text().includes("Gender")).toBeTruthy();
-		expect(component.text().includes("Stats")).toBeTruthy();
-		expect(component.text().includes("Height")).toBeTruthy();
-		expect(component.text().includes("Mass")).toBeTruthy();
-		expect(component.text().includes("Home word")).toBeTruthy();
-		expect(component.text().includes("Films")).toBeTruthy();
-		expect(component.text().includes("Vehicles")).toBeTruthy();
-		expect(component.text().includes("Starships")).toBeTruthy();
+		const requiredFields = [
+			"Appearance",
+			"Hair color:",
+			"Skin color:",
+			"Eye color:",
+			"Gender:",
+			"Stats",
+			"Height:",
+			"Mass:",
+			"Films:",
+			"Vehicles:",
+			"Starships:",
+		];
+
+		expect(component.containsAllMatchingElements(requiredFields)).toBeTruthy();
 	});
 });

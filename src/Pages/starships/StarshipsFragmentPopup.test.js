@@ -30,11 +30,7 @@ jest.mock("history", () => {
 
 describe("Test <StarshipsFragmentPopup/>", () => {
 	const starshipsFragmentPopup = () => shallow(<StarshipsFragmentPopup />);
-	let component;
-
-	beforeEach(() => {
-		component = starshipsFragmentPopup();
-	});
+	const component = starshipsFragmentPopup();
 
 	it("render snapshot  <StarshipsFragmentPopup/>", () => {
 		expect(component).toMatchSnapshot();
@@ -53,6 +49,6 @@ describe("Test <StarshipsFragmentPopup/>", () => {
 			"MGLT:",
 			"Starship class:",
 		];
-		expect(component.containsAllMatchingElements(requiredFields)).toEqual(true);
+		expect(component.containsAllMatchingElements(requiredFields)).toBeTruthy();
 	});
 });

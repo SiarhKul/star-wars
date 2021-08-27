@@ -28,7 +28,7 @@ export const PeopleFragmenPopup = () => {
 						<ul className="description-appearance__item">
 							<li>Hair color:{hair_color}</li>
 							<li>Skin color:{skin_color}</li>
-							<li>Eye color: {eye_color}</li>
+							<li>Eye color:{eye_color}</li>
 							<li>Gender:{gender}</li>
 						</ul>
 					</div>

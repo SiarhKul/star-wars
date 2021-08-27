@@ -1,5 +1,6 @@
 import React from "react";
 import { SpeciesFragmentPopup } from "./SpeciesFragmentPopup";
+import { shallow } from "enzyme";
 
 jest.mock("history", () => {
 	return {
@@ -25,24 +26,23 @@ jest.mock("history", () => {
 
 describe("Test <SpeciesFragmentPopup/>", () => {
 	const speciesFragmentPopup = () => shallow(<SpeciesFragmentPopup />);
-	let component;
-
-	beforeEach(() => {
-		component = speciesFragmentPopup();
-	});
+	const component = speciesFragmentPopup();
 
 	it("render snapshot <SpeciesFragmentPopup/> ", () => {
 		expect(component).toMatchSnapshot();
 	});
 
 	it("should  <SpeciesFragmentPopup/>  has required fields", () => {
-		expect(component.text().includes("Appearance")).toBeTruthy();
-		expect(component.text().includes("Designation:")).toBeTruthy();
-		expect(component.text().includes("Skin colors:")).toBeTruthy();
-		expect(component.text().includes("Hair colors:")).toBeTruthy();
-		expect(component.text().includes("Eye colors:")).toBeTruthy();
-		expect(component.text().includes("Language:")).toBeTruthy();
-		expect(component.text().includes("Residents:")).toBeTruthy();
-		expect(component.text().includes("Films:")).toBeTruthy();
+		const requireFields = [
+			"Appearance",
+			"Designation:",
+			"Skin colors:",
+			"Hair colors:",
+			"Eye colors:",
+			"Language:",
+			"Residents:",
+			"Films:",
+		];
+		expect(component.containsAllMatchingElements(requireFields)).toBeTruthy();
 	});
 });

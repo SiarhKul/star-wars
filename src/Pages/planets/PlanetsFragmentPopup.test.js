@@ -27,27 +27,26 @@ jest.mock("history", () => {
 
 describe("Test <PlanetsFragmentPopup/>", () => {
 	const planetsFragmentPopup = () => shallow(<PlanetsFragmentPopup />);
-	let component;
-
-	beforeEach(() => {
-		component = planetsFragmentPopup();
-	});
+	const component = planetsFragmentPopup();
 
 	it("render snapshot <PlanetsFragmentPopup/>", () => {
 		expect(component).toMatchSnapshot();
 	});
 
 	it("should  <PlanetsFragmentPopup/> has required fields", () => {
-		expect(component.text().includes("Appearance")).toBeTruthy();
-		expect(component.text().includes("Rotation period:")).toBeTruthy();
-		expect(component.text().includes("Period period")).toBeTruthy();
-		expect(component.text().includes("Diameter:")).toBeTruthy();
-		expect(component.text().includes("Climate:")).toBeTruthy();
-		expect(component.text().includes("Gravity:")).toBeTruthy();
-		expect(component.text().includes("Terrain:")).toBeTruthy();
-		expect(component.text().includes("Surface water:")).toBeTruthy();
-		expect(component.text().includes("Population:")).toBeTruthy();
-		expect(component.text().includes("Residents:")).toBeTruthy();
-		expect(component.text().includes("Films:")).toBeTruthy();
+		const requiredFields = [
+			"Appearance",
+			"Rotation period:",
+			"Period period:",
+			"Diameter:",
+			"Climate:",
+			"Gravity:",
+			"Terrain:",
+			"Surface water:",
+			"Population:",
+			"Residents:",
+			"Films:",
+		];
+		expect(component.containsAllMatchingElements(requiredFields)).toBeTruthy();
 	});
 });
