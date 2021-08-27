@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <PlanetsFragmentPopup/> render snapshot <PlanetsFragmentPopup/> 1`] = `
+<Fragment>
+  <div
+    className="name-wrapper"
+  >
+    <span
+      className="popup__name"
+    >
+      Tatooine
+    </span>
+  </div>
+  <div
+    className="description-wrapper"
+  >
+    <div
+      className="description-person"
+    >
+      <div
+        className="description-appearance"
+      >
+        <p
+          className="description__heading"
+        >
+          Appearance
+        </p>
+        <ul
+          className="description-appearance__item"
+        >
+          <li>
+            Rotation period:
+            23
+          </li>
+          <li>
+            Period period:
+            23
+          </li>
+          <li>
+            Diameter:
+            10465
+          </li>
+          <li>
+            Climate:
+            arid
+          </li>
+          <li>
+            Gravity:
+            1 standard
+          </li>
+          <li>
+            Terrain:
+            desert
+          </li>
+          <li>
+            Surface water:
+            1
+          </li>
+          <li>
+            Population:
+            200000
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      className="description-resources"
+    >
+      <div
+        className="resources"
+      >
+        <div
+          className="resources-heading"
+        >
+          Residents:
+        </div>
+        <ul
+          className="resources-list"
+        >
+          <PopupListItem
+            name="name"
+            path="people"
+            urls={
+              Array [
+                "https://swapi.dev/api/people/1/",
+              ]
+            }
+          />
+        </ul>
+      </div>
+      <div
+        className="resources"
+      >
+        <div
+          className="resources-heading"
+        >
+          Films:
+        </div>
+        <ul
+          className="resources-list"
+        >
+          <PopupListItem
+            name="title"
+            path="films"
+            urls={
+              Array [
+                "https://swapi.dev/api/films/1/",
+              ]
+            }
+          />
+        </ul>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;
