@@ -16,8 +16,6 @@ export const PlanetsFragmentPopup = () => {
 		films,
 	} = history.location?.state;
 
-	console.log(history);
-
 	return (
 		<>
 			<div className="name-wrapper">

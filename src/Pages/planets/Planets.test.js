@@ -16,22 +16,25 @@ describe("Test <Planets/>", () => {
 			</Provider>
 		);
 
-	const mockInitialStore = {
-		dataFromServer: {
-			planets: [],
-		},
-		loading: {
-			isLoadedPlanets: true,
-		},
-		router: {
-			location: {
-				pathname: "/planets",
+	const getMockInitialStore = showButton => {
+		const mockInitialStore = {
+			dataFromServer: {
+				planets: [],
 			},
-		},
+			loading: {
+				isLoadedPlanets: showButton,
+			},
+			router: {
+				location: {
+					pathname: "/planets",
+				},
+			},
+		};
+		return mockInitialStore;
 	};
 
 	beforeEach(() => {
-		store = mockStore(mockInitialStore);
+		store = mockStore(getMockInitialStore(true));
 		component = planets();
 	});
 
@@ -49,5 +52,10 @@ describe("Test <Planets/>", () => {
 
 	it("should render ButtonLoadMore in <People/> if  all data has been loaded", () => {
 		expect(component.find("ButtonLoadMore").exists()).toBe(false);
+	});
+	it("should render ButtonLoadMore in <People/> if  all data has not been loaded", () => {
+		store = mockStore(getMockInitialStore(false));
+		component = planets();
+		expect(component.find("ButtonLoadMore").exists()).toBe(true);
 	});
 });

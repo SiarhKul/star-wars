@@ -59,4 +59,9 @@ describe("<People/>", () => {
 	it("should render ButtonLoadMore in <People/> if  all data has been loaded", () => {
 		expect(component.find("ButtonLoadMore").exists()).toBe(false);
 	});
+	it("should render ButtonLoadMore in <People/> if  all data has not been loaded", () => {
+		selectIsLoaded.mockReturnValue({ isLoadedPeople: false });
+		component = people();
+		expect(component.find("ButtonLoadMore").exists()).toBe(true);
+	});
 });

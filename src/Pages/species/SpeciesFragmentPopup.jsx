@@ -16,8 +16,6 @@ export const SpeciesFragmentPopup = () => {
 		films,
 	} = history.location?.state;
 
-	console.log(history);
-
 	return (
 		<>
 			<div className="name-wrapper">

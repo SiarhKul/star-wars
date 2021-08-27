@@ -9,10 +9,14 @@ import { bodyCardStarships } from "../../components/bodyCards/bodyCardStarships"
 import { history } from "../../redux/reducers";
 import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
+import {
+	selectIsLoaded,
+	selectStarshipsStore,
+} from "../../redux/selectors/selectors";
 
 export const Starships = () => {
-	const contenCards = useSelector(state => state.dataFromServer.starships);
-	const { isLoadedStarships } = useSelector(state => state.loading);
+	const contenCards = useSelector(selectStarshipsStore);
+	const { isLoadedStarships } = useSelector(selectIsLoaded);
 	const { pathname } = history.location;
 
 	return (
