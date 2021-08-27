@@ -10,14 +10,13 @@ import { history } from "../../redux/reducers";
 import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
 import {
-	selectIsLoadedPeople,
+	selectIsLoaded,
 	selectPeopleStore,
 } from "../../redux/selectors/selectors";
 
 export const People = () => {
-	const isLoadedPeople = useSelector(selectIsLoadedPeople);
 	const contenCards = useSelector(selectPeopleStore);
-
+	const { isLoadedPeople } = useSelector(selectIsLoaded);
 	const { pathname } = history.location;
 
 	return (

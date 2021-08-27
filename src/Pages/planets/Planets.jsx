@@ -6,15 +6,19 @@ import { Cards } from "../../components/cards/Cards";
 import { GET_MORE_PLANETS } from "../../redux/actions/actions";
 import { ToastContainer } from "react-toastify";
 import { bodyCardPlanets } from "../../components/bodyCards/bodyCardPlanets";
-import { history } from "../../redux/reducers";
 import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
+import {
+	selectBrowserLocation,
+	selectIsLoaded,
+	selectPlanetsStore,
+} from "../../redux/selectors/selectors";
 
 export const Planets = () => {
-	const contenCards = useSelector(state => state.dataFromServer.planets);
-	const { isLoadedPlanets } = useSelector(state => state.loading);
-	const { pathname } = history.location;
-	// const { pathname } = useSelector(state => state.router.location);
+	const contenCards = useSelector(selectPlanetsStore);
+	const { isLoadedPlanets } = useSelector(selectIsLoaded);
+	const { pathname } = useSelector(selectBrowserLocation);
+
 	return (
 		<main className="main-people">
 			<Loader />

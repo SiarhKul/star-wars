@@ -1,7 +1,7 @@
 import React from "react";
 import { People } from "./People";
 import {
-	selectIsLoadedPeople,
+	selectIsLoaded,
 	selectPeopleStore,
 } from "../../redux/selectors/selectors";
 
@@ -28,7 +28,8 @@ describe("<People/>", () => {
 
 	beforeEach(() => {
 		selectPeopleStore.mockReturnValue([{}]);
-		selectIsLoadedPeople.mockReturnValue(true);
+		selectIsLoaded.mockReturnValue({ isLoadedPeople: true });
+		//вызывает все реализации друг за другом
 		// jest
 		// 	.spyOn(redux, "useSelector")
 		// 	.mockImplementation(() => ({

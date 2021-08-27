@@ -6,18 +6,6 @@ import { mount } from "enzyme";
 
 const mockStore = configureStore();
 
-jest.mock("history", () => {
-	return {
-		createBrowserHistory: jest.fn(() => {
-			return {
-				location: {
-					pathname: "/planets",
-				},
-			};
-		}),
-	};
-});
-
 describe("Test <Planets/>", () => {
 	let store;
 	let component;
@@ -32,7 +20,7 @@ describe("Test <Planets/>", () => {
 			},
 			router: {
 				location: {
-					pathname: "/people/Biggs Darklighter",
+					pathname: "/planets",
 				},
 			},
 		});
