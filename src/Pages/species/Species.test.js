@@ -1,41 +1,41 @@
 import React from "react";
-import { Planets } from "./Planets";
 import { Provider } from "react-redux";
+import { Species } from "./Species";
 import configureStore from "redux-mock-store";
 
 const mockStore = configureStore();
 
-describe("Test <Planets/>", () => {
-	let store;
+describe("Test <Species/>", () => {
 	let component;
+	let store;
 
-	const planets = () =>
+	const species = () =>
 		mount(
 			<Provider store={store}>
-				<Planets />
+				<Species />
 			</Provider>
 		);
 
 	const mockInitialStore = {
 		dataFromServer: {
-			planets: [],
+			species: [],
 		},
 		loading: {
-			isLoadedPlanets: true,
+			isLoadedSpecies: true,
 		},
 		router: {
 			location: {
-				pathname: "/planets",
+				pathname: "/species",
 			},
 		},
 	};
 
 	beforeEach(() => {
 		store = mockStore(mockInitialStore);
-		component = planets();
+		component = species();
 	});
 
-	it("render snapshot <Planets/>", () => {
+	it("render snapshot <Species/>", () => {
 		expect(component).toMatchSnapshot();
 	});
 

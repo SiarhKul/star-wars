@@ -9,11 +9,16 @@ import { bodyCardSpecies } from "../../components/bodyCards/bodyCardSpecies";
 import { history } from "../../redux/reducers";
 import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
+import {
+	selectBrowserLocation,
+	selectIsLoaded,
+	selectSpeciesStore,
+} from "../../redux/selectors/selectors";
 
 export const Species = () => {
-	const contenCards = useSelector(state => state.dataFromServer.species);
-	const { isLoadedSpecies } = useSelector(state => state.loading);
-	const { pathname } = history.location;
+	const contenCards = useSelector(selectSpeciesStore);
+	const { isLoadedSpecies } = useSelector(selectIsLoaded);
+	const { pathname } = useSelector(selectBrowserLocation);
 
 	return (
 		<main>

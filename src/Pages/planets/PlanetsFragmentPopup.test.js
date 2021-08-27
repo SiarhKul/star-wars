@@ -37,7 +37,7 @@ describe("Test <PlanetsFragmentPopup/>", () => {
 		expect(component).toMatchSnapshot();
 	});
 
-	it("should  <PlanetsFragmentPopup/>", () => {
+	it("should  <PlanetsFragmentPopup/> has required fields", () => {
 		expect(component.text().includes("Appearance")).toBeTruthy();
 		expect(component.text().includes("Rotation period:")).toBeTruthy();
 		expect(component.text().includes("Period period")).toBeTruthy();

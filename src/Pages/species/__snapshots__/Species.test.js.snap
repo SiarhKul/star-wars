@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <Species/> render snapshot <Species/> 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Species>
+    <main>
+      <Loader>
+        <div
+          className="spinner"
+        />
+      </Loader>
+      <ToastContainer
+        autoClose={5000}
+        closeButton={[Function]}
+        closeOnClick={true}
+        draggable={true}
+        draggableDirection="x"
+        draggablePercent={80}
+        hideProgressBar={false}
+        newestOnTop={false}
+        pauseOnFocusLoss={true}
+        pauseOnHover={true}
+        position="top-right"
+        role="alert"
+        rtl={false}
+        transition={[Function]}
+      >
+        <div
+          className="Toastify"
+        />
+      </ToastContainer>
+      <Cards
+        BodyComponent={[Function]}
+        contenCards={Array []}
+        name="name"
+        path="/species"
+      >
+        <div
+          className="cards-container"
+        />
+      </Cards>
+    </main>
+  </Species>
+</Provider>
+`;
