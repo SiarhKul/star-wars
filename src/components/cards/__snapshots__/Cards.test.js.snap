@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test Cards component should render component  1`] = `
+exports[`Test <Cards/> render snapshot<Cards/>  1`] = `
 <div
   className="cards-container"
 >

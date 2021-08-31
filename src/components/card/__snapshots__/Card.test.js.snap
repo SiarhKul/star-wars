@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <Card/> render snapshot <Card/> 1`] = `
+<div
+  className="card-wrapper"
+>
+  <div
+    className="card"
+    onClick={[Function]}
+  >
+    <div
+      className="avatar"
+    >
+      <div
+        className="avatar__abbr"
+      >
+        SS
+      </div>
+    </div>
+    <BodyCardVehicles
+      card={Object {}}
+    />
+  </div>
+</div>
+`;

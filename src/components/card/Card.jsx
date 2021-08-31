@@ -7,6 +7,7 @@ export const Card = React.memo(
 			onUniqueQueryParam(card);
 		}, []);
 
+		
 		return (
 			<div className="card-wrapper">
 				<div className="card" onClick={setUniqueQueryParam}>

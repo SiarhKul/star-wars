@@ -6,7 +6,6 @@ import { Cards } from "../../components/cards/Cards";
 import { GET_MORE_SPECIES } from "../../redux/actions/actions";
 import { ToastContainer } from "react-toastify";
 import { BodyCardSpecies } from "../../components/bodyCards/BodyCardSpecies";
-import { history } from "../../redux/reducers";
 import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
 import {
