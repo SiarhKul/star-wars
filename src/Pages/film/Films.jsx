@@ -3,7 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import { Cards } from "../../components/cards/Cards";
 import { ToastContainer } from "react-toastify";
-import { bodyCardFilm } from "../../components/bodyCards/bodyCardFIlm";
+import { BodyCardFilm } from "../../components/bodyCards/BodyCardFIlm";
 import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
 import { history } from "../../redux/reducers";
@@ -21,7 +21,7 @@ export const Films = () => {
 				name="title"
 				path={pathname}
 				contenCards={contenCards}
-				BodyComponent={bodyCardFilm}
+				BodyComponent={BodyCardFilm}
 			/>
 		</main>
 	);

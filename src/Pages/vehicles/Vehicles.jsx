@@ -4,7 +4,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import { ButtonLoadMore } from "../../components";
-import { bodyCardVehicles } from "../../components/bodyCards/bodyCardVehicles";
+import { BodyCardVehicles } from "../../components/bodyCards/BodyCardVehicles";
 import { Cards } from "../../components/cards/Cards";
 
 import { GET_MORE_VEHICLES } from "../../redux/actions/actions";
@@ -24,7 +24,7 @@ export const Vehicles = () => {
 				name="name"
 				path={pathname}
 				contenCards={contenCards}
-				BodyComponent={bodyCardVehicles}
+				BodyComponent={BodyCardVehicles}
 			/>
 			{!isLoadedVehicles && <ButtonLoadMore action={GET_MORE_VEHICLES} />}
 		</main>

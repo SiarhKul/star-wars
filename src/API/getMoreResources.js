@@ -7,5 +7,6 @@ export const getMoreResources = async (url, page) => {
 		return data;
 	} catch (error) {
 		handlerError(error.message);
+		return error.message;
 	}
 };

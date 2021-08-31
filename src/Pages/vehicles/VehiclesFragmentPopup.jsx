@@ -17,7 +17,6 @@ export const VehiclesFragmentPopup = () => {
 		films,
 		pilots,
 	} = history.location.state;
-	console.log(history);
 	return (
 		<>
 			<div className="name-wrapper">

@@ -5,7 +5,7 @@ import { ButtonLoadMore } from "../../components";
 import { Cards } from "../../components/cards/Cards";
 import { GET_MORE_SPECIES } from "../../redux/actions/actions";
 import { ToastContainer } from "react-toastify";
-import { bodyCardSpecies } from "../../components/bodyCards/bodyCardSpecies";
+import { BodyCardSpecies } from "../../components/bodyCards/BodyCardSpecies";
 import { history } from "../../redux/reducers";
 import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
@@ -28,7 +28,7 @@ export const Species = () => {
 				contenCards={contenCards}
 				path={pathname}
 				name="name"
-				BodyComponent={bodyCardSpecies}
+				BodyComponent={BodyCardSpecies}
 			/>
 			{!isLoadedSpecies && <ButtonLoadMore action={GET_MORE_SPECIES} />}
 		</main>

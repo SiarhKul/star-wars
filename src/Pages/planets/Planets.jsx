@@ -5,7 +5,7 @@ import { ButtonLoadMore } from "../../components";
 import { Cards } from "../../components/cards/Cards";
 import { GET_MORE_PLANETS } from "../../redux/actions/actions";
 import { ToastContainer } from "react-toastify";
-import { bodyCardPlanets } from "../../components/bodyCards/bodyCardPlanets";
+import { BodyCardPlanets } from "../../components/bodyCards/BodyCardPlanets";
 import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
 import {
@@ -27,7 +27,7 @@ export const Planets = () => {
 				contenCards={contenCards}
 				path={pathname}
 				name="name"
-				BodyComponent={bodyCardPlanets}
+				BodyComponent={BodyCardPlanets}
 			/>
 			{!isLoadedPlanets && <ButtonLoadMore action={GET_MORE_PLANETS} />}
 		</main>
