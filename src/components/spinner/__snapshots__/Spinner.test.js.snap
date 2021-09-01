@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Spinner render snapshot <Spinner/> 1`] = `
+<Loader
+  color="#000000"
+  css={
+    Object {
+      "map": "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlNwaW5uZXIuanN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUtxQiIsImZpbGUiOiJTcGlubmVyLmpzeCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tIFwicmVhY3RcIjtcclxuaW1wb3J0IENsaXBMb2FkZXIgZnJvbSBcInJlYWN0LXNwaW5uZXJzL0NsaXBMb2FkZXJcIjtcclxuaW1wb3J0IHsgY3NzIH0gZnJvbSBcIkBlbW90aW9uL3JlYWN0XCI7XHJcblxyXG5leHBvcnQgY29uc3QgU3Bpbm5lciA9ICgpID0+IHtcclxuXHRjb25zdCBvdmVycmlkZSA9IGNzc2BcclxuXHRcdHdpZHRoOiAyMHB4O1xyXG5cdFx0aGVpZ2h0OiAyMHB4O1xyXG5cdFx0Ym9yZGVyLWNvbG9yOiByZWQ7XHJcblx0YDtcclxuXHRyZXR1cm4gPENsaXBMb2FkZXIgY3NzPXtvdmVycmlkZX0gLz47XHJcbn07XHJcbiJdfQ== */",
+      "name": "eapwt9-override",
+      "styles": "width:20px;height:20px;border-color:red;label:override;",
+      "toString": [Function],
+    }
+  }
+  loading={true}
+  size={35}
+  speedMultiplier={1}
+/>
+`;

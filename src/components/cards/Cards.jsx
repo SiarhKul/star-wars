@@ -1,7 +1,5 @@
-//todo использовать useCallback
 //todo убрать мультиклик на меню
 //todo создать 2 функции
-//todo вернуть влево карточки
 
 import React, { useCallback } from "react";
 

@@ -1,4 +1,3 @@
-import { shallow } from "enzyme";
 import * as redux from "react-redux";
 import { Loader } from "./Loader";
 import React from "react";
@@ -20,6 +19,13 @@ describe("Test Loader component", () => {
 	});
 
 	it("should 'Loader' render if data have been loaded ", () => {
-		expect(component.find("Loader").exists()).toBe(false);
+		expect(component.find("Loader").exists()).toBeFalsy();
+	});
+	it("should 'Loader' render if data have been loaded ", () => {
+		spyOnUseSelector = jest
+			.spyOn(redux, "useSelector")
+			.mockReturnValue({ isDataLoadedFromServer: true });
+		component = loader();
+		expect(component.find("Loader").exists()).toBeTruthy();
 	});
 });
