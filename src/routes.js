@@ -1,3 +1,4 @@
+import { noFound } from "./components/noFound/noFound";
 import { Popup } from "./components/popup/Popup";
 import { Films, People, Planets, Starships, Vehicles } from "./Pages";
 import { FilmsFragmentPopup } from "./Pages/film/FilmsFragmentPopup";
@@ -86,6 +87,12 @@ export const routes = [
 		path: "/species",
 		exact: false,
 		component: Species,
+		componentFragment: null,
+	},
+	{
+		path: "/*",
+		exact: false,
+		component: noFound,
 		componentFragment: null,
 	},
 ];
