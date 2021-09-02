@@ -1,4 +1,3 @@
-import { push } from "connected-react-router";
 import { shallow } from "enzyme";
 import React from "react";
 import { Card } from "../card/Card";

@@ -1,5 +1,4 @@
 import Enzyme from "enzyme";
-// import Adapter from "enzyme-adapter-react-16";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -13,6 +12,6 @@ global.render = render;
 global.mount = mount;
 global.toJson = toJson;
 
-// console.error = message => {
-// 	throw new Error(message);
-// };
+console.error = message => {
+	throw new Error(message);
+};

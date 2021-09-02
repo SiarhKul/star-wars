@@ -4,21 +4,16 @@ import { getSpecificResours } from "./getSpecificResours";
 import { URL_GET_PEOPLE } from "./urls";
 
 jest.mock("axios");
+
 describe("Test API", () => {
 	afterEach(() => {
 		jest.clearAllMocks();
 	});
 
 	describe("Function testing 'getResources'", () => {
-		let results = [
-			{
-				name: "Luke Skywalker",
-			},
-			{
-				name: "3PO",
-			},
-		];
+		let results = [{ name: "Luke Skywalker" }, { name: "3PO" }];
 		let response = { status: 200, data: { results } };
+
 		it(" should function returns data from API", async () => {
 			axios.get.mockResolvedValue(response);
 			const fetchedBundles = await getResources(URL_GET_PEOPLE);
