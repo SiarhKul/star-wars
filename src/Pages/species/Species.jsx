@@ -5,15 +5,19 @@ import { ButtonLoadMore } from "../../components";
 import { Cards } from "../../components/cards/Cards";
 import { GET_MORE_SPECIES } from "../../redux/actions/actions";
 import { ToastContainer } from "react-toastify";
-import { bodyCardSpecies } from "../../components/bodyCards/bodyCardSpecies";
-import { history } from "../../redux/reducers";
+import { BodyCardSpecies } from "../../components/bodyCards/BodyCardSpecies";
 import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
+import {
+	selectBrowserLocation,
+	selectIsLoaded,
+	selectSpeciesStore,
+} from "../../redux/selectors/selectors";
 
 export const Species = () => {
-	const contenCards = useSelector(state => state.dataFromServer.species);
-	const { isLoadedSpecies } = useSelector(state => state.loading);
-	const { pathname } = history.location;
+	const contenCards = useSelector(selectSpeciesStore);
+	const { isLoadedSpecies } = useSelector(selectIsLoaded);
+	const { pathname } = useSelector(selectBrowserLocation);
 
 	return (
 		<main>
@@ -23,7 +27,7 @@ export const Species = () => {
 				contenCards={contenCards}
 				path={pathname}
 				name="name"
-				BodyComponent={bodyCardSpecies}
+				BodyComponent={BodyCardSpecies}
 			/>
 			{!isLoadedSpecies && <ButtonLoadMore action={GET_MORE_SPECIES} />}
 		</main>

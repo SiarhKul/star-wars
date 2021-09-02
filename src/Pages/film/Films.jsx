@@ -3,13 +3,14 @@ import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import { Cards } from "../../components/cards/Cards";
 import { ToastContainer } from "react-toastify";
-import { bodyCardFilm } from "../../components/bodyCards/bodyCardFIlm";
-import { history } from "../../redux/reducers";
+import { BodyCardFilm } from "../../components/bodyCards/BodyCardFIlm";
 import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
+import { history } from "../../redux/reducers";
+import { selectFilmsStore } from "../../redux/selectors/selectors";
 
 export const Films = () => {
-	const contenCards = useSelector(state => state.dataFromServer.films);
+	const contenCards = useSelector(selectFilmsStore);
 	const { pathname } = history.location;
 
 	return (
@@ -20,7 +21,7 @@ export const Films = () => {
 				name="title"
 				path={pathname}
 				contenCards={contenCards}
-				BodyComponent={bodyCardFilm}
+				BodyComponent={BodyCardFilm}
 			/>
 		</main>
 	);

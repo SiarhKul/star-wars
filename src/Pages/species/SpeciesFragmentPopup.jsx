@@ -31,7 +31,7 @@ export const SpeciesFragmentPopup = () => {
 							<li>Skin colors:{skin_colors}</li>
 							<li>Hair colors:{hair_colors}</li>
 							<li>Eye colors:{eye_colors}</li>
-							<li>Average_lifespan:{average_lifespan}</li>
+							<li>Average lifespan:{average_lifespan}</li>
 							<li>Language:{language}</li>
 						</ul>
 					</div>

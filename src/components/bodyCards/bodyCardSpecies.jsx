@@ -1,6 +1,6 @@
 import React from "react";
 
-export const bodyCardSpecies = ({ card }) => {
+export const BodyCardSpecies = ({ card }) => {
 	return (
 		<div className="body">
 			<div className="body__text">Name:{card.name}</div>

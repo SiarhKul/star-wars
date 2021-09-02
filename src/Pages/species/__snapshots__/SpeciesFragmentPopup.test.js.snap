@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <SpeciesFragmentPopup/> render snapshot <SpeciesFragmentPopup/>  1`] = `
+<Fragment>
+  <div
+    className="name-wrapper"
+  >
+    <span
+      className="popup__name"
+    >
+      Rodian
+    </span>
+  </div>
+  <div
+    className="description-wrapper"
+  >
+    <div
+      className="description-person"
+    >
+      <div
+        className="description-appearance"
+      >
+        <p
+          className="description__heading"
+        >
+          Appearance
+        </p>
+        <ul
+          className="description-appearance__item"
+        >
+          <li>
+            Classification:
+            sentient
+          </li>
+          <li>
+            Designation:
+            reptilian
+          </li>
+          <li>
+            Skin colors:
+            green, blue
+          </li>
+          <li>
+            Hair colors:
+            n/a
+          </li>
+          <li>
+            Eye colors:
+            black
+          </li>
+          <li>
+            Average lifespan:
+            unknown
+          </li>
+          <li>
+            Language:
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      className="description-resources"
+    >
+      <div
+        className="resources"
+      >
+        <div
+          className="resources-heading"
+        >
+          Residents:
+        </div>
+        <ul
+          className="resources-list"
+        >
+          <PopupListItem
+            name="name"
+            path="people"
+            urls={
+              Array [
+                "https://swapi.dev/api/people/15/",
+              ]
+            }
+          />
+        </ul>
+      </div>
+      <div
+        className="resources"
+      >
+        <div
+          className="resources-heading"
+        >
+          Films:
+        </div>
+        <ul
+          className="resources-list"
+        >
+          <PopupListItem
+            name="title"
+            path="films"
+            urls={
+              Array [
+                "https://swapi.dev/api/films/1/",
+              ]
+            }
+          />
+        </ul>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;

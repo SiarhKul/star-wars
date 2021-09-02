@@ -1,7 +1,5 @@
-//todo использовать useCallback
 //todo убрать мультиклик на меню
 //todo создать 2 функции
-//todo вернуть влево карточки
 
 import React, { useCallback } from "react";
 
@@ -17,8 +15,8 @@ export const Cards = ({ name, path, contenCards, BodyComponent }) => {
 		<div className="cards-container">
 			{contenCards.map(card => (
 				<Card
-					onUniqueQueryParam={setUniqueQueryParam}
 					key={card[name]}
+					onUniqueQueryParam={setUniqueQueryParam}
 					uniqueName={card[name]}
 					card={card}
 					path={path}

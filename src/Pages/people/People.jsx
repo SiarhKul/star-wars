@@ -5,14 +5,18 @@ import { ButtonLoadMore } from "../../components";
 import { Cards } from "../../components/cards/Cards";
 import { GET_MORE_PEOPLE } from "../../redux/actions/actions";
 import { ToastContainer } from "react-toastify";
-import { bodyCardPeople } from "../../components/bodyCards/bodyCardPeople";
+import { BodyCardPeople } from "../../components/bodyCards/BodyCardPeople";
 import { history } from "../../redux/reducers";
 import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
+import {
+	selectIsLoaded,
+	selectPeopleStore,
+} from "../../redux/selectors/selectors";
 
 export const People = () => {
-	const contenCards = useSelector(state => state.dataFromServer.people);
-	const { isLoaded } = useSelector(state => state.loading);
+	const contenCards = useSelector(selectPeopleStore);
+	const { isLoadedPeople } = useSelector(selectIsLoaded);
 	const { pathname } = history.location;
 
 	return (
@@ -23,9 +27,9 @@ export const People = () => {
 				name="name"
 				path={pathname}
 				contenCards={contenCards}
-				BodyComponent={bodyCardPeople}
+				BodyComponent={BodyCardPeople}
 			/>
-			{!isLoaded && <ButtonLoadMore action={GET_MORE_PEOPLE} />}
+			{!isLoadedPeople && <ButtonLoadMore action={GET_MORE_PEOPLE} />}
 		</main>
 	);
 };

@@ -20,9 +20,10 @@ body {
 	font-family: "Roboto", sans-serif;
 }
 
-.active {
+.nav-list__link {
+	transition: all 0.2s ease-out;
 	&:hover {
-		background-color: $yellow-dark;
+		background-color: $navLinkSelected;
 		cursor: pointer;
 	}
 }

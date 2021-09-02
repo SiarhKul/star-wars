@@ -15,7 +15,6 @@ export const FilmsFragmentPopup = () => {
 		starships,
 		species,
 	} = history.location?.state;
-
 	return (
 		<div className="popup-fragment">
 			<div className="name-wrapper">
@@ -24,7 +23,7 @@ export const FilmsFragmentPopup = () => {
 			<div className="description-wrapper">
 				<div className="description-person">
 					<div className="description-appearance">
-						<p className="description__heading">Appearance</p>
+						<p className="description__heading">Films</p>
 						<ul className="description-appearance__item">
 							<li>Episode:{episode_id}</li>
 							<li>Director:{director}</li>

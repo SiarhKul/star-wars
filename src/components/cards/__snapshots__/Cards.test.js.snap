@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <Cards/> render snapshot<Cards/>  1`] = `
+<div
+  className="cards-container"
+>
+  <Memo()
+    BodyComponent={[MockFunction]}
+    card={
+      Object {
+        "name": "Luke Skywalker",
+      }
+    }
+    key="Luke Skywalker"
+    onUniqueQueryParam={[Function]}
+    path="/planets"
+    uniqueName="Luke Skywalker"
+  />
+</div>
+`;

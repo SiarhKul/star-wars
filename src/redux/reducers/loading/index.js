@@ -7,8 +7,8 @@ import {
 	IS_VEHICLES_LOADED,
 } from "../../actions/actions";
 
-const initialLoadingState = {
-	isLoaded: false,
+export const initialLoadingState = {
+	isLoadedPeople: false,
 	isLoadedPlanets: false,
 	isLoadedStarships: false,
 	isLoadedVehicles: false,
@@ -16,12 +16,12 @@ const initialLoadingState = {
 	isDataLoadedFromServer: true,
 };
 
-export const loading = (state = initialLoadingState, action) => {
+export const loadingReducer = (state = initialLoadingState, action) => {
 	switch (action.type) {
 		case IS_PEOPLE_LOADED: {
 			return {
 				...state,
-				isLoaded: true,
+				isLoadedPeople: true,
 			};
 		}
 
@@ -56,7 +56,7 @@ export const loading = (state = initialLoadingState, action) => {
 		case iS_DATA_LOADED_FROM_SERVER: {
 			return {
 				...state,
-				isDataLoadedFromServer: false,
+				isDataLoadedFromServer: action.payload,
 			};
 		}
 

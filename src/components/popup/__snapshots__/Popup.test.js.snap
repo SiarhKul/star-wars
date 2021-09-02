@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <Popup/> render snapshot <Popup/> 1`] = `
+<div
+  className="popup"
+  data-popup="popup"
+  onClick={[Function]}
+>
+  <div
+    className="popup-window"
+  >
+    <div
+      className="exit"
+      onClick={[Function]}
+    >
+      <button
+        className="exit__btn"
+      >
+         ❌
+      </button>
+    </div>
+    <mockConstructor />
+  </div>
+</div>
+`;
+
+exports[`Test <PopupListItem/> render snapshot <PopupListItem/>  1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <PopupListItem
+      name="name"
+      path="people"
+      urls={
+        Array [
+          "https://swapi.dev/api/planets/1/",
+        ]
+      }
+    >
+      <li
+        key="https://swapi.dev/api/planets/1/"
+      >
+        <Link
+          to={
+            Object {
+              "pathname": "/people/Tatooine",
+              "state": Object {
+                "name": "Tatooine",
+              },
+            }
+          }
+        >
+          <LinkAnchor
+            href="/people/Tatooine"
+            navigate={[Function]}
+          >
+            <a
+              href="/people/Tatooine"
+              onClick={[Function]}
+            >
+              Tatooine
+            </a>
+          </LinkAnchor>
+        </Link>
+      </li>
+    </PopupListItem>
+  </Router>
+</BrowserRouter>
+`;

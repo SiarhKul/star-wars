@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test bodyCards Test <BodyCardFilm/> render snapshot <BodyCardFilm/>  1`] = `
+<div
+  className="body"
+>
+  <div
+    className="body__text"
+  >
+    Name:
+    A New Hope
+  </div>
+  <div
+    className="body__text"
+  >
+    Director:
+    George Lucas
+  </div>
+  <div
+    className="body__text"
+  >
+    Release date:
+    1977-05-25
+  </div>
+</div>
+`;
+
+exports[`Test bodyCards Test <BodyCardPSpecies/>  render snapshot <BodyCarPSpecies/> 1`] = `
+<div
+  className="body"
+>
+  <div
+    className="body__text"
+  >
+    Name:
+    Human
+  </div>
+  <div
+    className="body__text"
+  >
+    Language:
+    Galactic Basic
+  </div>
+</div>
+`;
+
+exports[`Test bodyCards Test <BodyCardPeople/>  render snapshot <BodyCarPeople/> 1`] = `
+<div
+  className="body"
+>
+  <div
+    className="body__text"
+  >
+    Name:
+    Luke Skywalker
+  </div>
+  <div
+    className="body__text"
+  >
+    Birth year:
+    19BBY
+  </div>
+  <div
+    className="body__text"
+  >
+    Gender:
+    male
+  </div>
+</div>
+`;
+
+exports[`Test bodyCards Test <BodyCardPlanets/>  render snapshot <BodyCarPlanets/> 1`] = `
+<div
+  className="body"
+>
+  <div
+    className="body__text"
+  >
+    Name:
+    Tatooine
+  </div>
+  <div
+    className="body__text"
+  >
+    Population:
+    200000
+  </div>
+</div>
+`;
+
+exports[`Test bodyCards Test <BodyCardStarships/>  render snapshot <BodyCarPStarships/> 1`] = `
+<div
+  className="body"
+>
+  <div
+    className="body__text"
+  >
+    Name:
+    CR90
+  </div>
+  <div
+    className="body__text"
+  >
+    Cost:
+    3500000
+  </div>
+  <div
+    className="body__text"
+  >
+    Passangers:
+    600
+  </div>
+</div>
+`;
+
+exports[`Test bodyCards Test <BodyCardVehicle/>  render snapshot <BodyCarVehicle/> 1`] = `
+<div
+  className="body"
+>
+  <div
+    className="body__text"
+  >
+    Name:
+    Sand Crawleer
+  </div>
+  <div
+    className="body__text"
+  >
+    Model:
+  </div>
+  <div
+    className="body__text"
+  >
+    Crew:
+    46
+  </div>
+</div>
+`;

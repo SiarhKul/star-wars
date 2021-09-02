@@ -5,14 +5,18 @@ import { ButtonLoadMore } from "../../components";
 import { Cards } from "../../components/cards/Cards";
 import { GET_MORE_STARSHIPS } from "../../redux/actions/actions";
 import { ToastContainer } from "react-toastify";
-import { bodyCardStarships } from "../../components/bodyCards/bodyCardStarships";
+import { BodyCardStarships } from "../../components/bodyCards/BodyCardStarships";
 import { history } from "../../redux/reducers";
 import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
+import {
+	selectIsLoaded,
+	selectStarshipsStore,
+} from "../../redux/selectors/selectors";
 
 export const Starships = () => {
-	const contenCards = useSelector(state => state.dataFromServer.starships);
-	const { isLoadedStarships } = useSelector(state => state.loading);
+	const contenCards = useSelector(selectStarshipsStore);
+	const { isLoadedStarships } = useSelector(selectIsLoaded);
 	const { pathname } = history.location;
 
 	return (
@@ -23,7 +27,7 @@ export const Starships = () => {
 				name="name"
 				path={pathname}
 				contenCards={contenCards}
-				BodyComponent={bodyCardStarships}
+				BodyComponent={BodyCardStarships}
 			/>
 			{!isLoadedStarships && <ButtonLoadMore action={GET_MORE_STARSHIPS} />}
 		</main>

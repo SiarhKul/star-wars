@@ -3,10 +3,13 @@ import { take, fork, call, put, select } from "redux-saga/effects";
 import { getResources } from "../../API/getResources";
 import { URL_GET_SPECIES } from "../../API/urls";
 import { SET_SPECIES_TO_STORE } from "../actions/actions";
+import { isDataLoadedFromServer } from "../actionsCreators/actionsCreators";
 
 function* workertGetSpecies() {
+	yield put(isDataLoadedFromServer(true));
 	const data = yield call(getResources, URL_GET_SPECIES);
 	yield put({ type: SET_SPECIES_TO_STORE, payload: data.results });
+	yield put(isDataLoadedFromServer(false));
 }
 
 export function* watcherLoadDataSpecies() {
