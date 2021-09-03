@@ -7,7 +7,6 @@ import { isDataLoadedFromServer } from "../actionsCreators/actionsCreators";
 
 export function* workerGetPlanets() {
 	yield put(isDataLoadedFromServer(true));
-
 	const data = yield call(getResources, URL_GET_PLANETS);
 	yield put({ type: SET_PLANETS_TO_STORE, payload: data.results });
 	yield put(isDataLoadedFromServer(false));
@@ -21,7 +20,7 @@ export function* watchLoadDataPlanets() {
 			action.payload.location.pathname.endsWith("/planets") &
 			(store.dataFromServer.planets.length === 0)
 		) {
-			yield fork(workerGetPlanets);
+			yield call(workerGetPlanets);
 		}
 	}
 }

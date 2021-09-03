@@ -20,7 +20,7 @@ export function* watherLoadDataVehicles() {
 			action.payload.location.pathname.endsWith("vehicles") &
 			(store.dataFromServer.vehicles.length === 0)
 		) {
-			yield fork(workertGetVehicles);
+			yield call(workertGetVehicles);
 		}
 	}
 }

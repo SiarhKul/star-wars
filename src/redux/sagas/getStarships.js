@@ -20,7 +20,7 @@ export function* watchLoadDataStarships() {
 			action.payload.location.pathname.endsWith("starships") &
 			(store.dataFromServer.starships.length === 0)
 		) {
-			yield fork(workerGetStarships);
+			yield call(workerGetStarships);
 		}
 	}
 }

@@ -9,6 +9,10 @@ import {
 	SET_PEOPLE_TO_STORE,
 } from "../actions/actions";
 
+export function* watchLoadMoreDataPeople() {
+	yield takeEvery(GET_MORE_PEOPLE, workerGetPeopleMore);
+}
+
 export function* workerGetPeopleMore() {
 	const pageNumber = counterPage("people");
 	const data = yield call(getMoreResources, URL_GET_MORE_PEOPLE, pageNumber);
@@ -17,8 +21,4 @@ export function* workerGetPeopleMore() {
 	if (typeof data.next !== "string") {
 		yield put({ type: IS_PEOPLE_LOADED });
 	}
-}
-
-export function* watchLoadMoreDataPeople() {
-	yield takeEvery(GET_MORE_PEOPLE, workerGetPeopleMore);
 }

@@ -6,8 +6,8 @@ import { SET_PEOPLE_TO_STORE } from "../actions/actions";
 import { isDataLoadedFromServer } from "../actionsCreators/actionsCreators";
 
 function* workerGetPeople() {
+	yield put(isDataLoadedFromServer(true));
 	const data = yield call(getResources, URL_GET_PEOPLE);
-
 	yield put({ type: SET_PEOPLE_TO_STORE, payload: data.results });
 	yield put(isDataLoadedFromServer(false));
 }
@@ -20,7 +20,7 @@ export function* watchLoadDataPeople() {
 			action.payload.location.pathname.endsWith("/people") &
 			(store.dataFromServer.people.length === 0)
 		) {
-			yield fork(workerGetPeople);
+			yield call(workerGetPeople);
 		}
 	}
 }

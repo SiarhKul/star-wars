@@ -21,7 +21,7 @@ export function* watcherLoadDataSpecies() {
 			action.payload.location.pathname.endsWith("species") &
 			(store.dataFromServer.species.length === 0)
 		) {
-			yield fork(workertGetSpecies);
+			yield call(workertGetSpecies);
 		}
 	}
 }
