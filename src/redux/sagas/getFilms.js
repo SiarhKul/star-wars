@@ -23,8 +23,6 @@ export function* watchLoadDataFilms() {
 export function* workerGetFilms() {
 	yield put(isDataLoadedFromServer(true));
 	const data = yield call(getResources, URL_GET_FILMS);
-
 	yield put({ type: SET_FILMS_TO_STORE, payload: data.results });
-
 	yield put(isDataLoadedFromServer(false));
 }

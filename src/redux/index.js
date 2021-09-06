@@ -13,7 +13,7 @@ const store = createStore(
 		applyMiddleware(routerMiddleware(history), sagaMiddleware)
 	)
 );
-console.log(store.getState());
+
 sagaMiddleware.run(rootSaga);
 
 export default store;

@@ -1,4 +1,5 @@
 import {
+	selectState,
 	selectBrowserLocation,
 	selectFilmsStore,
 	selectIsLoaded,
@@ -23,6 +24,11 @@ describe("Test redux selectors", () => {
 			location: {},
 		},
 	};
+
+	it("should selectState return state", () => {
+		const state = selectState(store);
+		expect(state).toEqual(store);
+	});
 
 	it("should selectPeopleStore return people from store", () => {
 		const people = selectPeopleStore(store);
