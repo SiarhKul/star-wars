@@ -10,7 +10,6 @@ export function* watchLoadDataFilms() {
 	while (true) {
 		const action = yield take(LOCATION_CHANGE);
 		const store = yield select(selectState);
-		console.log("🔴----------- 🔸 store", store);
 
 		if (
 			action.payload.location.pathname.endsWith("/films") &
