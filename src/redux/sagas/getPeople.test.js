@@ -11,8 +11,6 @@ import rootReducer from "../reducers";
 
 describe("Test getPeople saga", () => {
 	const mockedResponse = {
-		count: 82,
-		next: "https://swapi.dev/api/people/?page=2",
 		previous: null,
 		results: [{}, {}],
 	};
