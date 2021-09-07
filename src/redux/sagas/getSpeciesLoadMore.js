@@ -8,17 +8,18 @@ import {
 	SET_SPECIES_TO_STORE,
 } from "../actions/actions";
 
+export function* watcherLoadMoreDataSpecies() {
+	yield takeEvery(GET_MORE_SPECIES, workerGetMoreSpecies);
+}
+
 export function* workerGetMoreSpecies() {
 	const pageNumber = counterPage("species");
 	const data = yield call(getMoreResources, URL_GET_MORE_SPECIES, pageNumber);
+	console.log("🔴----------- 🔸 data", data);
 
 	yield put({ type: SET_SPECIES_TO_STORE, payload: data.results });
 
 	if (typeof data.next !== "string") {
 		yield put({ type: IS_SPECIES_SPECIES });
 	}
-}
-
-export function* watcherLoadMoreDataSpecies() {
-	yield takeEvery(GET_MORE_SPECIES, workerGetMoreSpecies);
 }

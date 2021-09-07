@@ -1,4 +1,4 @@
-import { call, select } from "redux-saga/effects";
+import { call, select } from "@redux-saga/core/effects";
 import { expectSaga } from "redux-saga-test-plan";
 import { getResources } from "../../API/getResources";
 import { URL_GET_PEOPLE } from "../../API/urls";

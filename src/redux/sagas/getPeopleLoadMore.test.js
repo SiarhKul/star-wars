@@ -21,10 +21,10 @@ describe("Test getPeopleLoadMore saga", () => {
 		},
 	};
 
-	const mockedData = pageNest => {
+	const mockedData = pageNext => {
 		return {
 			count: 81,
-			next: pageNest,
+			next: pageNext,
 			previous: "https://swapi.dev/api/people/?page=2",
 			results: [{}, {}, {}],
 		};
@@ -36,12 +36,15 @@ describe("Test getPeopleLoadMore saga", () => {
 		router: { location: { pathname: "" } },
 	});
 
-	it("should sagas dispatch data to store", async () => {
+	it("should sagas dispatch data to store  if data has been not loaded", async () => {
 		const data = mockedData(null);
 		const finalState = reqiredState(true);
+		const pageNumber = 2;
 
 		await expectSaga(watchLoadMoreDataPeople)
-			.provide([[call(getMoreResources, URL_GET_MORE_PEOPLE, 2), data]])
+			.provide([
+				[call(getMoreResources, URL_GET_MORE_PEOPLE, pageNumber), data],
+			])
 			.withReducer(rootReducer, mockedRootStore)
 			.dispatch({ type: GET_MORE_PEOPLE })
 			.put({ type: SET_PEOPLE_TO_STORE, payload: data.results })
@@ -50,12 +53,15 @@ describe("Test getPeopleLoadMore saga", () => {
 			.silentRun();
 	});
 
-	it("should sagas dispatch data", async () => {
+	it("should sagas dispatch data to store if data has been loaded", async () => {
 		const data = mockedData("https://swapi.dev/api/people/?page=1");
 		const finalState = reqiredState(false);
+		const pageNumber = 3;
 
 		await expectSaga(watchLoadMoreDataPeople)
-			.provide([[call(getMoreResources, URL_GET_MORE_PEOPLE, 3), data]])
+			.provide([
+				[call(getMoreResources, URL_GET_MORE_PEOPLE, pageNumber), data],
+			])
 			.withReducer(rootReducer, mockedRootStore)
 			.dispatch({ type: GET_MORE_PEOPLE })
 			.put({ type: SET_PEOPLE_TO_STORE, payload: data.results })
