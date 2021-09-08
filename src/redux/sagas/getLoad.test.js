@@ -2,12 +2,12 @@ import { call, select } from "@redux-saga/core/effects";
 import { expectSaga } from "redux-saga-test-plan";
 import { getResources } from "../../API/getResources";
 import { URL_GET_PEOPLE } from "../../API/urls";
-import { watchLoadDataPeople } from "./getPeople";
 import { isDataLoadedFromServer } from "../actionsCreators/actionsCreators";
 import { SET_PEOPLE_TO_STORE } from "../actions/actions";
 import { LOCATION_CHANGE } from "connected-react-router";
 import { selectState } from "../selectors/selectors";
 import rootReducer from "../reducers";
+import { watchLoadData } from "./getLoad";
 
 describe("Test getPeople saga", () => {
 	const mockedResponse = {
@@ -18,6 +18,10 @@ describe("Test getPeople saga", () => {
 	const mockedBrowserHistory = {
 		location: { pathname: "/people" },
 	};
+
+	const url = "people";
+	const urlGET = URL_GET_PEOPLE;
+	const reduxAction = SET_PEOPLE_TO_STORE;
 
 	it("should sagas dispatch data to store", async () => {
 		const mockedRootStore = {
@@ -34,8 +38,12 @@ describe("Test getPeople saga", () => {
 				},
 			},
 		};
-
-		const { storeState } = await expectSaga(watchLoadDataPeople)
+		const { storeState } = await expectSaga(
+			watchLoadData,
+			url,
+			urlGET,
+			reduxAction
+		)
 			.provide([
 				[select(selectState), mockedRootStore],
 				[call(getResources, URL_GET_PEOPLE), mockedResponse],
@@ -47,7 +55,6 @@ describe("Test getPeople saga", () => {
 			.put({ type: SET_PEOPLE_TO_STORE, payload: mockedResponse.results })
 			.put(isDataLoadedFromServer(false))
 			.silentRun();
-
 		expect(storeState.router.location.pathname).toEqual("/people");
 		expect(storeState.loading.isDataLoadedFromServer).toBeFalsy();
 		expect(storeState.dataFromServer.people).toEqual(mockedResponse.results);
@@ -59,7 +66,6 @@ describe("Test getPeople saga", () => {
 				pathname: "/people",
 			},
 		};
-
 		const mockedRootStore = {
 			dataFromServer: {
 				people: [{}, {}],
@@ -73,8 +79,12 @@ describe("Test getPeople saga", () => {
 				},
 			},
 		};
-
-		const sagaWatchLoadDataPeople = await expectSaga(watchLoadDataPeople)
+		const sagaWatchLoadDataPeople = await expectSaga(
+			watchLoadData,
+			url,
+			urlGET,
+			reduxAction
+		)
 			.provide([[select(selectState), mockedRootStore]])
 			.withReducer(rootReducer, mockedRootStore)
 			.take(LOCATION_CHANGE)

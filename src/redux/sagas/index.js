@@ -33,8 +33,8 @@ import {
 	SET_VEHICLES_TO_STORE,
 } from "../actions/actions";
 
-import { watchLoadData } from "./getPeople";
-import { watchLoadMoreDataPeople } from "./getPeopleLoadMore";
+import { watchLoadData } from "./getLoad";
+import { watchLoadMoreData } from "./getLoadMore";
 
 export default function* rootSaga() {
 	yield fork(watchLoadData, "films", URL_GET_FILMS, SET_FILMS_TO_STORE);
@@ -50,7 +50,7 @@ export default function* rootSaga() {
 	);
 
 	yield fork(
-		watchLoadMoreDataPeople,
+		watchLoadMoreData,
 		GET_MORE_PEOPLE,
 		"people",
 		URL_GET_MORE_PEOPLE,
@@ -59,7 +59,7 @@ export default function* rootSaga() {
 	);
 
 	yield fork(
-		watchLoadMoreDataPeople,
+		watchLoadMoreData,
 		GET_MORE_PLANETS,
 		"planets",
 		URL_GET_MORE_PLANETS,
@@ -68,7 +68,7 @@ export default function* rootSaga() {
 	);
 
 	yield fork(
-		watchLoadMoreDataPeople,
+		watchLoadMoreData,
 		GET_MORE_STARSHIPS,
 		"starships",
 		URL_GET_MORE_STARHIPS,
@@ -77,7 +77,7 @@ export default function* rootSaga() {
 	);
 
 	yield fork(
-		watchLoadMoreDataPeople,
+		watchLoadMoreData,
 		GET_MORE_VEHICLES,
 		"vehicles",
 		URL_GET_MORE_VEHICLE,
@@ -86,7 +86,7 @@ export default function* rootSaga() {
 	);
 
 	yield fork(
-		watchLoadMoreDataPeople,
+		watchLoadMoreData,
 		GET_MORE_SPECIES,
 		"species",
 		URL_GET_MORE_SPECIES,

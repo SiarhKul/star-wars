@@ -3,7 +3,7 @@ import { put } from "redux-saga/effects";
 import { getMoreResources } from "../../API/getMoreResources";
 import { counterPage } from "../../utils";
 
-export function* watchLoadMoreDataPeople(
+export function* watchLoadMoreData(
 	reduxActionWatcher,
 	resource,
 	urlGETmore,
@@ -12,7 +12,7 @@ export function* watchLoadMoreDataPeople(
 ) {
 	yield takeEvery(
 		reduxActionWatcher,
-		workerGetPeopleMore,
+		workerGetMore,
 		resource,
 		urlGETmore,
 		reduxActionFetch,
@@ -20,7 +20,7 @@ export function* watchLoadMoreDataPeople(
 	);
 }
 
-export function* workerGetPeopleMore(
+export function* workerGetMore(
 	resource,
 	urlGETmore,
 	reduxActionFetch,
