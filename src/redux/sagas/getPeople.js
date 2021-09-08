@@ -4,23 +4,25 @@ import { getResources } from "../../API/getResources";
 import { URL_GET_PEOPLE } from "../../API/urls";
 import { SET_PEOPLE_TO_STORE } from "../actions/actions";
 import { isDataLoadedFromServer } from "../actionsCreators/actionsCreators";
+import { selectState } from "../selectors/selectors";
 
-function* workerGetPeople() {
+export function* workerGetPeople() {
+	yield put(isDataLoadedFromServer(true));
 	const data = yield call(getResources, URL_GET_PEOPLE);
-
 	yield put({ type: SET_PEOPLE_TO_STORE, payload: data.results });
 	yield put(isDataLoadedFromServer(false));
 }
 
 export function* watchLoadDataPeople() {
 	while (true) {
-		const action = yield take(LOCATION_CHANGE);
-		const store = yield select(s => s);
+		const { payload } = yield take(LOCATION_CHANGE);
+		const store = yield select(selectState);
+
 		if (
-			action.payload.location.pathname.endsWith("/people") &
+			payload.location.pathname.endsWith("/people") &
 			(store.dataFromServer.people.length === 0)
 		) {
-			yield fork(workerGetPeople);
+			yield call(workerGetPeople);
 		}
 	}
 }

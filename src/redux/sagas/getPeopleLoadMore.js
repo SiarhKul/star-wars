@@ -14,7 +14,8 @@ export function* workerGetPeopleMore() {
 	const data = yield call(getMoreResources, URL_GET_MORE_PEOPLE, pageNumber);
 
 	yield put({ type: SET_PEOPLE_TO_STORE, payload: data.results });
-	if (typeof data.next !== "string") {
+
+	if (data.next === null) {
 		yield put({ type: IS_PEOPLE_LOADED });
 	}
 }
