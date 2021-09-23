@@ -1,0 +1,31 @@
+.header {
+	color: $yellow;
+	display: flex;
+	align-items: center;
+	padding: 0 8px;
+	background-color: black;
+}
+
+.logo {
+	font-size: 24px;
+	margin-right: 16px;
+	font-weight: bold;
+}
+
+.nav-list {
+	display: flex;
+	color: $yellow;
+
+	.nav-list__item {
+		.selected {
+			background-color: $navLinkSelected;
+		}
+	}
+	.nav-list__link {
+		line-height: 20px;
+		display: block;
+		padding: 8px 16px;
+		color: $yellow;
+		cursor: pointer;
+	}
+}

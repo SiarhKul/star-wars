@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test 'ButtonLoadMore' component should render 'ButtonLoadMore'  1`] = `
+<div
+  className="btn-load-more_center"
+>
+  <button
+    className="btn-load-more active"
+    onClick={[Function]}
+  >
+    Load more
+  </button>
+</div>
+`;
