@@ -8,7 +8,7 @@ import { Route, Switch } from "react-router-dom";
 import { history } from "./redux/reducers";
 import { ConnectedRouter } from "connected-react-router";
 
-import { routes } from "./routing";
+import { routes } from "./routes";
 
 const App = () => {
 	return (

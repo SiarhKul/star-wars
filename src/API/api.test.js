@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getMoreResources } from "./getMoreResources";
 import { getResources } from "./getResources";
 import { getSpecificResours } from "./getSpecificResours";
 import { URL_GET_PEOPLE } from "./urls";
@@ -30,7 +31,7 @@ describe("Test API", () => {
 		});
 	});
 
-	describe("Function testing 'getResources'", () => {
+	describe("Function testing 'getSpecificResours'", () => {
 		const results = {
 			climate: "arid",
 			created: "2014-12-09T13:50:49.641000Z",
@@ -57,6 +58,40 @@ describe("Test API", () => {
 			const message = "Network Error";
 			axios.get.mockRejectedValueOnce(new Error(message));
 			const result = await getSpecificResours(url);
+			expect(result).toEqual(message);
+		});
+	});
+
+	describe("Function testing getMoreResources ", () => {
+		const url = "https://swapi.dev/api/people/?page";
+		const page = 2;
+		it("should ", async () => {
+			const results = {
+				count: 82,
+				next: "https://swapi.dev/api/people/?page=3",
+				previous: "https://swapi.dev/api/people/?page=1",
+				results: [
+					{ name: "Anakin Skywalker" },
+					{ name: "Wilhuff Tarkin" },
+					{ name: "Chewbacca" },
+				],
+			};
+
+			let response = {
+				status: 200,
+				data: results,
+			};
+
+			axios.get = jest.fn().mockReturnValue(response);
+			const fetchedgetMoreResources = await getMoreResources(url, page);
+			expect(fetchedgetMoreResources).toEqual(results);
+			expect(axios.get).toHaveBeenCalledTimes(1);
+		});
+
+		it("should function excepts error", async () => {
+			const message = "Network Error Server";
+			axios.get = jest.fn().mockRejectedValueOnce(new Error(message));
+			const result = await getMoreResources(url, page);
 			expect(result).toEqual(message);
 		});
 	});

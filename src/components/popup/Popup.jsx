@@ -5,6 +5,7 @@ import { history } from "../../redux/reducers";
 export const Popup = ({ FragmentPopup }) => {
 	const { pathname } = history.location;
 	const { id } = useParams();
+
 	const pathRootPage = pathname.replace(`/${id}`, "");
 
 	const returnToRootPath = useCallback(() => {

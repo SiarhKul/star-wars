@@ -7,3 +7,5 @@ export const selectStarshipsStore = state => state.dataFromServer.starships;
 export const selectIsLoaded = state => state.loading;
 
 export const selectBrowserLocation = state => state.router.location;
+
+export const selectState = state => state;

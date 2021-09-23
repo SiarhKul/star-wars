@@ -7,10 +7,15 @@ export const PopupListItem = ({ urls, name, path }) => {
 	const [resources, setResources] = useState([]);
 
 	useEffect(() => {
+		let isCancelled = false;
 		(async urls => {
 			const resources = await getSpecificResoursAll(urls);
-			setResources(resources);
+			if (!isCancelled) {
+				setResources(resources);
+			}
 		})(urls);
+
+		return () => (isCancelled = true);
 	}, []);
 
 	if (urls?.length === 0) {

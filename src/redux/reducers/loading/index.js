@@ -19,47 +19,23 @@ export const initialLoadingState = {
 export const loadingReducer = (state = initialLoadingState, action) => {
 	switch (action.type) {
 		case IS_PEOPLE_LOADED: {
-			return {
-				...state,
-				isLoadedPeople: true,
-			};
+			return { ...state, isLoadedPeople: true };
 		}
-
 		case IS_PLANETS_LOADED: {
-			return {
-				...state,
-				isLoadedPlanets: true,
-			};
+			return { ...state, isLoadedPlanets: true };
 		}
-
 		case IS_STARSHIPS_LOADED: {
-			return {
-				...state,
-				isLoadedStarships: true,
-			};
+			return { ...state, isLoadedStarships: true };
 		}
-
 		case IS_VEHICLES_LOADED: {
-			return {
-				...state,
-				isLoadedVehicles: true,
-			};
+			return { ...state, isLoadedVehicles: true };
 		}
-
 		case IS_SPECIES_SPECIES: {
-			return {
-				...state,
-				isLoadedSpecies: true,
-			};
+			return { ...state, isLoadedSpecies: true };
 		}
-
 		case iS_DATA_LOADED_FROM_SERVER: {
-			return {
-				...state,
-				isDataLoadedFromServer: action.payload,
-			};
+			return { ...state, isDataLoadedFromServer: action.payload };
 		}
-
 		default:
 			return state;
 	}
