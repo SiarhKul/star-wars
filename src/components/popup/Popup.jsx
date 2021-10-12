@@ -7,7 +7,6 @@ export const Popup = ({ FragmentPopup }) => {
 	const { id } = useParams();
 
 	const pathRootPage = pathname.replace(`/${id}`, "");
-
 	const returnToRootPath = useCallback(() => {
 		history.push(pathRootPage);
 	}, []);

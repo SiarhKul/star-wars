@@ -1,5 +1,6 @@
-const swapiAPI = `https://swapi.dev/api/`;
-
+// const swapiAPI = `https://swapi.dev/api/`;
+// const swapiAPI = `http://localhost:5000/api`;
+const swapiAPI =`http://3.122.40.64:4000/api`
 const URL_GET_PEOPLE = `${swapiAPI}/people/`;
 const URL_GET_PLANETS = `${swapiAPI}/planets`;
 const URL_GET_STARSHIPS = `${swapiAPI}/starships/`;
