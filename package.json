@@ -30,7 +30,8 @@
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
 		"lint": "eslint .",
-		"lint:fix": "eslint . --fix"
+		"lint:fix": "eslint . --fix",
+		"prepare": "husky install"
 	},
 	"dependencies": {
 		"@babel/plugin-transform-modules-commonjs": "^7.15.0",
@@ -86,10 +87,12 @@
 		"eslint-plugin-react": "^7.26.1",
 		"eslint-plugin-react-hooks": "^4.2.0",
 		"html-webpack-plugin": "^5.3.2",
+		"husky": "^7.0.0",
 		"jest": "^27.0.6",
 		"jest-react-hooks-shallow": "^1.5.1",
 		"jsdom": "17.0.0",
 		"jsdom-global": "3.0.2",
+		"lint-staged": "^11.2.3",
 		"mini-css-extract-plugin": "^2.1.0",
 		"node-sass": "^6.0.1",
 		"prettier": "^2.4.1",
@@ -106,5 +109,8 @@
 		"webpack": "^5.44.0",
 		"webpack-cli": "^4.7.2",
 		"webpack-dev-server": "^3.11.2"
+	},
+	"lint-staged": {
+		"*.{js,jsx}": "eslint . --fix"
 	}
 }

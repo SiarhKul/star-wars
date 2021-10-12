@@ -5,7 +5,6 @@ import { Spinner } from "../spinner/Spinner";
 
 export const PopupListItem = ({ urls, name, path }) => {
 	const [resources, setResources] = useState([]);
-
 	useEffect(() => {
 		let isCancelled = false;
 		(async urls => {
