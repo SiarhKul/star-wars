@@ -29,8 +29,7 @@ export const Header = () => {
 						</NavLink>
 					</li>
 
-					{menuItems.map(item => {
-						return (
+					{menuItems.map(item => (
 							<li key={item} className="nav-list__item">
 								<NavLink
 									activeClassName="selected"
@@ -41,8 +40,7 @@ export const Header = () => {
 									{item}
 								</NavLink>
 							</li>
-						);
-					})}
+						))}
 				</ul>
 			</nav>
 		</header>

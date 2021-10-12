@@ -4,7 +4,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import { ButtonLoadMore } from "../../components";
-import { BodyCardVehicles } from "../../components/bodyCards/BodyCardVehicles";
+import { BodyCardVehicles } from "../../components/bodyCards/bodyCardVehicles";
 import { Cards } from "../../components/cards/Cards";
 
 import { GET_MORE_VEHICLES } from "../../redux/actions/actions";

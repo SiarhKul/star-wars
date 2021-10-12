@@ -1,7 +1,7 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import BarLoader from "react-spinners/BarLoader";
-import { css } from "@emotion/react";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import BarLoader from 'react-spinners/BarLoader';
+import { css } from '@emotion/react';
 
 export const Loader = () => {
 	const { isDataLoadedFromServer } = useSelector(state => state.loading);

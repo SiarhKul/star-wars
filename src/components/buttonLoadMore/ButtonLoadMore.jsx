@@ -7,6 +7,7 @@ export const ButtonLoadMore = ({ action }) => {
 	return (
 		<div className="btn-load-more_center">
 			<button
+			type="button"
 				className="btn-load-more active"
 				onClick={() => {
 					dispatch({ type: action });

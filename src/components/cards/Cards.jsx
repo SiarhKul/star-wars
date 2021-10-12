@@ -1,5 +1,5 @@
-//todo убрать мультиклик на меню
-//todo создать 2 функции
+// todo убрать мультиклик на меню
+// todo создать 2 функции
 
 import React, { useCallback } from "react";
 

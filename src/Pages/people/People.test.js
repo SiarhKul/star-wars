@@ -1,67 +1,65 @@
-import React from "react";
-import { People } from "./People";
+import React from 'react';
+import { People } from './People';
 import {
-	selectIsLoaded,
-	selectPeopleStore,
-} from "../../redux/selectors/selectors";
+  selectIsLoaded,
+  selectPeopleStore,
+} from '../../redux/selectors/selectors';
 
-jest.mock("history", () => {
-	return {
-		createBrowserHistory: jest.fn(() => ({
-			location: {
-				pathname: "/people",
-			},
-		})),
-	};
-});
-
-jest.mock("react-redux", () => ({
-	...jest.requireActual("react-redux"),
-	useSelector: jest.fn(store => store()),
+jest.mock('history', () => ({
+  createBrowserHistory: jest.fn(() => ({
+    location: {
+      pathname: '/people',
+    },
+  })),
 }));
 
-jest.mock("../../redux/selectors/selectors");
+jest.mock('react-redux', () => ({
+  ...jest.requireActual('react-redux'),
+  useSelector: jest.fn((store) => store()),
+}));
 
-describe("<People/>", () => {
-	const people = () => shallow(<People />);
-	let component;
+jest.mock('../../redux/selectors/selectors');
 
-	beforeEach(() => {
-		selectPeopleStore.mockReturnValue([{}]);
-		selectIsLoaded.mockReturnValue({ isLoadedPeople: true });
-		//вызывает все реализации друг за другом
-		// jest
-		// 	.spyOn(redux, "useSelector")
-		// 	.mockImplementation(() => ({
-		// 		isLoadedPeople: true,
-		// 	}))
-		// 	.mockImplementation(() => [{}]);
+describe('<People/>', () => {
+  const people = () => shallow(<People />);
+  let component;
 
-		component = people();
-	});
+  beforeEach(() => {
+    selectPeopleStore.mockReturnValue([{}]);
+    selectIsLoaded.mockReturnValue({ isLoadedPeople: true });
+    // вызывает все реализации друг за другом
+    // jest
+    // 	.spyOn(redux, "useSelector")
+    // 	.mockImplementation(() => ({
+    // 		isLoadedPeople: true,
+    // 	}))
+    // 	.mockImplementation(() => [{}]);
 
-	it("render snapshot <People/> ", () => {
-		expect(component).toMatchSnapshot();
-	});
+    component = people();
+  });
 
-	it("should render <People/>", () => {
-		expect(component.find("Loader")).toHaveLength(1);
-	});
+  it('render snapshot <People/> ', () => {
+    expect(component).toMatchSnapshot();
+  });
 
-	it("should render alert message in <People/>", () => {
-		expect(component.find("ToastContainer")).toHaveLength(1);
-	});
+  it('should render <People/>', () => {
+    expect(component.find('Loader')).toHaveLength(1);
+  });
 
-	it("should render <People/>", () => {
-		expect(component.find("Cards")).toHaveLength(1);
-	});
+  it('should render alert message in <People/>', () => {
+    expect(component.find('ToastContainer')).toHaveLength(1);
+  });
 
-	it("should render ButtonLoadMore in <People/> if  all data has been loaded", () => {
-		expect(component.find("ButtonLoadMore").exists()).toBe(false);
-	});
-	it("should render ButtonLoadMore in <People/> if  all data has not been loaded", () => {
-		selectIsLoaded.mockReturnValue({ isLoadedPeople: false });
-		component = people();
-		expect(component.find("ButtonLoadMore").exists()).toBe(true);
-	});
+  it('should render <People/>', () => {
+    expect(component.find('Cards')).toHaveLength(1);
+  });
+
+  it('should render ButtonLoadMore in <People/> if  all data has been loaded', () => {
+    expect(component.find('ButtonLoadMore').exists()).toBe(false);
+  });
+  it('should render ButtonLoadMore in <People/> if  all data has not been loaded', () => {
+    selectIsLoaded.mockReturnValue({ isLoadedPeople: false });
+    component = people();
+    expect(component.find('ButtonLoadMore').exists()).toBe(true);
+  });
 });

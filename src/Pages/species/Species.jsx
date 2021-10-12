@@ -1,12 +1,12 @@
 import "react-toastify/dist/ReactToastify.css";
 
 import React from "react";
+import { ToastContainer } from "react-toastify";
+import { useSelector } from "react-redux";
 import { ButtonLoadMore } from "../../components";
 import { Cards } from "../../components/cards/Cards";
 import { GET_MORE_SPECIES } from "../../redux/actions/actions";
-import { ToastContainer } from "react-toastify";
-import { BodyCardSpecies } from "../../components/bodyCards/BodyCardSpecies";
-import { useSelector } from "react-redux";
+import { BodyCardSpecies } from "../../components/bodyCards/bodyCardSpecies";
 import { Loader } from "../../components/loader/Loader";
 import {
 	selectBrowserLocation,

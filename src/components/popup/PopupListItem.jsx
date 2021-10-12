@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { getSpecificResoursAll } from "../../API/getSpecificResours";
 import { Link } from "react-router-dom";
+import { getSpecificResoursAll } from "../../API/getSpecificResours";
 import { Spinner } from "../spinner/Spinner";
 
 export const PopupListItem = ({ urls, name, path }) => {
@@ -24,7 +24,7 @@ export const PopupListItem = ({ urls, name, path }) => {
 
 	if (resources.length === 0) {
 		return <Spinner />;
-	} else {
+	} 
 		return resources?.map((card, i) => (
 			<li key={urls[i]}>
 				<Link to={{ pathname: `/${path}/${card[name]}`, state: card }}>
@@ -32,5 +32,5 @@ export const PopupListItem = ({ urls, name, path }) => {
 				</Link>
 			</li>
 		));
-	}
+	
 };

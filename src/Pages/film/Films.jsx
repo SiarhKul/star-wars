@@ -1,10 +1,10 @@
 import "react-toastify/dist/ReactToastify.css";
 
 import React from "react";
-import { Cards } from "../../components/cards/Cards";
 import { ToastContainer } from "react-toastify";
-import { BodyCardFilm } from "../../components/bodyCards/BodyCardFIlm";
 import { useSelector } from "react-redux";
+import { Cards } from "../../components/cards/Cards";
+import { BodyCardFilm } from "../../components/bodyCards/bodyCardFilm";
 import { Loader } from "../../components/loader/Loader";
 import { history } from "../../redux/reducers";
 import { selectFilmsStore } from "../../redux/selectors/selectors";

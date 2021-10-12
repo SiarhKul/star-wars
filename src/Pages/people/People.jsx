@@ -1,13 +1,13 @@
 import "react-toastify/dist/ReactToastify.css";
 
 import React from "react";
+import { ToastContainer } from "react-toastify";
+import { useSelector } from "react-redux";
 import { ButtonLoadMore } from "../../components";
 import { Cards } from "../../components/cards/Cards";
 import { GET_MORE_PEOPLE } from "../../redux/actions/actions";
-import { ToastContainer } from "react-toastify";
-import { BodyCardPeople } from "../../components/bodyCards/BodyCardPeople";
+import { BodyCardPeople } from "../../components/bodyCards/bodyCardPeople";
 import { history } from "../../redux/reducers";
-import { useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
 import {
 	selectIsLoaded,

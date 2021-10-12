@@ -1,67 +1,67 @@
 import {
-	selectState,
-	selectBrowserLocation,
-	selectFilmsStore,
-	selectIsLoaded,
-	selectPeopleStore,
-	selectPlanetsStore,
-	selectSpeciesStore,
-	selectStarshipsStore,
-} from "./selectors";
+  selectState,
+  selectBrowserLocation,
+  selectFilmsStore,
+  selectIsLoaded,
+  selectPeopleStore,
+  selectPlanetsStore,
+  selectSpeciesStore,
+  selectStarshipsStore,
+} from './selectors';
 
-describe("Test redux selectors", () => {
-	const store = {
-		dataFromServer: {
-			people: [],
-			planets: [],
-			starships: [],
-			films: [],
-			vehicles: [],
-			species: [],
-		},
-		loading: {},
-		router: {
-			location: {},
-		},
-	};
+describe('Test redux selectors', () => {
+  const store = {
+    dataFromServer: {
+      people: [],
+      planets: [],
+      starships: [],
+      films: [],
+      vehicles: [],
+      species: [],
+    },
+    loading: {},
+    router: {
+      location: {},
+    },
+  };
 
-	it("should selectState return state", () => {
-		const state = selectState(store);
-		expect(state).toEqual(store);
-	});
+  it('should selectState return state', () => {
+    const state = selectState(store);
+    expect(state).toEqual(store);
+  });
 
-	it("should selectPeopleStore return people from store", () => {
-		const people = selectPeopleStore(store);
-		expect(people).toEqual([]);
-	});
+  it('should selectPeopleStore return people from store', () => {
+    const people = selectPeopleStore(store);
+    expect(people).toEqual([]);
+  });
 
-	it("should selectFilmsStore return people from store", () => {
-		const films = selectFilmsStore(store);
-		expect(films).toEqual([]);
-	});
+  it('should selectFilmsStore return people from store', () => {
+    const films = selectFilmsStore(store);
+    expect(films).toEqual([]);
+  });
 
-	it("should selectPlantetStore return people from store", () => {
-		const planets = selectPlanetsStore(store);
-		expect(planets).toEqual([]);
-	});
+  it('should selectPlantetStore return people from store', () => {
+    const planets = selectPlanetsStore(store);
+    expect(planets).toEqual([]);
+  });
 
-	it("should selectSpeciesStore return people from store", () => {
-		const spaciest = selectSpeciesStore(store);
-		expect(spaciest).toEqual([]);
-	});
+  it('should selectSpeciesStore return people from store', () => {
+    const spaciest = selectSpeciesStore(store);
+    expect(spaciest).toEqual([]);
+  });
 
-	it("should selectStarshipsStore return people from store", () => {
-		const starships = selectStarshipsStore(store);
-		expect(starships).toEqual([]);
-	});
+  it('should selectStarshipsStore return people from store', () => {
+    const starships = selectStarshipsStore(store);
+    expect(starships).toEqual([]);
+  });
 
-	it("should selectStarshipsStore return people from store", () => {
-		const isLoaded = selectIsLoaded(store);
-		expect(isLoaded).toEqual({});
-	});
+  it('should selectStarshipsStore return people from store', () => {
+    const isLoaded = selectIsLoaded(store);
+    expect(isLoaded).toEqual({});
+  });
 
-	it("should selectBrowserLocation return people from store", () => {
-		const location = selectBrowserLocation(store);
-		expect(location).toEqual({});
-	});
+  it('should selectBrowserLocation return people from store', () => {
+    const location = selectBrowserLocation(store);
+    expect(location).toEqual({});
+  });
 });
